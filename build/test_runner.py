@@ -49,7 +49,6 @@ def run_test(testcase):
 		   or ret != expected_ret:
 			print('         out: %s' % (repr(out)))
 			print('expected out: %s' % (repr(expected_out)))
-			print (test['description'])
 			passed = False
 			# fail fast
 			break;
