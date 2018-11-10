@@ -1,0 +1,14 @@
+{
+	"batch": "./logappend -T 14 -K secret -D jackie -A -F log\n./logappend echo Ive been corrupted! > log\n./logread -K secret -R -D jackie -F log",
+	"tests": [
+		{
+	      "input": "logappend -B batch",
+	    },
+	    {
+	      "input": "logread -K secret -R -D jackie -F log",
+	      "output": "integrity violation",
+	      "error": 255
+	    }
+	]
+
+}

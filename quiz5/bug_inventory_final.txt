@@ -1,0 +1,74 @@
+filename	Line #	tool	description																						conclusion
+Record.cpp     	116	flawfinder	  [4] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+Record.cpp     	133	flawfinder	  [4] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+logread.cpp    	47	flawfinder	  [4] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+logread.cpp    	62	flawfinder	  [4] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+Record.cpp     	172	flawfinder	  [2] (integer) atoi:   Unless checked, the resulting number can exceed the expected range   (CWE-190). If source untrusted, check both minimum and maximum, even if the   input had no minus sign (large numbers can roll over into negative number;   consider saving to an unsigned value if that is intended). 																						false positive
+Record.cpp     	172	flawfinder	  [2] (integer) atoi:   Unless checked, the resulting number can exceed the expected range   (CWE-190). If source untrusted, check both minimum and maximum, even if the   input had no minus sign (large numbers can roll over into negative number;   consider saving to an unsigned value if that is intended). 																						false positive
+Record.cpp     	174	flawfinder	  [2] (integer) atoi:   Unless checked, the resulting number can exceed the expected range   (CWE-190). If source untrusted, check both minimum and maximum, even if the   input had no minus sign (large numbers can roll over into negative number;   consider saving to an unsigned value if that is intended). 																						false positive
+Record.cpp     	215	flawfinder	  [2] (integer) atoi:   Unless checked, the resulting number can exceed the expected range   (CWE-190). If source untrusted, check both minimum and maximum, even if the   input had no minus sign (large numbers can roll over into negative number;   consider saving to an unsigned value if that is intended). 																						false positive
+Record.cpp     	216	flawfinder	  [2] (integer) atoi:   Unless checked, the resulting number can exceed the expected range   (CWE-190). If source untrusted, check both minimum and maximum, even if the   input had no minus sign (large numbers can roll over into negative number;   consider saving to an unsigned value if that is intended). 																						false positive
+Record.cpp     	249	flawfinder	  [2] (buffer) char:   Statically-sized arrays can be improperly restricted, leading to potential   overflows or other issues (CWE-119!/CWE-120). Perform bounds checking, use   functions that limit length, or ensure that the size is larger than the   maximum possible length. 																						false positive
+Record.cpp     	475	flawfinder	  [2] (misc) open:   Check when opening files - can an attacker redirect it (via symlinks),   force the opening of special file type (e.g., device files), move things   around to create a race condition, control its ancestors, or change its   contents? (CWE-362). 																						unable to fix
+Record.cpp     	477	flawfinder	  [2] (misc) open:   Check when opening files - can an attacker redirect it (via symlinks),   force the opening of special file type (e.g., device files), move things   around to create a race condition, control its ancestors, or change its   contents? (CWE-362). 																						unable to fix
+Record.cpp     	482	flawfinder	  [2] (misc) open:   Check when opening files - can an attacker redirect it (via symlinks),   force the opening of special file type (e.g., device files), move things   around to create a race condition, control its ancestors, or change its   contents? (CWE-362). 																						unable to fix
+Record.cpp     	503	flawfinder	  [2] (misc) open:   Check when opening files - can an attacker redirect it (via symlinks),   force the opening of special file type (e.g., device files), move things   around to create a race condition, control its ancestors, or change its   contents? (CWE-362). 																						unable to fix
+Record.cpp     	555	flawfinder	  [2] (integer) atoi:   Unless checked, the resulting number can exceed the expected range   (CWE-190). If source untrusted, check both minimum and maximum, even if the   input had no minus sign (large numbers can roll over into negative number;   consider saving to an unsigned value if that is intended). 																						false positive
+Record.cpp     	558	flawfinder	  [2] (integer) atoi:   Unless checked, the resulting number can exceed the expected range   (CWE-190). If source untrusted, check both minimum and maximum, even if the   input had no minus sign (large numbers can roll over into negative number;   consider saving to an unsigned value if that is intended). 																						false positive
+Record.cpp     	559	flawfinder	  [2] (integer) atoi:   Unless checked, the resulting number can exceed the expected range   (CWE-190). If source untrusted, check both minimum and maximum, even if the   input had no minus sign (large numbers can roll over into negative number;   consider saving to an unsigned value if that is intended). 																						false positive
+Record.cpp     	103	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	103	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	112	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	112	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	113	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	119	flawfinder	  [1] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+Record.cpp     	126	flawfinder	  [1] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+Record.cpp     	128	flawfinder	  [1] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+Record.cpp     	130	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	130	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	131	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	135	flawfinder	  [1] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+Record.cpp     	163	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	163	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	881	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.cpp     	899	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+Record.h       	86	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+logread.cpp    	35	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+logread.cpp    	44	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+logread.cpp    	44	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+logread.cpp    	45	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+logread.cpp    	49	flawfinder	  [1] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+logread.cpp    	55	flawfinder	  [1] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+logread.cpp    	57	flawfinder	  [1] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+logread.cpp    	59	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+logread.cpp    	59	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+logread.cpp    	60	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+logread.cpp    	64	flawfinder	  [1] (buffer) strcpy:   Does not check for buffer overflows when copying to destination [MS-banned]   (CWE-120). Consider using snprintf, strcpy_s, or strlcpy (warning																						false positive
+logread.cpp    	87	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126). 																						false positive
+logread.cpp    	87	flawfinder	  [1] (buffer) strlen:   Does not handle strings that are not \0-terminated; if given one it may   perform an over-read (it could cause a crash if unprotected) (CWE-126).   																						false positive
+./Record.cpp	113	rats	 fixed size local buffer																						false positive
+./Record.cpp	131	rats	 fixed size local buffer																						false positive
+./Record.cpp	249	rats	 fixed size local buffer																						false positive
+./logread.cpp	45	rats	 fixed size local buffer																						false positive
+./logread.cpp	60	rats	 fixed size local buffer																						false positive
+./Record.cpp	116	rats	 strcpy																						false positive
+./Record.cpp	133	rats	 strcpy																						false positive
+./logread.cpp	47	rats	 strcpy																						false positive
+./logread.cpp	62	rats	 strcpy																						false positive
+./Record.cpp	822	rats	 EVP_EncryptUpdate																						false positive
+./Record.cpp	859	rats	 EVP_DecryptUpdate																						false positive
+logread.cpp	28	infer	error: DEAD_STORE																						false positive
+			  The value written to &valid (type _Bool) is never used.																						
+			  26.       bool doctor = false;																						
+			  27.       string name = "";																						
+			  28. >     bool valid = true;																						
+			  29.       string logfile = "";																						
+			  30.       int size = argc;																						
+Record.cpp	556	infer	DEAD_STORE																						false positive
+			  The value written to &i (type int) is never used.																						
+			  554.       }																						
+			  555.       if ((allRecs.size() > 0) && (allRecs.at(0) == ("test" + logfile))) {																						
+			  556. >         i++;																						
+			  557.       }																						
+			  558.       for (i; i < allRecs.size(); i++) {																						
+

@@ -1,0 +1,191 @@
+[13634][environment] CWD = /home/alyssa/repos/secure_log0/secure_log/build
+[13634][environment] No .inferconfig file found
+[13634][environment] Project root = /home/alyssa/repos/secure_log0/secure_log/build
+[13634][environment] INFER_ARGS =   @/tmp/args.tmp.f4a33e  ++Contents of '/tmp/args.tmp.f4a33e':
+[13634][environment]                                         run
+[13634][environment]                                       
+[13634][environment] command line arguments:   infer run -- makeAnalyzer: checkers
+[13634][environment] Active checkers: annotation reachability (Java), biabduction (C/C++/ObjC, Java), fragment retains view (Java), immutable cast (Java), liveness (C/C++/ObjC), printf args (Java), ownership (C/C++/ObjC), RacerD (C/C++/ObjC, Java), SIOF (C/C++/ObjC), uninitialized variables (C/C++/ObjC)
+[13634][environment] Infer log identifier is 
+Infer version v0.15.0
+[13634][environment] Copyright 2009 - present Facebook. All Rights Reserved.
+[13634][environment] 
+[13634][   progress] Capturing in make/cc mode...
+[13634][environment] Running command make with env:
+[13634][environment] XDG_VTNR=7 
+[13634][environment] XDG_SESSION_ID=c2 
+[13634][environment] TERM_PROGRAM=vscode 
+[13634][environment] XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/alyssa 
+[13634][environment] CLUTTER_IM_MODULE=xim 
+[13634][environment] GIO_LAUNCHED_DESKTOP_FILE_PID=2496 
+[13634][environment] SESSION=ubuntu 
+[13634][environment] GPG_AGENT_INFO=/home/alyssa/.gnupg/S.gpg-agent:0:1 
+[13634][environment] TERM=xterm-256color 
+[13634][environment] DESKTOP_STARTUP_ID=compiz-1906-alyssa-VirtualBox-/usr/share/code/code-1_TIME41911 
+[13634][environment] SHELL=/bin/bash 
+[13634][environment] QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1 
+[13634][environment] TERM_PROGRAM_VERSION=1.27.2 
+[13634][environment] UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/1385 
+[13634][environment] GNOME_KEYRING_CONTROL= 
+[13634][environment] GTK_MODULES=gail:atk-bridge:unity-gtk-module 
+[13634][environment] USER=alyssa 
+[13634][environment] LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36: 
+[13634][environment] QT_ACCESSIBILITY=1 
+[13634][environment] UNITY_HAS_3D_SUPPORT=false 
+[13634][environment] XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0 
+[13634][environment] XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0 
+[13634][environment] SSH_AUTH_SOCK=/run/user/1000/keyring/ssh 
+[13634][environment] DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path 
+[13634][environment] GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/code.desktop 
+[13634][environment] UNITY_DEFAULT_PROFILE=unity-lowgfx 
+[13634][environment] XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg 
+[13634][environment] DESKTOP_SESSION=ubuntu 
+[13634][environment] QT_QPA_PLATFORMTHEME=appmenu-qt5 
+[13634][environment] QT_IM_MODULE=ibus 
+[13634][environment] JOB=unity-settings-daemon 
+[13634][environment] XDG_SESSION_TYPE=x11 
+[13634][environment] PWD=/home/alyssa/repos/secure_log0/secure_log/build 
+[13634][environment] XMODIFIERS=@im=ibus 
+[13634][environment] GNOME_KEYRING_PID= 
+[13634][environment] LANG=en_US.UTF-8 
+[13634][environment] GDM_LANG=en_US 
+[13634][environment] MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path 
+[13634][environment] CHROME_DESKTOP=Code.desktop 
+[13634][environment] COMPIZ_CONFIG_PROFILE=ubuntu 
+[13634][environment] IM_CONFIG_PHASE=1 
+[13634][environment] GDMSESSION=ubuntu 
+[13634][environment] GTK2_MODULES=overlay-scrollbar 
+[13634][environment] SESSIONTYPE=gnome-session 
+[13634][environment] HOME=/home/alyssa 
+[13634][environment] XDG_SEAT=seat0 
+[13634][environment] SHLVL=2 
+[13634][environment] LANGUAGE=en_US 
+[13634][environment] GNOME_DESKTOP_SESSION_ID=this-is-deprecated 
+[13634][environment] LIBGL_ALWAYS_SOFTWARE=1 
+[13634][environment] UPSTART_INSTANCE= 
+[13634][environment] UPSTART_EVENTS=xsession started 
+[13634][environment] LOGNAME=alyssa 
+[13634][environment] XDG_SESSION_DESKTOP=ubuntu 
+[13634][environment] COMPIZ_BIN_PATH=/usr/bin/ 
+[13634][environment] DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-5eXwErgKiU 
+[13634][environment] XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop 
+[13634][environment] QT4_IM_MODULE=xim 
+[13634][environment] LESSOPEN=| /usr/bin/lesspipe %s 
+[13634][environment] UPSTART_JOB=unity7 
+[13634][environment] INSTANCE= 
+[13634][environment] DISPLAY=:0 
+[13634][environment] XDG_RUNTIME_DIR=/run/user/1000 
+[13634][environment] XDG_CURRENT_DESKTOP=Unity 
+[13634][environment] GTK_IM_MODULE=ibus 
+[13634][environment] LESSCLOSE=/usr/bin/lesspipe %s %s 
+[13634][environment] XAUTHORITY=/home/alyssa/.Xauthority 
+[13634][environment] OLDPWD=/home/alyssa/repos/secure_log0/secure_log 
+[13634][environment] _=/usr/local/bin/infer 
+[13634][environment] INFER_CWD=/home/alyssa/repos/secure_log0/secure_log/build 
+[13634][environment] INFER_ARGS=@/tmp/args.tmp.f4a33e 
+[13634][environment] INFER_TOP_RESULTS_DIR=/home/alyssa/repos/secure_log0/secure_log/build/infer-out 
+[13634][environment] NO_BUCKD=1
+[13634][environment] PATH=/opt/infer-linux64-v0.15.0/lib/infer/infer/bin/../lib/wrappers:/home/alyssa/.linuxbrew/bin:/home/alyssa/.linuxbrew/bin:/home/alyssa/.linuxbrew/bin:/home/alyssa/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/alyssa/bin:/home/alyssa/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin 
+[13634][environment] INFER_OLD_PATH=/home/alyssa/.linuxbrew/bin:/home/alyssa/.linuxbrew/bin:/home/alyssa/.linuxbrew/bin:/home/alyssa/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/alyssa/bin:/home/alyssa/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+[13634][environment] 
+
+[13640][environment] CWD = /home/alyssa/repos/secure_log0/secure_log/build
+[13640][environment] No .inferconfig file found
+[13640][environment] Project root = /home/alyssa/repos/secure_log0/secure_log/build
+[13640][environment] INFER_ARGS =   @/tmp/args.tmp.7bbded  ++Contents of '/tmp/args.tmp.7bbded':
+[13640][environment]                                         @/tmp/args.tmp.f4a33e -std=c++11 -c
+[13640][environment]                                         Record.cpp
+[13640][environment]                                         ++Contents of '/tmp/args.tmp.f4a33e':
+[13640][environment]                                           run
+[13640][environment]                                         
+[13640][environment]                                       
+[13640][environment] command line arguments:   g++ -std=c++11 -c Record.cppAnalyzer: checkers
+[13640][environment] Active checkers: annotation reachability (Java), biabduction (C/C++/ObjC, Java), fragment retains view (Java), immutable cast (Java), liveness (C/C++/ObjC), printf args (Java), ownership (C/C++/ObjC), RacerD (C/C++/ObjC, Java), SIOF (C/C++/ObjC), uninitialized variables (C/C++/ObjC)
+[13640][      debug] 
+[13640][      debug] *** Beginning capture of file /home/alyssa/repos/secure_log0/secure_log/build/Record.cpp ***
+[13640][      debug] Clang frontend action is translating and linting
+[13640][      debug] Loading the following linters files: /opt/infer-linux64-v0.15.0/lib/infer/infer/bin/../lib/linter_rules/linters.al
+[13640][      debug] Elapsed: 2.942s.
+[13640][      debug] 
+[13640][environment] Infer log identifier is 
+
+[13653][environment] CWD = /home/alyssa/repos/secure_log0/secure_log/build
+[13653][environment] No .inferconfig file found
+[13653][environment] Project root = /home/alyssa/repos/secure_log0/secure_log/build
+[13653][environment] INFER_ARGS =   @/tmp/args.tmp.48c753  ++Contents of '/tmp/args.tmp.48c753':
+[13653][environment]                                         @/tmp/args.tmp.f4a33e -std=c++11 -c
+[13653][environment]                                         logappend.cpp
+[13653][environment]                                         ++Contents of '/tmp/args.tmp.f4a33e':
+[13653][environment]                                           run
+[13653][environment]                                         
+[13653][environment]                                       
+[13653][environment] command line arguments:   g++ -std=c++11 -c logappend.cppAnalyzer: checkers
+[13653][environment] Active checkers: annotation reachability (Java), biabduction (C/C++/ObjC, Java), fragment retains view (Java), immutable cast (Java), liveness (C/C++/ObjC), printf args (Java), ownership (C/C++/ObjC), RacerD (C/C++/ObjC, Java), SIOF (C/C++/ObjC), uninitialized variables (C/C++/ObjC)
+[13653][      debug] 
+[13653][      debug] *** Beginning capture of file /home/alyssa/repos/secure_log0/secure_log/build/logappend.cpp ***
+[13653][      debug] Clang frontend action is translating and linting
+[13653][      debug] Loading the following linters files: /opt/infer-linux64-v0.15.0/lib/infer/infer/bin/../lib/linter_rules/linters.al
+[13653][      debug] Elapsed: 1.714s.
+[13653][      debug] 
+[13653][environment] Infer log identifier is 
+
+[13664][environment] CWD = /home/alyssa/repos/secure_log0/secure_log/build
+[13664][environment] No .inferconfig file found
+[13664][environment] Project root = /home/alyssa/repos/secure_log0/secure_log/build
+[13664][environment] INFER_ARGS =   @/tmp/args.tmp.e436b4  ++Contents of '/tmp/args.tmp.e436b4':
+[13664][environment]                                         @/tmp/args.tmp.f4a33e -std=c++11 -c
+[13664][environment]                                         logread.cpp
+[13664][environment]                                         ++Contents of '/tmp/args.tmp.f4a33e':
+[13664][environment]                                           run
+[13664][environment]                                         
+[13664][environment]                                       
+[13664][environment] command line arguments:   g++ -std=c++11 -c logread.cppAnalyzer: checkers
+[13664][environment] Active checkers: annotation reachability (Java), biabduction (C/C++/ObjC, Java), fragment retains view (Java), immutable cast (Java), liveness (C/C++/ObjC), printf args (Java), ownership (C/C++/ObjC), RacerD (C/C++/ObjC, Java), SIOF (C/C++/ObjC), uninitialized variables (C/C++/ObjC)
+[13664][      debug] 
+[13664][      debug] *** Beginning capture of file /home/alyssa/repos/secure_log0/secure_log/build/logread.cpp ***
+[13664][      debug] Clang frontend action is translating and linting
+[13664][      debug] Loading the following linters files: /opt/infer-linux64-v0.15.0/lib/infer/infer/bin/../lib/linter_rules/linters.al
+[13664][      debug] Elapsed: 2.093s.
+[13664][      debug] 
+[13664][environment] Infer log identifier is 
+
+[13674][environment] CWD = /home/alyssa/repos/secure_log0/secure_log/build
+[13674][environment] No .inferconfig file found
+[13674][environment] Project root = /home/alyssa/repos/secure_log0/secure_log/build
+[13674][environment] INFER_ARGS =   @/tmp/args.tmp.d39069  ++Contents of '/tmp/args.tmp.d39069':
+[13674][environment]                                         @/tmp/args.tmp.f4a33e -std=c++11
+[13674][environment]                                         Record.o logappend.o -o logappend
+[13674][environment]                                         -lssl -lcrypto
+[13674][environment]                                         ++Contents of '/tmp/args.tmp.f4a33e':
+[13674][environment]                                           run
+[13674][environment]                                         
+[13674][environment]                                       
+[13674][environment] command line arguments:   g++ -std=c++11 Record.o logappend.o -o logappend
+[13674][environment]                           -lssl -lcryptoAnalyzer: checkers
+[13674][environment] Active checkers: annotation reachability (Java), biabduction (C/C++/ObjC, Java), fragment retains view (Java), immutable cast (Java), liveness (C/C++/ObjC), printf args (Java), ownership (C/C++/ObjC), RacerD (C/C++/ObjC, Java), SIOF (C/C++/ObjC), uninitialized variables (C/C++/ObjC)
+[13674][environment] Infer log identifier is 
+
+[13683][environment] CWD = /home/alyssa/repos/secure_log0/secure_log/build
+[13683][environment] No .inferconfig file found
+[13683][environment] Project root = /home/alyssa/repos/secure_log0/secure_log/build
+[13683][environment] INFER_ARGS =   @/tmp/args.tmp.1b52c2  ++Contents of '/tmp/args.tmp.1b52c2':
+[13683][environment]                                         @/tmp/args.tmp.f4a33e -std=c++11
+[13683][environment]                                         Record.o logread.o -o logread -lssl
+[13683][environment]                                         -lcrypto
+[13683][environment]                                         ++Contents of '/tmp/args.tmp.f4a33e':
+[13683][environment]                                           run
+[13683][environment]                                         
+[13683][environment]                                       
+[13683][environment] command line arguments:   g++ -std=c++11 Record.o logread.o -o logread -lssl
+[13683][environment]                           -lcryptoAnalyzer: checkers
+[13683][environment] Active checkers: annotation reachability (Java), biabduction (C/C++/ObjC, Java), fragment retains view (Java), immutable cast (Java), liveness (C/C++/ObjC), printf args (Java), ownership (C/C++/ObjC), RacerD (C/C++/ObjC, Java), SIOF (C/C++/ObjC), uninitialized variables (C/C++/ObjC)
+[13683][environment] Infer log identifier is 
+[13634][   progress] Found 3 source files to analyze in /home/alyssa/repos/secure_log0/secure_log/build/infer-out
+[13634][   progress] Starting analysis...
+[13634][   progress] 
+[13634][   progress] legend:
+[13634][   progress]   "F" analyzing a file
+[13634][   progress]   "." analyzing a procedure
+[13634][   progress] 
+[13634][   progress] F.........................................F........F......
+[13634][   progress] Analysis finished in 30.583ss

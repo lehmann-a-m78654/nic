@@ -1,0 +1,21 @@
+Found 2 issues
+
+logread.cpp:28: error: DEAD_STORE
+  The value written to &valid (type _Bool) is never used.
+  26.       bool doctor = false;
+  27.       string name = "";
+  28. >     bool valid = true;
+  29.       string logfile = "";
+  30.       int size = argc;
+
+Record.cpp:538: error: DEAD_STORE
+  The value written to &i (type int) is never used.
+  536.     }
+  537.     if ((allRecs->size() > 0) && (allRecs->at(0) == ("test" + logfile))) {
+  538. >     i++;
+  539.     }
+  540.     for (i; i < allRecs->size(); i++) {
+
+Summary of the reports
+
+  DEAD_STORE: 2

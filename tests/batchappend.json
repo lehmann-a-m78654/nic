@@ -1,0 +1,14 @@
+{
+	"batch": "./logappend -T 14 -K secret -D jackie -A -F log\n./logappend -T 15 -K secret -D jackie -A -R 100 -F log ",
+	"tests": [
+		{ 
+	      "input": "logappend -B batch",
+	      "exit": 0
+	    },
+	    {
+	      "input": "./logread -K secret -R -D jackie -F log",
+	      "output": "101,100",
+	      "exit": 0
+	    }
+	]
+}

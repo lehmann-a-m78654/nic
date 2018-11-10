@@ -1,0 +1,11 @@
+{
+  "batch": "./logappend -T 1 -K secret -D ritchey -A -F log\n./logappend -T 3 -K secret -D ritchey -A -R 489 -F log\n./logappend -T 4 -K secret -N bregger -A -F log\n./logappend -T 5 -K secret -N bregger -A -R 489 -F log\n./logread -K secret -S -F log > logEntryBeforeError.txt\n./logappend -T 12 -K secret -D jackie -A -L -F log\n./logread -K secret -S -F log > logEntryAfterError.txt\ndiff logEntryBeforeError.txt logEntryAfterError.txt",
+  "tests": [
+    {
+      "input": "logappend -B batch",
+      "output": "invalid",
+      "error": 255
+    }
+  ],
+  "performance": "time"
+}

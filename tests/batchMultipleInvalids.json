@@ -1,0 +1,11 @@
+{
+	"batch": "./logappend -T 1 -K secret -D ritchey -A -F log\n./logappend -T 12 -K secret -D jackie -A -L -F log\n./logappend -T 13 -K secret -D -N jackie -A -F log",
+	"tests": [
+		{
+			"input": "logappend -B batch",
+			"output": "invalid\ninvalid",
+			"error": 0
+		}
+	],
+	"performance": "time"
+}
