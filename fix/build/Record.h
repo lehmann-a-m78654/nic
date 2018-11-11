@@ -667,7 +667,9 @@ bool Record::append() {
 		}
 	}
     
-   
+    // for(int i = 0; i < records.size(); i++) {
+	//     cout << records.at(i).toString() << endl; //FIXME
+    // }
 	// cout << "logs for person done" << endl; //FIXME
     //do sanity checks here
     if (!checkConsistency(records)) {
@@ -823,11 +825,11 @@ bool Record::readFile(string& contents, bool create) {
 		if (i == dirs.size() - 1) {
 			continue;
 		}
-		else if (dirs.at(i) == "..") {
-			cdcount--;
-			// cout << "cd .." << endl; //FIXME
-			chdir(string("..").c_str());
-		}
+		// else if (dirs.at(i) == "..") {
+		// 	cdcount--;
+		// 	cout << "cd .." << endl; //FIXME
+		// 	chdir(string("..").c_str());
+		// }
 		struct stat info;
 		// can access it and it is a directory
 		if (opendir(dirs.at(i).c_str()) != NULL) {
@@ -837,16 +839,28 @@ bool Record::readFile(string& contents, bool create) {
 			cdcount++;
 		}
 		//cannot access it or can access it and it is a file
-		else {
-			// cout << 'making directory ' << dirs.at(i) << endl; //FIXME
+		else if (create){
+			if (dirs.at(i).size() == 0) {
+				continue;
+			}
+			// cout << "making directory " << dirs.at(i) << endl; //FIXME
 			system(string("mkdir " + dirs.at(i)).c_str());
 			chdir(string(dirs.at(i)).c_str());
 			cdcount++;
 		}
+		else {
+			return false;
+		}
 	}
-	while (cdcount > 0) {
+	//while (cdcount > 0) {
+	if (cdcount > 0) {
 		chdir(string("..").c_str());
 		cdcount--;
+		// cout << "pwd is " << endl; //FIXME
+		// system("pwd");
+		// last directory + filename
+		logfile = dirs.at(dirs.size() - 2) + "/" + dirs.at(dirs.size() - 1);
+		// cout << "log file is " << logfile << endl; //FIXME
 	}
 	// cout << "opening logfile " << logfile << endl; //FIXME
     log.open(logfile, fstream::in);
@@ -881,7 +895,8 @@ bool Record::readFile(string& contents, bool create) {
     else {
 		//cout << "failure 36" << endl;
 		// perror("36");
-		// cout << logfile << endl; //FIXME
+		cout << logfile << endl; //FIXME
+		system("pwd > LOOKIE"); // FIXME
         return false;
     }
     return true;

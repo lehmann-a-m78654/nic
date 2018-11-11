@@ -161,4 +161,12 @@
     passed: doesitwork7.json
     total passed: 142
     total failed: 64
+7) Record.h changed directory creating strategy to accomodate for attempts to make directories outside of home directory
+    passed: doesitwork10.json
+    total passed: 143
+    total failed: 63
+8) Record.h 
+    passed: doesitwork8.json
+    total passed: 144
+    total failed: 62
 
