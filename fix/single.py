@@ -31,7 +31,7 @@ if __name__ == "__main__":
         # print('back')
         res = open('res', 'r')
         out = res.read()
-        print(out)
+        # print(out)
         # print('opened')
         res.close()
         print('\n' + test["input"])
@@ -50,7 +50,7 @@ if __name__ == "__main__":
     # print (responses[-1])
     # sys.stdout = open('res', 'w')
     # os.system("rm " + logfile + ".txt > deleteme")
-    os.system("rm -r " + logfile + ".txt > deleteme")
+    # os.system("rm -r " + logfile + ".txt > deleteme")
     sys.stderr = sys.__stderr__
     os.system("rm res")
     # sys.stdout = sys.__stdout__

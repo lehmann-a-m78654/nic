@@ -12,9 +12,15 @@
 #include <unordered_set>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <string>
 #include <ctype.h>
 #include <sstream>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <dirent.h>
+// #include <filesystem>
+// namespace fs = std::filesystem;
 
 #define T 0
 #define K 1
@@ -584,6 +590,7 @@ vector<Record> Record::getLogsForPerson(string& contents) {
     //     return error;
     // }
 	contents = decrypt(contents, this->token);
+	// cout << "contents " << contents << endl; //FIXME
 	// remove "file" from the beginning
 	int fi = contents.find("file");
 	// cout << contents << endl; //FIXME
@@ -699,6 +706,13 @@ bool Record::checkConsistency(vector<Record>& personRecs) {
             return false;
         }
     }
+	// cout << personRecs.size() << endl; //FIXME
+	if (personRecs.size() > 0) {
+		// cout << personRecs.at(personRecs.size() - 1).getTimestamp() << endl; //FIXME
+		// cout << timestamp << endl; //FIXME
+		// cout << personRecs.at(personRecs.size() - 1).toString() << endl; //FIXME
+	}
+	
     if ((personRecs.size() > 0) && (personRecs.at(personRecs.size() - 1).getTimestamp() >= timestamp)) {
         //cout << "failure 29" << endl;
 		return false;
@@ -782,6 +796,11 @@ bool Record::readFile(string& contents, bool create) {
     }
     contents = "";
     fstream log;
+	//remove leading /es
+	if (logfile.find('/') != string::npos && logfile.find('/') < 2) {
+		logfile = logfile.substr(logfile.find('/') + 1, logfile.size() - logfile.find('/') - 1);
+	}
+	// cout << "reading file " << logfile << endl; //FIXME
 	// check not accessing parent directory
 	int cdcount = 0;
 	vector<string> dirs = splitOn(logfile, '/');
@@ -794,8 +813,42 @@ bool Record::readFile(string& contents, bool create) {
 		}
 	}
 	if (cdcount > -1) {
+		// //cout << "failure 43" << endl; //FIXME
 		return false;
 	}
+	//create the directories
+	cdcount = 0; 
+	for (int i = 0; i < dirs.size(); i++) {
+		//the file
+		if (i == dirs.size() - 1) {
+			continue;
+		}
+		else if (dirs.at(i) == "..") {
+			cdcount--;
+			// cout << "cd .." << endl; //FIXME
+			chdir(string("..").c_str());
+		}
+		struct stat info;
+		// can access it and it is a directory
+		if (opendir(dirs.at(i).c_str()) != NULL) {
+			// cout << "cd to existing " << dirs.at(i) << endl; //FIXME
+			chdir(string(dirs.at(i)).c_str());
+			// system("pwd > LOOKATME"); //FIXME
+			cdcount++;
+		}
+		//cannot access it or can access it and it is a file
+		else {
+			// cout << 'making directory ' << dirs.at(i) << endl; //FIXME
+			system(string("mkdir " + dirs.at(i)).c_str());
+			chdir(string(dirs.at(i)).c_str());
+			cdcount++;
+		}
+	}
+	while (cdcount > 0) {
+		chdir(string("..").c_str());
+		cdcount--;
+	}
+	// cout << "opening logfile " << logfile << endl; //FIXME
     log.open(logfile, fstream::in);
     if(log.fail() && create) {
         log.open(logfile, fstream::out);
@@ -804,8 +857,9 @@ bool Record::readFile(string& contents, bool create) {
 		// cout << "encrypting " << newcont << endl; //FIXME
         newcont = encrypt(newcont, this->token);
 		// cout <<"ciphertext is \"" << newcont << "\"" << endl; //FIXME
-        log << newcont << endl;
+        // log << newcont << endl;
         log.close();
+		
         log.open(logfile, fstream::in);
     }
     if (log.is_open() && log.good()) {
@@ -826,8 +880,8 @@ bool Record::readFile(string& contents, bool create) {
     }
     else {
 		//cout << "failure 36" << endl;
-		perror("36");
-		cout << logfile << endl; //FIXME
+		// perror("36");
+		// cout << logfile << endl; //FIXME
         return false;
     }
     return true;
@@ -839,6 +893,14 @@ bool Record::writeFile(const string& text) {
         return false;
     }
     fstream log;
+	//remove leading /es
+	if (logfile.find('/') != string::npos && logfile.find('/') < 2) {
+		logfile = logfile.substr(logfile.find('/') + 1, logfile.size() - logfile.find('/') - 1);
+	}
+	// else {
+	// 	cout << "not the case, logfile " << logfile << endl; //FIXME
+	// }
+	// cout << "writing to " << logfile << endl; //FIXME
     log.open(logfile, fstream::out);
     if (log.is_open() && log.good()) {
         log << text;
@@ -974,7 +1036,8 @@ priority_queue<string, vector<string>, greater<string> > Record::getAllNames(std
     // }
 	// cout << "encrypted contents: \"" << contents << "\"" << endl; //FIXME
 	contents = decrypt(contents, this->token);
-	// cout << "decrypted contents: " << contents << endl; //FIXME
+
+	
 	// cout << "token is \"" << this->token << "\"" << endl; //FIXME
     // if (contents.find(logfile) == string::npos) {
     //     priority_queue<string, vector<string>, greater<string> > error;
