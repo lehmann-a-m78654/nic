@@ -283,25 +283,35 @@ bool handleS(string token, string logfile) {
 
 	//print all doctors in hospital
 	// cout << "----------------------" << endl; //FIXME
+	bool firstprint = true;
 	for (int i = 0; i < people.size(); i++) {
 		// cout << "in doctor loop " << people.at(i).name << endl; //FIXME
 		if (people.at(i).doctor && people.at(i).inHospital) {
 			if (((i != 0) && (people.at(i - 1).name != people.at(i).name)) || (i == 0)) {
-				cout << people.at(i).name << ",";
+				if (!firstprint) {
+					cout << ",";
+				}
+				cout << people.at(i).name;
+				firstprint = false;
 			}
 		}
 	}
 	cout << endl;
+	firstprint = true;
 	//print all nurses in hospital
 	for (int i = 0; i < people.size(); i++) {
 		// cout << "in nurse loop " << people.at(i).name << endl; //FIXME
 		if (!people.at(i).doctor && people.at(i).inHospital) {
-			cout << people.at(i).name << ",";
+			if (!firstprint) {
+				cout << ",";
+			}
+			cout << people.at(i).name;
+			firstprint = false;
 		}
 	}
 	cout << endl;
 	// cout << "----------------------" << endl; //FIXME
-
+	bool firstroomprinted = false;
 	//print rooms with doctors/nurses inside them
 	int lastRoomNum = -2;
 	priority_queue<string, vector<string>, greater<string> > namesInRoom;
@@ -320,11 +330,20 @@ bool handleS(string token, string logfile) {
 			lastRoomNum = currRoom;
 
 			if (!namesInRoom.empty()) {
-				cout << endl << currRoom << ": ";
+				if (firstroomprinted) {
+					cout << endl;
+				}
+				cout << currRoom << ": ";
+				firstroomprinted = true;
 			}
+			firstprint = true;
 			while (!namesInRoom.empty()) {
-				cout << namesInRoom.top() << ",";
+				if (!firstprint) {
+					cout << ",";
+				}
+				cout << namesInRoom.top();
 				namesInRoom.pop();
+				firstprint = false;
 			}
 			
 		}

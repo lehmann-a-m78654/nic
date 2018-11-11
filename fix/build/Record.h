@@ -504,7 +504,7 @@ char* Record::parseAppendOpts(int size, char* argv[], char arg) {
             return argv[i + 1];
         }
     }
-	// cout << "failure 11" << endl;
+	// //cout << "failure 11" << endl;
     return nullptr;
 }
 
@@ -571,7 +571,7 @@ vector<Record> Record::getLogsForPerson(string& contents) {
     if (!readFile(contents, true) || !valid) {
         vector<Record> error;
         error.push_back(Record());
-		// cout << "failure 20" << endl;
+		// //cout << "failure 20" << endl;
         return error;
     }
     if (contents.size() <= 0) {
@@ -590,14 +590,14 @@ vector<Record> Record::getLogsForPerson(string& contents) {
 	if (fi == string::npos && contents.size() < 5) {
 		vector<Record> error;
         error.push_back(Record());
-		// cout << "failure 40, integrity problem" << endl;
+		// //cout << "failure 40, integrity problem" << endl;
         return error;
 	}
 	//if it wasn't in the begnning, we have a problem
 	else if (fi != 0 && contents.size() < 5) {
 		vector<Record> error;
         error.push_back(Record());
-		// cout << "failure 41, integrity problem" << endl;
+		// //cout << "failure 41, integrity problem" << endl;
         return error;
 	}
 	if (contents.size() < 5) {
@@ -613,7 +613,7 @@ vector<Record> Record::getLogsForPerson(string& contents) {
     // if (contents.find(logfile) == string::npos) {
     //     vector<Record> error;
     //     error.push_back(Record());
-	// 	cout << "failure 21" << endl;
+	// 	//cout << "failure 21" << endl;
     //     return error;
     // }
 	
@@ -625,7 +625,7 @@ vector<Record> Record::getLogsForPerson(string& contents) {
     if (!relevantRecords(recs, relevant)) {
         vector<Record> error;
         error.push_back(Record());
-		// cout << "failure 22" << endl;
+		// //cout << "failure 22" << endl;
         return error;
     }
 	// cout << "RECS FROM GETLOGS" << endl; //FIXME
@@ -655,7 +655,7 @@ bool Record::append() {
     vector<Record> records = getLogsForPerson(contents);
 	if (records.size() > 0) {
 		if (records.at(0).isValid() == false) {
-			cout << "failure 24" << endl;
+			//cout << "failure 24" << endl;
 			return false;
 		}
 	}
@@ -855,7 +855,7 @@ bool Record::relevantRecords(const vector<string>& allRecs, vector<string>& resu
             continue;
         }
         if ((record.size() != 4) && (record.size() != 3)) {
-			// cout << "failure 39" << endl;
+			// //cout << "failure 39" << endl;
 			// for (int i = 0; i < record.size(); i++) { //fixme
 			// 	cout << record.at(i) << endl;
 			// }
