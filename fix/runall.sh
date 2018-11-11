@@ -39,39 +39,45 @@
 # ./test_runner_2.py -t tests/tests/perf/speed/speed3.json
 # ./test_runner_2.py -t tests/tests/perf/speed/speed4.json
 # ./test_runner_2.py -t tests/tests/perf/speed/speed5.json
-for name in tests/tests/core/doesitwork/*.json; do
+cd build
+make >> trash
+cd ..
+cp build/logappend logappend
+cp build/logread logread
+cp tests/test_runner_2.py test_runner_2.py
+for name in tests/core/doesitwork/*.json; do
     echo $name
     ./test_runner_2.py -t $name
 done
-for name in tests/tests/core/batch/*.json; do
+for name in tests/core/batch/*.json; do
     echo $name
     ./test_runner_2.py -t $name
 done
-for name in tests/tests/core/edge/badargs/*.json; do
+for name in tests/core/edge/badargs/*.json; do
     echo $name
     ./test_runner_2.py -t $name
 done
-for name in tests/tests/core/edge/badstate/*.json; do
+for name in tests/core/edge/badstate/*.json; do
     echo $name
     ./test_runner_2.py -t $name
 done
-for name in tests/tests/core/features/rooms/*.json; do
+for name in tests/core/features/rooms/*.json; do
     echo $name
     ./test_runner_2.py -t $name
 done
-for name in tests/tests/core/features/summary/*.json; do
+for name in tests/core/features/summary/*.json; do
     echo $name
     ./test_runner_2.py -t $name
 done
-for name in tests/tests/perf/size/*.json; do
+for name in tests/perf/size/*.json; do
     echo $name
     ./test_runner_2.py -t $name
 done
-for name in tests/tests/perf/speed/*.json; do
+for name in tests/perf/speed/*.json; do
     echo $name
     ./test_runner_2.py -t $name
 done
-for name in tests/tests/student_tests/*.json; do
+for name in tests/student_tests/*.json; do
     echo $name 
     ./test_runner_2.py -t $name
 done

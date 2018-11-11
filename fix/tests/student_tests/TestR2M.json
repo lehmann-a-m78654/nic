@@ -1,0 +1,23 @@
+{
+    "title": "Any Argument to LogAppend is Inconsistent - REQ 2 - K",
+    "tests": [
+            {
+                "input":"logappend -T 1 -K secret -N bregger -A -F log"
+            },
+            {
+              "input": "logappend  -T 2 -K secret -D -N ritchey -A -F log",
+              "output": "invalid",
+              "exit": 255
+            },
+            {
+                "input": "logappend  -T 3 -K secret -D ritchey -A -L -F log",
+                "output": "invalid",
+                "exit": 255
+             },
+            {
+                "input": "logappend  -B -T 4 -K secret -D ritchey -A -L -F log",
+                "output": "invalid",
+                "exit": 255
+             }
+    ]
+  }

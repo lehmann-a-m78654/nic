@@ -1,0 +1,24 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D will -A -F log",
+            "description": "add one person to log"
+        },
+        {
+            "input": "logappend -T 2 -K secret -D will -A -R 1 -F log",
+            "description": "user enters room 1"
+        },
+        {
+            "input": "logappend -T 3 -k secret -D -N john -A -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "user can't be doctor and nurse"
+        },
+        {
+            "input": "logappend -T 3 -k secret -D john -A -L -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "user can't arrive and leave"
+        }
+    ]
+}

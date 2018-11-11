@@ -1,0 +1,13 @@
+{
+	"title": "UC4-Error, timestamp invalid, staff exiting hospital",
+	"tests": [
+    	{
+		"input": "logappend -T 1 -K secret -D ritchey -A -F log"
+    	},
+    	{
+		"input": "logappend -T 1 -K secret -D ritchey -L -F log",
+		"output": "invalid",
+		"exit":255
+    	}
+  	]
+}

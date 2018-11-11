@@ -1,0 +1,10 @@
+{
+ 	"title": "UC4 Exception: Staff not inside hospital",
+  	"tests": [
+    		{
+	      		"input": "logappend -T 7 -K secret -D Raj -L -F log",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

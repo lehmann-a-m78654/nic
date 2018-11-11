@@ -1,0 +1,10 @@
+{
+    "batch": "",
+    "tests": [
+        {
+            "input": "logappend -B unknownFile",
+            "output": "invalid",
+            "exit": 255
+        }
+    ]
+}

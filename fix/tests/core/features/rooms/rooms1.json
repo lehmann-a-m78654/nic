@@ -1,0 +1,155 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K DMCGOEOQ -N SILAS -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 2 -K DMCGOEOQ -N SILAS -A -R 15 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 3 -K DMCGOEOQ -N SILAS -L -R 15 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 4 -K DMCGOEOQ -N SILAS -A -R 6 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 5 -K DMCGOEOQ -N SILAS -L -R 6 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 6 -K DMCGOEOQ -N SILAS -A -R 15 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 7 -K DMCGOEOQ -N CHAROLETTE -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 8 -K DMCGOEOQ -N STACY -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 9 -K DMCGOEOQ -N SALVATORE -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 10 -K DMCGOEOQ -N WESLEY -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 11 -K DMCGOEOQ -N SALVATORE -A -R 2 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 12 -K DMCGOEOQ -N WESLEY -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 13 -K DMCGOEOQ -N JOYE -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 14 -K DMCGOEOQ -D RACHEL -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 15 -K DMCGOEOQ -N CHAROLETTE -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 16 -K DMCGOEOQ -D ELLIS -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 17 -K DMCGOEOQ -N JOYE -A -R 6 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 18 -K DMCGOEOQ -N SILAS -L -R 15 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 19 -K DMCGOEOQ -N SILAS -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 20 -K DMCGOEOQ -D RACHEL -A -R 2 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 21 -K DMCGOEOQ -N JOYE -L -R 6 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 22 -K DMCGOEOQ -N JOYE -A -R 2 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 23 -K DMCGOEOQ -N SALVATORE -L -R 2 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 24 -K DMCGOEOQ -N SALVATORE -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 25 -K DMCGOEOQ -N JOYE -L -R 2 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 26 -K DMCGOEOQ -N JOYE -A -R 5 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 27 -K DMCGOEOQ -N STACY -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 28 -K DMCGOEOQ -N JOYE -L -R 5 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 29 -K DMCGOEOQ -N JOYE -A -R 9 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 30 -K DMCGOEOQ -N RAPHAEL -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 31 -K DMCGOEOQ -D GEORGIANN -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 32 -K DMCGOEOQ -N JOYE -L -R 9 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 33 -K DMCGOEOQ -N JOYE -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 34 -K DMCGOEOQ -D GEORGIANN -A -R 11 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 35 -K DMCGOEOQ -D ANNABEL -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 36 -K DMCGOEOQ -D RACHEL -L -R 2 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 37 -K DMCGOEOQ -D RACHEL -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 38 -K DMCGOEOQ -D ELLIS -A -R 3 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 39 -K DMCGOEOQ -D ANNABEL -A -R 11 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 40 -K DMCGOEOQ -D ANNABEL -L -R 11 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 41 -K DMCGOEOQ -D ANNABEL -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 42 -K DMCGOEOQ -D GEORGIANN -L -R 11 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 43 -K DMCGOEOQ -D GEORGIANN -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 44 -K DMCGOEOQ -N ANTONE -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 45 -K DMCGOEOQ -N RAPHAEL -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 46 -K DMCGOEOQ -D ELLIS -L -R 3 -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 47 -K DMCGOEOQ -D ELLIS -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 48 -K DMCGOEOQ -N ANTONE -L -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logappend -T 49 -K DMCGOEOQ -N PEARLIE -A -F WYMQWRAQ"
+        }, 
+        {
+            "input": "logread -K DMCGOEOQ -R -N SILAS -F WYMQWRAQ", 
+            "output": "15,6,15"
+        }
+    ]
+}

@@ -232,7 +232,7 @@ struct RoomCompare
 {
     bool operator()(const Room& lhs, const Room& rhs)
     {
-        return lhs.roomNum < rhs.roomNum;
+        return lhs.roomNum > rhs.roomNum;
     }
 };
 
@@ -294,8 +294,8 @@ Record::Record(string s) {
     }
     else if (n.find("nurse.") == 0) {
         //nurse should be in 0th index
-        // if (n.find("nurse.") == 0) {
-		if (found == 0) {
+        if (n.find("nurse.") == 0) {
+		// if (found == 0) {
             doctor = false;
             name = n.substr(6, n.size() - 6);
         }
@@ -782,6 +782,20 @@ bool Record::readFile(string& contents, bool create) {
     }
     contents = "";
     fstream log;
+	// check not accessing parent directory
+	int cdcount = 0;
+	vector<string> dirs = splitOn(logfile, '/');
+	for(int i = 0; i < dirs.size(); i++) {
+		if (dirs.at(i) == "..") {
+			cdcount++;
+		}
+		else {
+			cdcount--;
+		}
+	}
+	if (cdcount > -1) {
+		return false;
+	}
     log.open(logfile, fstream::in);
     if(log.fail() && create) {
         log.open(logfile, fstream::out);
@@ -812,6 +826,8 @@ bool Record::readFile(string& contents, bool create) {
     }
     else {
 		//cout << "failure 36" << endl;
+		perror("36");
+		cout << logfile << endl; //FIXME
         return false;
     }
     return true;

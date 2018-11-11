@@ -1,0 +1,13 @@
+{
+    "title": "Log Read Displays Error condition when Arguments are incorrect- REQ 12C",
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+        },
+        {
+            "input": "logread -K secret -R -D ritchey1 -F log",
+            "output": "invalid",
+            "exit": 255
+        }
+    ]
+  }

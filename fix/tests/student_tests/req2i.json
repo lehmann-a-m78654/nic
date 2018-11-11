@@ -1,0 +1,11 @@
+{
+    "title" : "REQ 2 i",
+    "description" : "Batch mode specified w/o existing file",
+      "tests": [
+        {
+          "input": "logappend -B batch",
+          "output": "invalid",
+          "exit": 255
+        }
+      ]
+    }

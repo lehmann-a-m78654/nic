@@ -1,0 +1,10 @@
+{
+    "title": "Batch mode is Specified Within Batch File - REQ 2 - J",
+    "tests": [
+          {
+            "input":"logappend -B BatchR2J",
+            "output": "invalid",
+            "exit": 255
+          }
+    ]
+  }

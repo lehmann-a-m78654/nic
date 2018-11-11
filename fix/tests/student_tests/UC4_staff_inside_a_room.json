@@ -1,0 +1,16 @@
+{
+ 	"title": "UC4 Exception: Staff is inside a room",
+  	"tests": [
+		{
+	      		"input": "logappend -T 1 -K secret -D Raj -A -F log"
+		},
+		{
+	      		"input": "logappend -T 2 -K secret -D Raj -R 489 -A -F log"
+		},
+    		{
+	      		"input": "logappend -T 7 -K secret -D Raj -L -F log",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

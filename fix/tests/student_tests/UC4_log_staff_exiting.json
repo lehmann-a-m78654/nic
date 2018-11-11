@@ -1,0 +1,11 @@
+{
+ 	"title": "UC4: Log staff exiting hospital",
+  	"tests": [
+		{
+	      		"input": "logappend -T 1 -K secret -D Raj -A -F log"
+		},
+    		{
+	      		"input": "logappend -T 7 -K secret -D Raj -L -F log"
+		}
+	]
+}

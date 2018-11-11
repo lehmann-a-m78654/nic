@@ -1,0 +1,13 @@
+{
+ 	"title": "UC4 Exception: Most recent log has timestamp after the timestamp given in this log",
+  	"tests": [
+		{
+	      		"input": "logappend -T 5 -K secret -D Raj -A -F log"
+		},
+    		{
+	      		"input": "logappend -T 4 -K secret -D Raj -L -F log",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

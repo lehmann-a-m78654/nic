@@ -1,0 +1,24 @@
+{
+	"tests": [
+		{
+			"input": "logread -R -D bobert -F log",
+			"output": "invalid",
+			"exit": 255
+		},
+		{
+			"input": "logread -K secret -D bobert -F log",
+			"output": "invalid",
+			"exit": 255
+		},
+		{
+			"input": "logread -K secret -R -F log",
+			"output": "invalid",
+			"exit": 255
+		},
+		{
+			"input": "logread -K secret -R -D bobert",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

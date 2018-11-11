@@ -1,0 +1,8 @@
+{
+ 	"title": "UC2: Log staff entering hospital",
+  	"tests": [
+    		{
+	      		"input": "logappend -T 1 -K secret -D Raj -A -F log"
+		}
+	]
+}

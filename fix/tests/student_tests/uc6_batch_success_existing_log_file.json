@@ -1,0 +1,20 @@
+{
+	"title": "UC6- Batch use existing log file",
+	"tests": [
+	{
+      		"input": "logappend -T 1 -K secret -D initialdoc -A -F log"
+    	},
+	{
+		"input": "logread -K secret -S -F log",			
+		"output": "initialdoc"
+	},
+	{
+		"input": "logappend -B batch"
+	},
+	{
+		"input": "logread -K secret -S -F log",			
+		"output": "docname,initialdoc\nnursename"
+	}
+	],
+	"batch": "LVQgMiAtSyBzZWNyZXQgLUQgZG9jbmFtZSAtQSAtRiBsb2cKLVQgMyAtSyBzZWNyZXQgLU4gbnVyc2VuYW1lIC1BIC1GIGxvZw=="
+}

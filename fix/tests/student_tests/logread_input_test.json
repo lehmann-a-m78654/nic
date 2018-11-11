@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "tests": [
+    {
+      "input": "logread",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -S -F bad_log!!",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -S -F",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -S -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -R -D nick -S -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -R -D -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -R -D nick22! -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -R -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -K secret -S -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -S -S -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -S -F log -F log2",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -R -R -D nick -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -R -D nick -D bob -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -R -N nick -N bob -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -R -D nick -N bob -F log",
+      "output": "invalid",
+      "exit": 255
+    }
+  ],
+  "preformance": "time"
+}

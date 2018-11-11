@@ -1,0 +1,9 @@
+{
+    "tests": [
+        {
+            "exit": 255, 
+            "input": "logappend -T 1 -K secret -N 2pac -A -F TPWMVDMZ", 
+            "output": "invalid"
+        }
+    ]
+}

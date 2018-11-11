@@ -1,0 +1,125 @@
+{
+  	"title": "Test for all invalid inputs to log append",
+  	"tests": [
+    	{
+		"input": "logappend",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logappend -F",
+		"output": "invalid",
+		"exit": 255
+	}, 
+    	{
+		"input": "logappend -F log",
+		"output": "invalid",
+		"exit": 255
+	}, 
+    	{
+		"input": "logappend -F log!!!",
+		"output": "invalid",
+		"exit": 255
+	}, 
+    	{
+		"input": "logappend -T hello_world -F log",
+		"output": "invalid",
+		"exit": 255
+	}, 
+	{
+		"input": "logappend -T -200 -K secret -D docinvalidtime -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+    	{
+		"input": "logappend -T 5 -D docwithoutkey -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logappend -T 5 -K secret -D nologfile -A",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logappend -T 5 -K secret -D doccomesandgoes -A -L -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logappend -T 5 -K secret -D -N docandnurse -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logappend -T 5 -K secret -D doc_special_char -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logappend -T 5 -K secret -D docwithnumber1 -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+    	{
+		"input": "logappend -T 5 -K secret -D docnoaction -F log",
+		"output": "invalid",
+		"exit": 255
+	},   
+   	{
+		"input": "logappend -T 5 -K secret -D docroominvalid -A -R hello -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+   	{
+		"input": "logappend -T 5 -K secret -D docroominvalid -A -R -20 -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+   	{
+		"input": "logappend -T 5 -K secret -D docroominvalid -A -R @@@ -F log",
+		"output": "invalid",
+		"exit": 255
+	},          
+   	{
+		"input": "logappend -T 5 -K secret -N nurse_special_char -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logappend -T 5 -K secret -N nursewithnumber1 -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+    	{
+		"input": "logappend -T 5 -K secret -N nursenoaction -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+	{
+		"input": "logappend -T -200 -K secret -N nurseinvalidtime -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+    	{
+		"input": "logappend -T 5 -N nursewithoutkey -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+  	{
+		"input": "logappend -T 5 -K secret -D nurseroominvalid -A -R hello -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+   	{
+		"input": "logappend -T 5 -K secret -D nurseroominvalid -A -R -20 -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+   	{
+		"input": "logappend -T 5 -K secret -D nurseroominvalid -A -R @@@ -F log",
+		"output": "invalid",
+		"exit": 255
+	}     
+    ]
+}

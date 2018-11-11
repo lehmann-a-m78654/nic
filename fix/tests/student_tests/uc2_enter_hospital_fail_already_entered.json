@@ -1,0 +1,17 @@
+{
+  "title": "UC2-Log staff entering hospital fail, user already present",
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+    },
+    {
+      "input": "logappend -T 2 -K secret -D ritchey -A -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -S -F log",
+      "output": "ritchey"
+    }
+  ]
+}

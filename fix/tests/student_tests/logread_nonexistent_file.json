@@ -1,0 +1,9 @@
+{
+	"tests": [
+		{
+			"input": "logread -K secret -S -F nonexistent_file",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

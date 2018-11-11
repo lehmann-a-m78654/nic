@@ -1,0 +1,34 @@
+{
+ 	"title": "UC7 Exception: No staff in hospital",
+  	"tests": [
+		{
+	      		"input": "logappend -T 1 -K secret -D Raj -A -F log"
+		},
+		{
+	      		"input": "logappend -T 3 -K secret -D Ritu -A -F log"
+		},
+		{
+	      		"input": "logappend -T 4 -K secret -D Raj -R 489 -A -F log"
+		},
+		{
+	      		"input": "logappend -T 6 -K secret -D Ritu -R 489 -A -F log"
+		},
+		{
+	      		"input": "logappend -T 8 -K secret -D Ritu -R 489 -L -F log"
+		},
+		{
+	      		"input": "logappend -T 9 -K secret -D Raj -R 489 -L -F log"
+		},
+		{
+	      		"input": "logappend -T 10 -K secret -D Raj -L -F log"
+		},
+		{
+	      		"input": "logappend -T 11 -K secret -D Ritu -L -F log"
+		},
+		{
+	      		"input": "logread -K secret -S -F log",
+			"output": ""
+		}
+    		
+	]
+}

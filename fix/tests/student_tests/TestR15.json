@@ -1,0 +1,16 @@
+{
+    "title": "Returns Code 0 when LogRead Exits without Error - REQ 15",
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+        },
+        {
+            "input": "logappend -T 2 -K secret -D ritchey -A -R 489 -F log"
+        },
+        {
+            "input": "logread -K secret -R -D ritchey -F log",
+            "output": "489",
+            "exit": 0
+        }
+    ]
+  }

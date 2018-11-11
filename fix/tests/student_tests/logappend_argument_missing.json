@@ -1,0 +1,48 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D will -A -F log",
+            "description": "add one person to log"
+        },
+        {
+            "input": "logappend -T 2 -K secret -D will -A -R 1 -F log",
+            "description": "user enters room 1"
+        },
+        {
+            "input": "logappend -k secret -D john -A -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "no T or B command"
+        },
+        {
+            "input": "logappend -T -k secret 4 -D john -A -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "no timestamp provided"
+        },
+        {
+            "input": "logappend -T 3 -k -D john -A -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "no secret provided"
+        },
+        {
+            "input": "logappend -T 3 -D john -A -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "no secret provided"
+        },
+        {
+            "input": "logappend -T 3 -k secret -A -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "no user name provided"
+        },
+        {
+            "input": "logappend -T 3 -k secret -D john -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "no arrive or leave command"
+        }
+    ]
+}

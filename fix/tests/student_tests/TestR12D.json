@@ -1,0 +1,23 @@
+{
+    "title": "Log Read Displays Proper Exit Cods when An Argument Is Missing- REQ 12D",
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+        },
+        {
+            "input": "logread  -R -D ritchey -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logread  -K secret -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logread -K secret -R -D ritchey",
+            "output": "invalid",
+            "exit": 255
+        }
+    ]
+  }

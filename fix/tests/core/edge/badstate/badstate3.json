@@ -1,0 +1,43 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K PLMOKNIJ -D JOSHUA -A -F QAZWSXED"
+        }, 
+        {
+            "input": "logappend -T 2 -K PLMOKNIJ -D JOSHUA -A -R 2 -F QAZWSXED"
+        }, 
+        {
+            "input": "logappend -T 3 -K PLMOKNIJ -N NOELLE -A -F QAZWSXED"
+        }, 
+        {
+            "input": "logappend -T 4 -K PLMOKNIJ -N SHENITA -A -F QAZWSXED"
+        }, 
+        {
+            "input": "logappend -T 5 -K PLMOKNIJ -N NOELLE -L -F QAZWSXED"
+        }, 
+        {
+            "input": "logappend -T 6 -K PLMOKNIJ -D KATHY -A -F QAZWSXED"
+        }, 
+        {
+            "exit": 255, 
+            "input": "logappend -T 6 -K PLMOKNIJ -D KATHY -A -R 1 -F QAZWSXED", 
+            "output": "invalid"
+        }, 
+        {
+            "input": "logappend -T 7 -K PLMOKNIJ -N WARD -A -F QAZWSXED"
+        }, 
+        {
+            "input": "logappend -T 8 -K PLMOKNIJ -D KATHY -L -F QAZWSXED"
+        }, 
+        {
+            "input": "logappend -T 9 -K PLMOKNIJ -D JOSHUA -L -R 2 -F QAZWSXED"
+        }, 
+        {
+            "input": "logappend -T 10 -K PLMOKNIJ -D JOSHUA -A -R 11 -F QAZWSXED"
+        }, 
+        {
+            "input": "logread -K PLMOKNIJ -S -F QAZWSXED", 
+            "output": "JOSHUA\nSHENITA,WARD\n11: JOSHUA"
+        }
+    ]
+}

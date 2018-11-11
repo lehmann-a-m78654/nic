@@ -1,0 +1,11 @@
+{
+	"title": "UC3: Log staff entering a room. Success",
+    "tests": [
+			{
+        "input": "logappend -T 3 -K secret -D Alice -A -F log"
+			},
+			{
+        "input": "logappend -T 4 -K secret -D Alice -A -R 100 -F log"
+			}
+    ]
+}

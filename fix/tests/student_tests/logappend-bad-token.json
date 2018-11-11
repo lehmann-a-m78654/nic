@@ -1,0 +1,13 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K token -D ritchey -A -F log",
+            "exit": 0
+        },
+        {
+            "input": "logappend -T 2 -K badToken -D ritchey -L -F log",
+            "output": "integrity violation",
+            "exit": 255
+        }
+    ]
+}

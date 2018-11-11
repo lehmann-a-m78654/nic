@@ -1,0 +1,23 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -F log",
+            "exit": 0
+        },
+        {
+            "input": "logread -K token -S -F",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logread -K -S -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logread -K token -R -N ritch3y -F log",
+            "output": "invalid",
+            "exit": 255
+        }
+    ]
+}

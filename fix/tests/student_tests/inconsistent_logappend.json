@@ -1,0 +1,18 @@
+{
+	"tests": [
+		{
+			"input": "logappend -T 2 -K secret -D ritchey -A -F log",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 3 -K secret -D ritchey -A -L -R 489 -F log",
+			"output": "invalid",
+			"exit": 255
+		},
+		{
+			"input": "logappend -T 3 -K secret -D -N ritchey -L -R 489 -F log",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K QWERTYUI -N AHN -A -F QAZW-SXE",
+			"output": "invalid",
+			"exit": 255
+        }
+    ]
+}

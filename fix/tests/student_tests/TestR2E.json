@@ -1,0 +1,10 @@
+{
+    "title": "Arrival to Room and Staff is not in Hospital- REQ 2 - E",
+    "tests": [
+          {
+            "input": "logappend -T 1 -K secret -D ritchey -A -R 489 -F log",
+            "output": "invalid",
+            "exit": 255
+          }
+    ]
+  }

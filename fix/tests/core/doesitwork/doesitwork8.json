@@ -1,0 +1,38 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K UBSVZGIX -D JOSHUA -A -F ./logs/../logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logappend -T 2 -K UBSVZGIX -D JOSHUA -A -R 2 -F logs/../logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logappend -T 3 -K UBSVZGIX -N NOELLE -A -F ./logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logappend -T 4 -K UBSVZGIX -N SHENITA -A -F ././/./logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logappend -T 5 -K UBSVZGIX -N NOELLE -L -F logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logappend -T 6 -K UBSVZGIX -D KATHY -A -F logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logappend -T 7 -K UBSVZGIX -N WARD -A -F logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logappend -T 8 -K UBSVZGIX -D KATHY -L -F logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logappend -T 9 -K UBSVZGIX -D JOSHUA -L -R 2 -F logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logappend -T 10 -K UBSVZGIX -D JOSHUA -A -R 11 -F logs/2018/09/24/TPWMVDMZ"
+        }, 
+        {
+            "input": "logread -K UBSVZGIX -S -F logs/2018/09/24/TPWMVDMZ", 
+            "output": "JOSHUA\nSHENITA,WARD\n11: JOSHUA"
+        }
+    ]
+}

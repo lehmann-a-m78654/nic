@@ -1,0 +1,159 @@
+1) Record.h, logappend.cpp and logread.cpp: moved all common code into Record.h and removed requirement that password had to be 01234567890123456789012345678901, do no password checking at all
+    passed: badargs10.json
+    passed: badargs2.json
+    passed: badargs3.json
+    passed: LR.invalidLog.json
+    passed: TestR11.json
+    passed: TestR12C.json
+    passed: TestR12D.json
+    passed: TestR20.json
+    passed: TestR2B.json
+    passed: TestR2C.json
+    passed: TestR2D.json
+    passed: TestR2E.json
+    passed: TestR2F.json
+    passed: TestR2G.json
+    passed: TestR2H.json
+    passed: TestR2L.json
+    passed: TestR2M.json
+    passed: UC2_Ex_main_entrance_reenter.json
+    passed: UC2_Ex_timestamp_inconsistent.json
+    passed: UC2_staff_enter_hospital.json
+    passed: UC3_2.json
+    passed: UC3_3.json
+    passed: UC3_4.json
+    passed: UC3_6.json
+    passed: UC3_7.json
+    passed: UC3_Ex_staff_not_in_hospital.json
+    passed: UC3_Ex_timestamp_inconsistent.json
+    passed: UC3_log_staff_enter_room.json
+    passed: UC3_room_id_exception.json
+    passed: UC4_1.json
+    passed: UC4_4.json
+    passed: UC4_5.json
+    passed: UC4_6.json
+    passed: UC4_Ex_timestamp_inconsistent.json
+    passed: UC4_log_staff_exiting.json
+    passed: UC4_staff_inside_a_room.json
+    passed: UC4_staff_not_in_hospital.json
+    passed: UC5_6.json
+    passed: UC5_7.json
+    passed: UC5_Ex_Staff_not_in_room.json
+    passed: UC5_Ex_timestamp_inconsistent.json
+    passed: UC5_log_staff_exiting_room.json
+    passed: UC5_room_id_exception.json
+    passed: UC8_Exception_no_room_entered.json
+    passed: UC8_name_exception.json
+    passed: append_success.json
+    passed: double_hospital_arrival.json
+    passed: hospital_enter.json
+    passed: hospital_exit.json
+    passed: inconsistent_logappend.json
+    passed: invalid_logappend_arguments.json
+    passed: invalid_timestamp.json
+    passed: leave_hospital_before_arriving.json
+    passed: leave_hospital_in_room.json
+    passed: logappend-dup-staff-hos-entry.json
+    passed: logappend-exit-hos-staff-absent.json
+    passed: logappend-exit-hos-staff-in-room.json
+    passed: logappend-exit-room-staff-absent.json
+    passed: logappend-exit-room-staff-in-hos.json
+    passed: logappend-invalid-args.json
+    passed: logappend-space-perf.json
+    passed: logappend-speed-perf.json
+    passed: logappend-staff-absent.json
+    passed: logappend_argument_inconsistent.json
+    passed: logappend_argument_missing.json
+    passed: logappend_testcase_nurse.json
+    passed: logread-inconsistent-args.json
+    passed: logread-missing-args.json
+    passed: missing_logappend_arguments.json
+    passed: req1.json
+    passed: req11.json
+    passed: req12c.json
+    passed: req12d.json
+    passed: req12e.json
+    passed: req20_logappend_throughput_1rps.json
+    passed: req2b.json
+    passed: req2c.json
+    passed: req2d.json
+    passed: req2e.json
+    passed: req2f.json
+    passed: req2g.json
+    passed: req2h.json
+    passed: room_before_hospital.json
+    passed: room_enter.json
+    passed: room_exit.json
+    passed: test_1.json
+    passed: uc3_enter_room_fail_not_in_hospital.json
+    passed: uc4_exit_hospital_fail_not_in_hospital.json
+    passed: uc4_exit_hospital_fail_timestamp_before.json
+    passed: uc4_exit_hospital_fail_timestamp_equal.json
+    passed: username.json
+    total passed: 130
+    total failed: 76
+2) Record.h, line 603, 845, added encryption and decrytption
+    failed: badargs3.json
+    failed: badargs4.json
+    passed: LR.NoLog.json
+    passed: TestR12E.json
+    passed: TestR13.json
+    failed: TestR2I.1.json
+    failed: TestR2J.json
+    passed: UC7_no_staff.json
+    failed: batch_file_noexist.json
+    failed: batch_with_b.json
+    failed: invalid_logappend_arguments.json
+    failed: logappend-no-batch-file.json
+    failed: req2i.json
+    failed: uc6_batch_fail_doesnt_exist.json
+    total passed: 102
+    total failed: 104
+3) logread.cpp line 292, 309, and 341 fix format of output, dont print comma after last name in list
+    passed: badargs3.json
+    passed: badargs4.json
+    passed: TestR19.json
+    passed: TestR2I.1.json
+    passed: TestR2J.json
+    passed: batch_file_noexist.json
+    passed: batch_with_b.json
+    passed: enterHospital.json
+    passed: invalid_logappend_arguments.json
+    passed: logappend-no-batch-file.json
+    passed: no_change_log.json
+    passed: req2i.json
+    passed: uc2_enter_hospital_fail_already_entered.json
+    passed: uc3_enter_room_fail_already_in_room.json
+    passed: uc6_batch_fail_doesnt_exist.json
+    total passed: 117
+    total failed: 89
+4) Record.h line 297 fixed problem where nurse names were being erased
+    passed: doesitwork1.json
+    passed: doesitwork2.json
+    passed: doesitwork3.json
+    passed: doesitwork6.json
+    passed: doesitwork9.json
+    passed: badargs1.json
+    passed: badstate1.json
+    passed: badstate3.json
+    passed: summary1.json
+    passed: TestR1.json
+    passed: TestR21.json
+    passed: UC1.json
+    passed: exampleTestCase.json
+    passed: req9.json
+    passed: testexample.json
+    passed: uc2_enter_hospital_success.json
+    passed: uc3_enter_room_fail_in_another_room.json
+    passed: uc5_exit_room_fail_in_another_room.json
+    passed: uc5_exit_room_fail_not_in_room.json
+    total passed: 136
+    total failed: 70
+5) Record.h line 235 : sorted rooms by ascending order rather than descending
+    passed: doesitwork4.json
+    passed: summary2.json
+    passed: enterRoom.json
+    passed: logread_state.json
+    total passed: 140
+    total failed: 66
+

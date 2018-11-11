@@ -1,0 +1,8 @@
+{
+	"tests": [
+		{
+			"input": "logappend -T 2 -K secret -D ritchey -A -F log",
+			"exit": 0
+		}
+	]
+}

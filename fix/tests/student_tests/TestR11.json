@@ -1,0 +1,12 @@
+{
+    "title": "Log Read Displays No Info When Missing Staff Is Entered- REQ 11",
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D rick -A -F log"
+        },
+        {
+            "input": "logread -K secret -R -D ritchey -F log",
+            "output": ""
+        }
+    ]
+  }

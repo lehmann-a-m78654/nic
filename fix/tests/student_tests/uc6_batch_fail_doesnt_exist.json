@@ -1,0 +1,10 @@
+{
+  	"title": "UC6-Error, batch file doesnt exist",
+  	"tests": [
+    		{
+	      	"input": "logappend -B batch",
+      		"output": "invalid",
+      		"exit": 255
+    		}
+  	]
+}
