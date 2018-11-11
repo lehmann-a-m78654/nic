@@ -1,0 +1,22 @@
+{
+  "title": "no logfile",
+  "tests": [
+    
+    {
+      "input": "logread -K secret -S -F",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -R -D ritchey -F",
+      "output": "invalid",
+      "exit": 255
+    }
+    ,
+    {
+      "input": "logread -K secret -R -N bregger -F",
+      "output": "invalid",
+      "exit": 255
+    }
+  ]
+}

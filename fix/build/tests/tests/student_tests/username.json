@@ -1,0 +1,18 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D will -A -F log",
+            "description": "add one person to log"
+        },
+        {
+            "input": "logappend -T 2 -K secret -D will -A -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "username 'will' already in use by same type"
+          },
+          {
+            "input": "logappend -T 2 -K secret -N will -A -F log",
+            "description": "doctors and nurses can have the same name"
+          }
+    ]
+}

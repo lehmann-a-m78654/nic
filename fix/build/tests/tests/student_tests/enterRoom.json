@@ -1,0 +1,38 @@
+{
+	"tests": 
+	[
+		{
+			"input": "logappend -T 3 -K token -N Kerry -A -R 1 -F hospitalLog",
+			"output": "invalid",
+			"exit": 255 
+		},
+		{
+			"input": "logappend -T 3 -K token -N Kerry -A -F hospitalLog",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 4 -K token -N Kerry -A -R 001 -F hospitalLog",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 5 -K token -D Carolyn -A -F hospitalLog",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 6 -K token -D Carolyn -A -R 03 -F hospitalLog",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 7 -K token -D Carolyn -A -R 3 -F hospitalLog",
+			"output": "invalid",
+			"exit": 255 
+		},
+		{
+			"input": "logread -K token -S -F hospitalLog", 
+			"output": "Carolyn\nKerry\n1: Kerry\n3: Carolyn",
+			"exit": 0
+		}
+	],
+	"performance":"time"
+}
+	

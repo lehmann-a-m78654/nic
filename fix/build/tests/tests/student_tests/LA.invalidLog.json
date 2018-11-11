@@ -1,0 +1,11 @@
+{
+  "title": "invalid log file",
+  "tests": [
+    
+    {
+      "input": "logread -K secret -S -F MadeUpLog1",
+      "output": "invalid",
+      "exit": 255
+    }
+  ]
+}

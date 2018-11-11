@@ -1,0 +1,14 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D will -A -F log",
+            "description": "add one person to log"
+        },
+        {
+            "input": "logappend -T 1 -K secret -D john -A -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "timestamp already used"
+        }
+    ]
+}

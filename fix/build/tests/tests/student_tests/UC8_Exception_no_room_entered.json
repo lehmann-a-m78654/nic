@@ -1,0 +1,12 @@
+{
+ 	"title": "UC8 Exception: Get room list for a staff in chronological order, but staff has not entered any room",
+  	"tests": [
+		{
+	      		"input": "logappend -T 1 -K secret -D Raj -A -F log"
+		},
+		{
+	      		"input": "logread -K secret -D Raj -R -F log",
+			"output": ""
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+    "batch": "Li9sb2dhcHBlbmQgLVQgMSAtSyBzZWNyZXQgLUQgcml0Y2hleSAtQSAtRiBsb2cKLi9sb2dhcHBlbmQgLVQgMiAtSyBzZWNyZXQgLU4gYnJlZ2dlciAtQSAtRiBsb2cKLi9sb2dhcHBlbmQgLVQgNSAtSyBzZWNyZXQgLUQgcml0Y2hleSAtQSAtUiA0ODkgLUYgbG9nCi4vbG9nYXBwZW5kIC1UIDYgLUsgc2VjcmV0IC1OIGJyZWdnZXIgLUEgLVIgNDg5IC1GIGxvZwouL2xvZ2FwcGVuZCAtQiBiYXRjaA==",
+    "tests": [
+        {
+            "input": "logappend -B batch",
+            "output": "invalid",
+            "exit": 0
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+ 	"title": "UC3 Exception: Invalid room id",
+  	"tests": [
+    		{
+	      		"input": "logappend -T 1 -K secret -D Raj -A -F log"
+		},
+    		{
+	      		"input": "logappend -T 4 -K secret -D Raj -R -489 -A -F log",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

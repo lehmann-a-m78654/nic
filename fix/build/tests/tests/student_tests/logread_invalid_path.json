@@ -1,0 +1,9 @@
+{
+	"tests": [
+		{
+			"input": "logread -K secret -S -F invalid_path",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

@@ -1,22 +1,20 @@
-blah: Record.o logappend.o logread.o
-	g++ -std=c++11 Record.o logappend.o -o logappend -lssl -lcrypto
-	g++ -std=c++11 Record.o logread.o -o logread -lssl -lcrypto
-logappend: Record.o logappend.o
-	g++ -std=c++11 Record.o logappend.o -o logappend -lssl -lcrypto
-logread: Record.o logread.o
-	g++ -std=c++11 Record.o logread.o -o logread -lssl -lcrypto
-Record.o: Record.h State.h Record.cpp
-	g++ -std=c++11 -c Record.cpp 
-logappend.o: Record.h logappend.cpp
-	g++ -std=c++11 -c logappend.cpp
-logread.o: logread.cpp Record.h
-	g++ -std=c++11 -c logread.cpp
-clean:
-	rm *.o logappend
-	rm *.o logread
+# blah: Record.h logappend.cpp logread.cpp
+# 	g++ -std=c++11 logappend.o -o logappend 
+# 	g++ -std=c++11 logread.o -o logread 
+# logappend: logappend.o
+# 	g++ -std=c++11 logappend.o -o logappend 
+# logread: logread.o
+# 	g++ -std=c++11 logread.o -o logread 
 all:
-	make logread
-	make logappend
-coverage: Record.o logappend.o logread.o
-	g++ -std=c++11 Record.o logappend.o -o logappend -lssl -lcrypto -fprofile-arcs -ftest-coverage
-	g++ -std=c++11 Record.o logread.o -o logread -lssl -lcrypto -fprofile-arcs -ftest-coverage
+	g++ -std=c++11 -g -o logappend logappend.cpp
+	g++ -std=c++11 -g -o logread logread.cpp
+logappend: 
+	g++ -std=c++11 -g -o logappend logappend.cpp
+logread:  
+	g++ -std=c++11 -g -o logread logread.cpp
+clean:
+	rm logread logappend
+
+coverage: logappend.o logread.o
+	g++ -std=c++11 logappend.o -o logappend -fprofile-arcs -ftest-coverage
+	g++ -std=c++11 logread.o -o logread -fprofile-arcs -ftest-coverage

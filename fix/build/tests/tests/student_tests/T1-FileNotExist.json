@@ -1,0 +1,10 @@
+{
+  "tests": [
+	{
+		"_comment": " logappend file does not exist ",
+		"input": "logread -K secret -S -F log3",
+		"output": "invalid",
+		"exit": 255
+    }
+  ]
+}

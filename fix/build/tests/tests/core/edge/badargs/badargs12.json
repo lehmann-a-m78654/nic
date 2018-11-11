@@ -1,0 +1,9 @@
+{
+    "tests": [
+        {
+            "exit": 255, 
+            "input": "logappend -T x -K UBSVZGIX -N NOELLE -A -F TPWMVDMZ", 
+            "output": "invalid"
+        }
+    ]
+}

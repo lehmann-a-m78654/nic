@@ -1,0 +1,39 @@
+{
+  "title": "UC4-Log staff exiting hospital after entering hospital, and also after entering room",
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+    },
+    {
+      "input": "logappend -T 2 -K secret -D ritchey -L -F log"
+    },
+    {
+      "input": "logread -K secret -S -F log",
+      "output": ""
+    },
+    {
+      "input": "logappend -T 3 -K secret -N nursename -A -F log"
+    },
+    {
+      "input": "logappend -T 4 -K secret -N nursename -A -R 489 -F log"
+    },
+    {
+      "input": "logappend -T 5 -K secret -N nursename -L -R 489 -F log"
+    },
+    {
+      "input": "logappend -T 6 -K secret -N nursename -L -F log"
+    },
+    {
+      "input": "logread -K secret -S -F log",
+      "output": ""
+    },
+    {
+      "input": "logread -K secret -R -N nursename -F log",
+      "output": "489"
+    },
+    {
+      "input": "logread -K secret -R -D ritchey -F log",
+      "output": ""
+    }
+  ]
+}

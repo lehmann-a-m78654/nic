@@ -1,0 +1,31 @@
+{
+	"title": "UC5-Error, staff exiting room while in another room",
+	"tests": [
+	{
+		"input": "logappend -T 1 -K secret -D doctorname -A -F log"
+	},
+	{
+		"input": "logappend -T 2 -K secret -D doctorname -A -R 100 -F log"
+	},
+	{
+ 		"input": "logappend -T 3 -K secret -D doctorname -L -R 489 -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+	{
+		"input": "logappend -T 4 -K secret -N nursename -A -F log"
+	},
+	{
+		"input": "logappend -T 5 -K secret -N nursename -A -R 100 -F log"
+	},
+	{
+		"input": "logappend -T 6 -K secret -N nursename -L -R 489 -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+	{
+    	"input": "logread -K secret -S -F log",
+		"output": "doctorname\nnursename\n100: doctorname,nursename"
+    }
+  ]
+}

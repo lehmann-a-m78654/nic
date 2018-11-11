@@ -1,0 +1,24 @@
+{
+    "title" : "REQ 2 k",
+    "description" : "invalid argument",
+      "tests": [
+        {
+          "input": "logappend -T 1 -K secret -D Alice19 -A -F log",
+          "output": "invalid",
+          "exit": 255
+        },
+        {
+          "input": "logappend -T time -K secret -D Alice19 -A -F log",
+          "output": "invalid",
+          "exit": 255
+        },
+        {
+          "input": "logappend -T 1 -K secret -D Alice -A -F log"
+        },
+        {
+          "input": "logappend -T 2 -K secret -D Alice -A -R one -F log",
+          "output": "invalid",
+          "exit": 255
+        }
+      ]
+    }

@@ -1,0 +1,14 @@
+{
+ 	"title": "UC6: Append events to log in batch mode and read from wrong log",
+	"batch":"LVQgMSAtSyBzZWNyZXQgLUQgcml0Y2hleSAtQSAtRiBsb2cKLVQgMyAtSyBzZWNyZXQgLUQgcml0Y2hleSAtQSAtUiA0ODkgLUYgbG9nCi1UIDQgLUsgc2VjcmV0IC1OIGJyZWdnZXIgLUEgLUYgbG9nCi1UIDUgLUsgc2VjcmV0IC1OIGJyZWdnZXIgLUEgLVIgNDg5IC1GIGxvZw==",
+  	"tests": [
+		{
+			"input":"logappend -B batch"
+		},
+		{
+			"input":"logread -K secret -S -F log1",
+			"output": "invalid",
+	      		"exit": 255
+		}
+	]
+}

@@ -1,0 +1,9 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K QWERTYUI -N AHN -A -F bad/path/../../to/../../PLKJHGFD",
+			"output": "invalid",
+			"exit": 255
+        }
+    ]
+}

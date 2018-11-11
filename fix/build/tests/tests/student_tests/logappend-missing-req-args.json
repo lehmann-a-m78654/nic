@@ -1,0 +1,29 @@
+{
+    "tests": [
+        {
+            "input": "logappend -K secret -D ritchey -A -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 1 -D ritchey -A -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 1 -K secret -A -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A",
+            "output": "invalid",
+            "exit": 255
+        }
+    ]
+}

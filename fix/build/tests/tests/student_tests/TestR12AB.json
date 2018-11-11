@@ -1,0 +1,10 @@
+{
+    "title": "Log Read Exits on LogFile doesn't Exist - REQ 12A and B",
+    "tests": [
+        {
+            "input": "logread -K secret -R -D ritchey -F log",
+            "output": "invalid",
+            "exit": 255
+        }
+    ]
+  }

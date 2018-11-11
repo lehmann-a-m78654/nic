@@ -1,0 +1,14 @@
+{
+    "title" : "REQ 2 h",
+    "description" : "Person leaving room when not in room",
+      "tests": [
+        {
+          "input": "logappend -T 1 -K secret -D Alice -A -F log"
+        },
+        {
+          "input": "logappend -T 2 -K secret -D Alice -L -R 100 -F log",
+          "output": "invalid",
+          "exit": 255
+        }
+      ]
+    }

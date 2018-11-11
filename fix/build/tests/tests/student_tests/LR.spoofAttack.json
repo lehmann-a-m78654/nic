@@ -1,0 +1,13 @@
+{
+  "title": "incorrect token",
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+    },
+    {
+      "input": "logread -K notsecret -S -F log",
+      "output": "integrity violation",
+      "exit": 255
+    }
+  ]
+}

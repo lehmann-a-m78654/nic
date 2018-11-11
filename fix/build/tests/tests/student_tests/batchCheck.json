@@ -1,0 +1,22 @@
+{
+	"tests": 
+	[
+		{
+			"input": "logappend -B notBatchFile",
+			"output": "invalid",
+			"exit": 255 
+		}, 
+		{
+			"input": "logappend -B batch",
+			"output": "invalid\ninvalid",
+			"exit": 0
+		},
+		{
+			"input": "logread -K token -S -F hospitalLog", 
+			"output": "Amanda\nCarolyn\n3: Carolyn\n4: Amanda",
+			"exit": 0 
+		}
+	],
+	"batch": "LVQgMSAtSyB0b2tlbiAtRCBBbWFuZGEgLUEgLUYgaG9zcGl0YWxMb2cKLVQgNSAtSyB0b2tlbiAtTiBDYXJvbHluIC1BIC1GIGhvc3BpdGFsTG9nCi1UIDkgLUsgdG9rZW4gLU4gS2VycnkgLUEgLVIgMyAtRiBob3NwaXRhbExvZwotVCAxMCAtSyB0b2tlbiAtTiBDYXJvbHluIC1BIC1SIDMgLUYgaG9zcGl0YWxMb2cKLVQgMTIgLUsgdG9rZW4gLUQgQW1hbmRhIC1BIC1SIDQgLUYgaG9zcGl0YWxMb2cKLUIgLVQgMTUgLUsgdG9rZW4gLUQgQW1hbmRhIC1MIC1SIDMgLUYgaG9zcGl0YWxMb2c=",
+	"performance":"time"
+}

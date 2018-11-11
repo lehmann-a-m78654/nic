@@ -1,0 +1,56 @@
+{
+  "tests": [
+	{
+      "input": "logappend -T 1 -K secret -N bregger -A -F log"
+    },
+    {
+      "input": "logappend -T 2 -K secret -N bregger -A -R 489 -F log"
+    },
+	 {
+      "input": "logappend -T 3 -K secret -N bregger -A -R 489 -F log",
+	  "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logappend -T 2 -K secret -N bregger -L -R 489 -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+	{
+      "input": "logappend -T 4 -K secret -N bregger -A -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+	{
+      "input": "logappend -T 5 -K secret -N bregger -A -R 472 -F log",
+	  "output": "invalid",
+      "exit": 255
+    },
+	{
+      "input": "logappend -T 6 -K secret -N bregger -L -R 472 -F log",
+	  "output": "invalid",
+      "exit": 255
+    },
+	{
+      "input": "logappend -T 7 -K secret -N bregger -L -R 489 -F log"
+    },
+	{
+      "input": "logappend -T 8 -N bregger -L -R 489 -F log",
+	  "output": "invalid",
+      "exit": 255
+    },
+	{
+      "input": "logappend -T 9 -K secret -N bregger -L -F log"
+    },
+	{
+      "input": "logappend -T 10 -K secret -N bregger -A -R 472 -F log",
+	  "output": "invalid",
+      "exit": 255
+    },
+	{
+      "input": "logappend -T 11 -K secret -N bregger -L -R 472 -F log",
+	  "output": "invalid",
+      "exit": 255
+    }
+  ]
+}

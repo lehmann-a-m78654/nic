@@ -1,0 +1,9 @@
+{
+	"tests": [
+		{
+			"input": "logread -K secret -R -D -N bobert -F log",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

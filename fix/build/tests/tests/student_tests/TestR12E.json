@@ -1,0 +1,19 @@
+{
+    "title": "Log Read Displays Proper Exit Code when An Argument Is Inconsistent- REQ 12E",
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+        },
+        {
+            "input": "logread -K secret -R -D -N ritchey -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logread -K secret -S -R -D ritchey -F log",
+            "output": "invalid",
+            "exit": 255
+        }
+        
+    ]
+  }

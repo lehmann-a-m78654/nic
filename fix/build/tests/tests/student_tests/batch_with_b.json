@@ -1,0 +1,10 @@
+{
+    "tests": [
+        {
+            "input": "logappend -B contains_b.bat",
+            "output": "invalid",
+            "exit": 255,
+            "description": "batch file contains batch command"
+        }
+    ]
+}

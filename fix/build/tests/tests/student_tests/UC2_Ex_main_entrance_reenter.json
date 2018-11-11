@@ -1,0 +1,13 @@
+{
+ 	"title": "UC2 Exception: Staff enters main entrance even though staff was logged to be already inside the hospital",
+  	"tests": [
+		{
+	      		"input": "logappend -T 1 -K secret -D Raj -A -F log"
+		},
+    		{
+	      		"input": "logappend -T 2 -K secret -D Raj -A -F log",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

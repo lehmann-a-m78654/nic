@@ -1,0 +1,17 @@
+{
+  "tests": [
+
+	{
+	 "_comment": "tests authentic secret/nonsecret for arrival ",
+      "input": "logappend -T 6 -K secret -N bregger -A -F log"
+    },
+    {
+      "input": "logappend -T 7 -K secret -N bregger -A -R 489 -F log"
+    },
+    {
+      "input": "logread -K nonsecret -S -F log",
+      "output": "integrity violation",
+	  "exit": 255
+    }
+  ]
+}

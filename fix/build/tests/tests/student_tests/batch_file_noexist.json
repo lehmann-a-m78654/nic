@@ -1,0 +1,10 @@
+{
+    "tests": [
+        {
+            "input": "logappend -B bogusfile.bat",
+            "output": "invalid",
+            "exit": 255,
+            "description": "file does not exist"
+        }
+    ]
+}
