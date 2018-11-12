@@ -1,0 +1,15 @@
+{
+	"title": "UC4-Error, staff exiting hospital without entering hospital",
+	"tests": [
+	{
+		"input": "logappend -T 1 -K secret -D doctorname -L -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+	{
+ 		"input": "logappend -T 2 -K secret -N nursename -L -F log",
+		"output": "invalid",
+		"exit": 255
+	}
+  ]
+}

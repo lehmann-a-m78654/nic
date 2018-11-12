@@ -1,0 +1,12 @@
+{
+  "tests" : [
+   {   
+       "input": "logappend -T 1 -K f -D Bob -A -F askjdasdasd/asfa#s",
+       "output": "invalid",
+       "exit":255
+   }
+],
+  "break": "correctness"
+ 
+ 
+}

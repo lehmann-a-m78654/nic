@@ -1,0 +1,10 @@
+{
+  "tests": [
+    {
+      "input": "logappend -T 1 -K token$ -D reed -A -F logOne",
+      "output": "invalid",
+      "exit": 255
+    }
+  ],
+  "break": "correctness"
+}

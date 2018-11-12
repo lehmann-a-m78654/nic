@@ -1,0 +1,10 @@
+{
+    "tests":[
+        {
+            "input":"logappend -T 1 -K starks -N Jon -D Snow -A -F log2",
+            "output": "invalid", "exit":255
+        }
+    ],
+    "break": "correctness"
+
+}

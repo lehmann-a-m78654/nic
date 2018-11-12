@@ -1,0 +1,15 @@
+{
+    "tests":[
+        {
+            "input":"logappend -T 1 -K secret -D rit,chey -A -F log",
+	    "output":"invalid",
+	    "exit": 255
+        },
+        {
+            "input":"logread -K secret -S -F log",
+	    "output":"invalid",
+	    "exit": 255
+        }
+    ],
+    "break": "correctness"
+}

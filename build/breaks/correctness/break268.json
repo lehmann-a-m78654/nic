@@ -1,0 +1,12 @@
+{
+  "tests": [
+    {
+      "input": "logappend -T -3 -K secret -N mike -A -F log",
+      "output": "invalid",
+      "exit":255
+    }
+   
+  ],
+  
+  "break":"correctness"
+}

@@ -1,0 +1,19 @@
+{
+	"tests": [
+		{
+			"input": "logread -K invalid_token -S -F log",
+			"output": "invalid",
+			"exit": 255
+		},
+		{
+			"input": "logread -K secret -R -D invalid_name -F log",
+			"output": "invalid",
+			"exit": 255
+		},
+		{
+			"input": "logread -K secret -R -N invalid_name -F log",
+			"output": "invalid",
+			"exit": 255
+		}
+	]
+}

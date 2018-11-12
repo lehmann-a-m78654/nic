@@ -290,6 +290,7 @@ bool handleS(string token, string logfile) {
 	int lastRoomNum = -2;
 	priority_queue<string, vector<string>, greater<string> > namesInRoom;
 	while (!rooms.empty()) {
+		// cout << rooms.top().roomNum << endl; //FIXME
 		if (rooms.top().roomNum == -1) {
 			rooms.pop();
 			continue;

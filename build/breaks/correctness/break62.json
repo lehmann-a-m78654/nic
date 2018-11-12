@@ -1,0 +1,16 @@
+{
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -D ritchey -A -F log2",
+      "output":"",
+      "exit": 0
+    },
+	{
+      "input": "logread -K secret -R -D j2ohn -F log2",
+      "description" : "REQ 12, part c-exploited",
+	  "output": "invalid",
+	  "exit": 255
+    }
+  ],
+  "break": "correctness"
+}

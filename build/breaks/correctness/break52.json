@@ -1,0 +1,16 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K key -D JOSHUA -A -F JKHFDJKASH"
+        },
+	{
+            "input": "logappend -T 2 -K key -N JOSHUA -A -F JKHFDJKASH"
+        },
+	    {
+            "input": "logread -K key -R -D JOSHUA -N test -F JKHFDJKASH",
+            "output": "invalid",
+			"exit": 255
+        }
+    ],
+	"break":"correctness"
+}

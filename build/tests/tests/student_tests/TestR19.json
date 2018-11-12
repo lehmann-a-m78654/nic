@@ -1,0 +1,14 @@
+{
+    "title": "LogAppend and LogRead use at most 1GB of memory - REQ 17",
+
+    "tests": [
+      {
+        "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+      },
+      {
+        "input": "logread -K secret -S -F log",
+        "output": "ritchey"
+      }
+    ],
+  "performance": "space"
+  }

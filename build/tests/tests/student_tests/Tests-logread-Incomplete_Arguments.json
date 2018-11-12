@@ -1,0 +1,89 @@
+{
+  "tests": [
+    {
+      "input": "logappend -T 1 -K token -D reed -A -F logOne"
+    },
+    {
+      "input": "logappend -T 2 -K token -D reed -A -R 100 -F logOne"
+    },
+    {
+      "input": "logread -R -D reed -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -K token -R -D reed -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -D reed -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -N reed -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -R -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -R -D reed -D reedtwo -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -R -N reed -N reedtwo -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -S -R -D reed -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -S -R -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -S -R -N alberta -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -S -S -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -R -R -D reed -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -R -D reed",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -R -R  -D reed -F logOne -F logOne",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -R -D reed -F logOne",
+      "output": "100"
+    }
+  ]
+}

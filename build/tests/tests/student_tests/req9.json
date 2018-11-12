@@ -1,0 +1,23 @@
+{
+    "Title" : "REQ 9",
+    "Description" : "display hospital status",
+      "tests": [
+        {
+          "input": "logappend -T 1 -K secret -D Alice -A -F log"
+        },
+        {
+          "input": "logappend -T 2 -K secret -D Alice -A -R 100 -F log"
+        },
+        {
+          "input": "logappend -T 3 -K secret -N Bob -A -F log"
+        },
+        {
+          "input": "logappend -T 4 -K secret -N Bob -A -R 100 -F log"
+        },
+        {
+          "input": "logread -K secret -S -F log",
+          "output": "Alice\nBob\n100: Alice,Bob",
+          "exit": 0
+        }
+      ]
+    }

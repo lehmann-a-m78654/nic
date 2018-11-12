@@ -1,0 +1,15 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T -1 -K easykey -N Joy -A -F easykeylog",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logread -K easykey -S -F easykeylog",
+            "output": "invalid",
+            "exit": 255
+        }
+    ],
+    "break": "correctness"
+}

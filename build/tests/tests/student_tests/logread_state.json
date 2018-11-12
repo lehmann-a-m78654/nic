@@ -1,0 +1,33 @@
+{
+	"tests": [
+		{
+			"input": "logappend -T 2 -K secret -D ritchey -A -F log",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 3 -K secret -D ritchey -A -R 489 -F log",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 4 -K secret -D bobert -A -F log",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 5 -K secret -N joebert -A -F log",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 6 -K secret -D bobert -A -R 200 -F log",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 7 -K secret -N joebert -A -R 200 -F log",
+			"exit": 0
+		},
+		{
+			"input": "logread -K secret -S -F log",
+			"output": "bobert,ritchey\njoebert\n200: bobert,joebert\n489: ritchey",
+			"exit": 0
+		}
+	]
+}

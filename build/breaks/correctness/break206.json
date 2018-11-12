@@ -1,0 +1,10 @@
+{
+	"tests": [
+		{
+			"input": "logappend -T 2 -K secret -D ritch -N bregger -A -F log",
+			"exit": 255,
+			"output": "invalid"
+		}
+	],
+	"break": "correctness"
+}

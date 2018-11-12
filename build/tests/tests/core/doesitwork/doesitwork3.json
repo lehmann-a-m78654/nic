@@ -1,0 +1,68 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K OKWLHUTU -N ARDELL -A -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 2 -K OKWLHUTU -N ARDELL -A -R 7 -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 3 -K OKWLHUTU -N ARDELL -L -R 7 -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 4 -K OKWLHUTU -N ARDELL -L -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 5 -K OKWLHUTU -D MELINDA -A -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 6 -K OKWLHUTU -D MICHELL -A -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 7 -K OKWLHUTU -D MICHELL -A -R 11 -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 8 -K OKWLHUTU -D MELINDA -A -R 9 -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 9 -K OKWLHUTU -N GERALYN -A -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 10 -K OKWLHUTU -N MARYLEE -A -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 11 -K OKWLHUTU -D MICHELL -L -R 11 -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 12 -K OKWLHUTU -D MICHELL -L -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 13 -K OKWLHUTU -N GERALYN -A -R 8 -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 14 -K OKWLHUTU -D GIGI -A -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 15 -K OKWLHUTU -D MELINDA -L -R 9 -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 16 -K OKWLHUTU -D MELINDA -A -R 2 -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 17 -K OKWLHUTU -D LIN -A -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 18 -K OKWLHUTU -N ROXANN -A -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 19 -K OKWLHUTU -N GERALYN -L -R 8 -F PJHBNMKK"
+        }, 
+        {
+            "input": "logappend -T 20 -K OKWLHUTU -N GERALYN -L -F PJHBNMKK"
+        }, 
+        {
+            "input": "logread -K OKWLHUTU -S -F PJHBNMKK", 
+            "output": "GIGI,LIN,MELINDA\nMARYLEE,ROXANN\n2: MELINDA"
+        }
+    ]
+}

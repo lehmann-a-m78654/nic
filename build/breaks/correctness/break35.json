@@ -1,0 +1,17 @@
+{
+  "tests" :[
+    {
+      "input": "logappend -T 3 -K secret -D Bob -A -F log"
+    },
+    {
+      "input": "logappend -T 4 -K secret -N mary -A -F log"
+    },
+    {
+      "input": "logread -K secret -R -D Bob -N mary -F log",
+      "output" : "invalid",
+      "exit" : 255
+    }
+  ],
+
+  "break" : "correctness, logread accepts -N flag and D- flag and doesnt output invalid or exit 255"
+}

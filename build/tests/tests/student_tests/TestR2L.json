@@ -1,0 +1,33 @@
+{
+    "title": "Any Argument to LogAppend is Missing - REQ 2 - L",
+    "tests": [
+            {
+                "input":"logappend -T 1 -K secret -N bregger -A -F log"
+            },
+            {
+              "input": "logappend  -K secret -D ritchey -A -F log",
+              "output": "invalid",
+              "exit": 255
+          },
+          {
+              "input": "logappend -T 2  -D ritchey Space -A -F log",
+              "output": "invalid",
+              "exit": 255
+          },
+          {
+              "input": "logappend -T 3 -K secret  -A -F log",
+              "output": "invalid",
+              "exit": 255
+          },
+          {
+              "input": "logappend -T 4 -K secret -N bregger -F log",
+              "output": "invalid",
+              "exit": 255
+          },         
+          {
+            "input": "logappend -T 5 -K secret -N bregger -A -R 489",
+            "output": "invalid",
+            "exit": 255
+        }
+    ]
+  }

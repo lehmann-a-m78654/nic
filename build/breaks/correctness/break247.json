@@ -1,0 +1,14 @@
+{
+	"tests": [
+		{
+			"input": "logappend -T -2 -K secret -D nick -A -F log",
+			"output": "invalid",
+			"exit": 255
+		},
+		{
+			"input": "logappend -T 2 -K secret -D nick -A -F log",
+			"exit": 0
+		}
+	],
+	"break": "correctness"
+}

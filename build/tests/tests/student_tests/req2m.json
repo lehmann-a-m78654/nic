@@ -1,0 +1,16 @@
+{
+    "title" : "REQ 2 m",
+    "description" : "inconsitent argument",
+      "tests": [
+        {
+          "input": "logappend -T 1 -K secret -D Alice -N Alice -A -F log",
+          "output": "invalid",
+          "exit": 255
+        },
+        {
+          "input": "logappend -T time -K secret -D Alice -A -L -F log",
+          "output": "invalid",
+          "exit": 255
+        }
+      ]
+    }

@@ -1,0 +1,10 @@
+{
+    "title": "Departure from Hospital and Staff Member is Not In Hospital - REQ 2 - F",
+    "tests": [
+          {
+            "input": "logappend -T 1 -K secret -D ritchey -L -F log",
+            "output": "invalid",
+            "exit": 255
+          }
+    ]
+  }

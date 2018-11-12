@@ -1,0 +1,16 @@
+{
+  "tests" :[
+    {
+      "input": "logappend -T 3 -K secret# -D Bob -A -F log",
+      "output" : "invalid",
+      "exit" : 255
+    },
+    {
+      "input": "logread -K secret# -S -F log",
+      "output" : "invalid",
+      "exit" : 255
+    }
+  ],
+
+  "break" : "correctness, logappend accepts a special characters as part of the token"
+}

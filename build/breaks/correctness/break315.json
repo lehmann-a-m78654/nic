@@ -1,0 +1,18 @@
+{
+	"tests": [
+	{
+            "exit": 0,
+            "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+        },
+        {
+            "exit": 0,
+            "input": "logappend -T 3 -K secret -N bregger -A -F log"
+        },
+        {
+            "exit": 255,
+	        "output": "invalid",
+            "input": "logappend -T 4 -K secret -N bregger -L -A -R 489 -F log"
+        }
+    ],
+    "break": "correctness"
+}

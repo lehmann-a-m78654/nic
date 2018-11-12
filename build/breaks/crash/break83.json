@@ -1,0 +1,14 @@
+{
+    "title": "Logread should fail when special characters are present in token.",
+    "tests":[
+        {
+            "input":"logappend -T 1 -K secret -D Nalin -A -F log"
+        },
+        {
+            "input":"logread -K $ecret -S -F log",
+	     "output": "invalid",
+            "exit": 255
+        }
+    ],
+	"break":"correctness"
+}

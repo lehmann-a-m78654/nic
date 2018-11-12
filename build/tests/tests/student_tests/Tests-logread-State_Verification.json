@@ -1,0 +1,46 @@
+{
+  "tests": [
+    {
+      "input": "logappend -T 1 -K token -D reed -A -F logOne"
+    },
+    {
+      "input": "logappend -T 2 -K token -D reed -A -R 100 -F logOne"
+    },
+    {
+      "input": "logappend -T 3 -K token -N gino -A -F logOne"
+    },
+    {
+      "input": "logappend -T 4 -K token -N gino -A -R 200 -F logOne"
+    },
+    {
+      "input": "logread -K token -S -F logOne",
+      "output": "reed\ngino\n100: reed\n200: gino"
+    },
+    {
+      "input": "logread -K secret -S -F logOne",
+      "output": "integrity violation",
+      "exit": 255
+    },
+    {
+      "input": "logread -K token -S -F logTwo",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logappend -T 5 -K token -D reed -L -R 100 -F logOne"
+    },
+    {
+      "input": "logappend -T 6 -K token -D reed -L -F logOne"
+    },
+    {
+      "input": "logappend -T 7 -K token -N gino -L -R 200 -F logOne"
+    },
+    {
+      "input": "logappend -T 8 -K token -N gino -L -F logOne"
+    },
+    {
+      "input": "logread -K token -S -F logOne",
+      "output": ""
+    }
+  ]
+}

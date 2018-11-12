@@ -1,0 +1,13 @@
+{
+    "title": "Log Read exits with integrity Violation and Error Code 255 on Integrity Violation- REQ 14",
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+        },
+        {
+            "input": "logread -K WrongSecret -S -F log",
+            "output": "integrity violation",
+            "exit": 255
+        }
+    ]
+  }

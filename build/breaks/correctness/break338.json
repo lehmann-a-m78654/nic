@@ -1,0 +1,15 @@
+{
+    "tests":[
+        {
+            "input":"logappend -T 1 -K secret -D ritchey -A -F a=b",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input":"logread -K secret -S -F a=b",
+	    "output":"invalid",
+	    "exit": 255
+        }
+    ],
+    "break": "correctness"
+}

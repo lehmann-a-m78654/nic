@@ -1,0 +1,25 @@
+{
+  "title": "Missing log file",
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -D ritchey -A -R 489 -F",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logappend -T 1 -K secret -N ritchey -A -R 489 -F",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logappend -T 1 -K secret -N ritchey -A -F",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logappend -T 1 -K secret -D ritchey -A -F",
+      "output": "invalid",
+      "exit": 255
+    }
+  ]
+}

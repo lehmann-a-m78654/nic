@@ -1,0 +1,10 @@
+{
+    "tests": [
+        {
+            "input": "logappend -F log -K token -D Jacob -N Jacob -A -T 1",
+	    "output": "invalid",
+	    "exit": 255
+        }
+    ],
+    "break": "correctness"
+}

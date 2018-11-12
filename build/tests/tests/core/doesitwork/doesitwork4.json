@@ -1,0 +1,65 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K YNODVBDE -D MAURO -A -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 2 -K YNODVBDE -N VANESA -A -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 3 -K YNODVBDE -D MAURO -A -R 19 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 4 -K YNODVBDE -D MAURO -L -R 19 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 5 -K YNODVBDE -D MAURO -A -R 5 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 6 -K YNODVBDE -N CHARITY -A -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 7 -K YNODVBDE -N VANESA -A -R 14 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 8 -K YNODVBDE -D LAVINIA -A -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 9 -K YNODVBDE -D LAVINIA -A -R 8 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 10 -K YNODVBDE -D LAVINIA -L -R 8 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 11 -K YNODVBDE -D LAVINIA -A -R 10 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 12 -K YNODVBDE -D MAURO -L -R 5 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 13 -K YNODVBDE -D MAURO -A -R 19 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 14 -K YNODVBDE -D AUDRIE -A -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 15 -K YNODVBDE -D LAVINIA -L -R 10 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 16 -K YNODVBDE -D LAVINIA -A -R 20 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 17 -K YNODVBDE -N CHARITY -A -R 0 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 18 -K YNODVBDE -N VANESA -L -R 14 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logappend -T 19 -K YNODVBDE -N VANESA -A -R 16 -F RWQJHFBO"
+        }, 
+        {
+            "input": "logread -K YNODVBDE -S -F RWQJHFBO", 
+            "output": "AUDRIE,LAVINIA,MAURO\nCHARITY,VANESA\n0: CHARITY\n16: VANESA\n19: MAURO\n20: LAVINIA"
+        }
+    ]
+}

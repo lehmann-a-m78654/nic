@@ -1,0 +1,12 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -N biggie -A -F TPWMVDMZ"
+        },
+		{
+            "exit": 255, 
+            "input": "logappend -T 2 -K secret -N biggie -A -R -1 -F TPWMVDMZ", 
+            "output": "invalid"
+        }
+    ]
+}

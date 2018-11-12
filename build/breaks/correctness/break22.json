@@ -1,0 +1,16 @@
+{
+  "tests" :[
+    {
+      "input": "logappend -D Bob -T 1 -K \"this is a key\" -A -F log",
+      "output" : "invalid",
+      "exit" : 255
+    },
+    {
+      "input": "logread -K \"this is a key\" -S -F log",
+      "output" : "invalid",
+      "exit" : 255
+    }
+  ],
+
+  "break" : "correctness, logappend and logread accept whitespace as part of the key value"
+}

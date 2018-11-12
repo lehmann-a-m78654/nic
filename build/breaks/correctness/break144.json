@@ -1,0 +1,11 @@
+{
+	"tests": 
+	[
+        {
+            "input": "logappend -T 5 -K token -A -D Carol -N Amanda -F nwLog", 
+            "output": "invalid",
+            "exit": 255
+        }
+	],
+	"break":"correctness"
+}

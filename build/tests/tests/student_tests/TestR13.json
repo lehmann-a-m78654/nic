@@ -1,0 +1,13 @@
+{
+    "title": "Log Read exits with Invalid and Error Code 255 on error- REQ 13",
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+        },
+        {
+            "input": "logread -K secret -S -R -D ritchey -F log",
+            "output": "invalid",
+            "exit": 255
+        }
+    ]
+  }

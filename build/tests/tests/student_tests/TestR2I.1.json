@@ -1,0 +1,10 @@
+{
+    "title": "Batch mode is Specified and Batch file does Not Exist - REQ 2 - I",
+    "tests": [
+          {
+            "input":"logappend -B batch",
+            "output": "invalid",
+            "exit": 255
+          }
+    ]
+  }

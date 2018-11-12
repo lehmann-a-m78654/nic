@@ -1,0 +1,34 @@
+{
+    "tests": [
+        {
+            "input":"logappend -K secret -F newfile.txt -T 4 -A -D taylor"
+        },
+        {
+            "input":"logappend -K secret -F newfile.txt -T 5 -A -D taylor -R 1"
+        },
+        {
+            "input":"logappend -K secret -F newfile.txt -T 6 -A -N lockhart"
+        },
+        {
+            "input":"logappend -K secret -F newfile.txt -T 7 -L -N lockhart"
+        },
+        {
+            "input":"logappend -K secret -F newfile.txt -T 8 -A -N lockhart"
+        },
+        {
+            "input":"logappend -K secret -F newfile.txt -T 9 -A -N lockhart -R 2"
+        },
+        {
+            "input":"logappend -K secret -F newfile.txt -T 10 -L -N lockhart -R 2"
+        },
+        {
+            "input":"logappend -K secret -F newfile.txt -T 11 -A -N lockhart -R 3"
+        },
+        {
+            "input":"logread -S -K secret -F newfile.txt -R",
+            "output":"invalid",
+            "exit":255
+        }
+      ],
+    "break":"correctness"
+}

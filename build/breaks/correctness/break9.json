@@ -1,0 +1,20 @@
+{
+    "tests":[
+        {
+            "input":"logappend -T 7 -K token -D hopper -A -F loggo",
+            "output": "",
+            "exit": 0
+        },
+        {
+            "input":"logappend -T 8 -K token -D hopper -A -R 8 -L -F loggo",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input":"logread -K token -S -F loggo",
+            "output": "hopper",
+            "exit": 0
+        }
+    ],
+    "break": "correctness"
+}

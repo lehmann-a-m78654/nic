@@ -1,0 +1,10 @@
+{
+    "title": "LogAppend has average throughput of 1 record per second - REQ 20",
+
+    "tests": [
+      {
+        "input": "logappend -T 1 -K secret -D ritchey -A -F log"
+      }
+    ],
+  "performance": "time"
+  }

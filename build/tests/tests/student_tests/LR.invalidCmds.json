@@ -1,0 +1,20 @@
+{
+  "title": "Invalid logread cmds",
+  "tests": [
+    {
+      "input": "logread -K secret -N -D ritchey -L -R 489 -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -T 1 -K secret -N ritchey -L -R 489 -F log",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -N ritchey -S -R 488 -F log",
+      "output": "invalid",
+      "exit": 255
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "title": "UC5-Error, exit room fail, invalid timestamp",
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -D docname -A -F log"
+    },
+    {
+      "input": "logappend -T 2 -K secret -D docname -A -R 489 -F log"
+    },
+    {
+      "input": "logappend -T 2 -K secret -D docname -L -R 489 -F log",
+	  "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logappend -T 3 -K secret -N nursename -A -F log"
+    },
+    {
+      "input": "logappend -T 4 -K secret -N nursename -A -R 489 -F log"
+    },
+    {
+      "input": "logappend -T 4 -K secret -N nursename -L -R 489 -F log",
+	  "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logread -K secret -S -F log",
+      "output": "docname\nnursename\n489: docname,nursename"
+    },
+    {
+      "input": "logread -K secret -R -D docname -F log",
+      "output": "489"
+    },
+    {
+      "input": "logread -K secret -R -N nursename -F log",
+      "output": "489"
+    }
+  ]
+}

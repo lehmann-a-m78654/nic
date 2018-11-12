@@ -1,0 +1,16 @@
+{
+  "tests" :[
+    {
+      "input": "logappend -T 3 -K secret -D \"Bob was here\" -A -F log",
+      "output" : "invalid",
+      "exit" : 255
+    },
+    {
+      "input": "logread -K secret -S -F log",
+      "output" : "invalid",
+      "exit" : 255
+    }
+  ],
+
+  "break" : "correctness, logread prints the entire name in spaces when it should return an error"
+}

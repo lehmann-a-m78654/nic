@@ -1,0 +1,16 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K UYEKFHDAK -D JOSHUA -A -F JKHFDJKASH"
+        }, 
+	{
+            "input": "logappend -T 2 -K UYEKFHDAK -D JOSHUA -L -F JKHFDJKASH"
+        },
+        {
+            "input": "logappend -T -3 -K UYEKFHDAK -D someone -A -F JKHFDJKASH",
+            "output": "invalid",
+            "exit": 255
+        }
+    ],
+	"break": "correctness"
+}

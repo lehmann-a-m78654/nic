@@ -1,0 +1,11 @@
+{
+	"tests": 
+	[
+		{
+			"input": "logappend -T 5 -K token -A -D Carol -F ../newLog", 
+			"output": "invalid",
+			"exit": 255
+		}
+	],
+	"break":"correctness"
+}

@@ -1,0 +1,25 @@
+{
+    "tests":[
+        {
+            "input":"logappend -T 1 -K tooper -D mike -N will -A -F looper",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input":"logappend -T 2 -K tooper -N will -N dustin -A -F looper",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input":"logappend -T 2 -K tooper -N will -D dustin -A -F looper",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input":"logread -K tooper -S -F looper",
+            "output": "invalid",
+            "exit": 255
+        }
+    ],
+    "break": "correctness"
+}

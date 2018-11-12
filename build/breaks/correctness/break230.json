@@ -1,0 +1,19 @@
+{
+
+  "tests": [
+    {
+      "input": "echo \"./logappend -T 1 -K secret -F log -D ritch -A \" > b#b"
+    },
+
+    {
+
+      "input": "logappend -B b#b",
+      "output": "invalid",
+      "exit": 255
+
+    }
+
+  ],
+  "break":"correctness"
+
+}

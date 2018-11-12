@@ -1,0 +1,11 @@
+{
+  "tests" :[
+    {
+      "input": "logappend -T 3 -K secret -D \"Bob was here\" -A -F log",
+      "output" : "invalid",
+      "exit" : 255
+    }
+  ],
+
+  "break" : "correctness, logappend accepts names with spaces if in quotation marks oracle returns and error"
+}

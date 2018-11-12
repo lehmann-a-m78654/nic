@@ -1,0 +1,10 @@
+{
+	"tests": [
+		{
+			"input": "logappend -T 1 -K @uth -D Zachary -A -F file.log",
+			"output": "invalid",
+			"exit": 255
+		}
+	],
+	"break": "correctness"
+}

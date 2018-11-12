@@ -1,0 +1,10 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secrettoken -D A1D2A3M4S5 -A -F log",
+            "output": "invalid",
+            "exit": 255
+        }
+    ],
+    "break":"correctness"
+}

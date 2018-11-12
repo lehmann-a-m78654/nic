@@ -1,0 +1,12 @@
+{
+    "tests": [
+        {
+            "input": "logappend | /bin/log/ -T 1 -K UYEKFHDAK -D JOSHUA -A -F log|/bin/ls",
+	     "output":"cmd: 'logappend|/bin/ls -T 1 -K UYEKFHDAK -D JOSHUA -A -F log|/bin/ls': No such file or directory",
+		"output":"invalid",
+		"exit":255	
+        }
+    ],
+	"break":"correctness"
+}
+

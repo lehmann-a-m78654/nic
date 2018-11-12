@@ -1,0 +1,21 @@
+{
+	"tests": 
+	[
+		{
+			"input": "logappend -T 1 -K token -D Amanda -A -F hospitalLog",
+			"exit": 0
+		}, 
+		{
+			"input": "logappend -T 2 -K token -D Amanda -A -F hospitalLog",
+			"output": "invalid",
+			"exit": 255 
+		},
+		{
+			"input": "logread -K token -S -F hospitalLog", 
+			"output": "Amanda\n\n",
+			"exit": 0
+		}
+	],
+	"performance":"time"
+}
+	

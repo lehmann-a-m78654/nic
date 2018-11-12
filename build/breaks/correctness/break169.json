@@ -1,0 +1,22 @@
+{
+    "tests": [
+        {
+            "input": "logappend -K secret -T 1 -D thomas -A -F logFile"
+        },
+        {
+            "input": "logappend -K secret -T 2 -D thomas -A -R 123 -F logFile"
+        },
+        {
+            "input": "logappend -K secret -T 3 -N thomas -A -F logFile"
+        },
+        {
+            "input": "logappend -K secret -T 4 -N thomas -A -R 789 -F logFile"
+        },
+        {
+            "input": "logread -K secret -N thomas -D thomas -R -F logFile",
+            "output": "invalid",
+            "exit": 255
+        }
+    ],
+    "break": "correctness"
+}

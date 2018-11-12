@@ -1,0 +1,20 @@
+{
+	"title": "UC3-Log staff entering room he/she is already in",
+	"tests": [
+	{
+		"input": "logappend -T 1 -K secret -D Bregger -A -F log"
+	},
+	{
+ 		"input": "logappend -T 2 -K secret -D Bregger -A -R 489 -F log"
+	},
+	{
+ 		"input": "logappend -T 3 -K secret -D Bregger -A -R 489 -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+	{
+		"input": "logread -K secret -S -F log",
+		"output": "Bregger\n\n489: Bregger"
+	}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "Logread allows running in both -S and -R modes",
+  "tests": [
+    {
+      "input": "logappend -F log -K secret -T 1 -A -D doc"
+    },
+    {
+      "input": "logread -F log -K secret -D doc -S -R",
+      "output":"invalid",
+      "exit":255
+    }
+  ],
+  "break":"correctness" 
+}

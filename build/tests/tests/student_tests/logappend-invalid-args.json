@@ -1,0 +1,48 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -F log",
+            "exit": 0
+        },
+        {
+            "input": "logappend -T 1 -K secret -D ritch3y -A -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T -1 -K secret -D ritchey -A -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -R room -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -R -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T -K secret -D ritchey -A -R 489 -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 1 -K -D ritchey -A -R 489 -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 1 -K secret -D -A -R 489 -F log",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 1 -K secret -D ritchey -A -R 489 -F",
+            "output": "invalid",
+            "exit": 255
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D will -A -F log",
+            "description": "add one person to log"
+        },
+        {
+            "input": "logappend -T 2 -K secret -D will -A -R 1 -F log",
+            "description": "user enters room 1"
+        },
+        {
+            "input": "logappend -T 3 -K secret -D will -A -R 1 -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "user 'will' already in this room"
+        },
+        {
+            "input": "logappend -T 3 -K secret -D will -A -R 2 -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "user 'will' is in another room"
+        },
+        {
+            "input": "logappend -T 3 -K secret -D kristen -A -R 1 -F log",
+            "output": "invalid",
+            "exit": 255,
+            "description": "user 'kristen' is not in hospital"
+        }
+    ]
+}

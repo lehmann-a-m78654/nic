@@ -1,0 +1,111 @@
+{
+  	"title": "Test for all invalid inputs to logread. Covers REQ12-c,d,e",
+  	"tests": [
+    	{
+		"input": "logread",
+		"output": "invalid",
+		"exit": 255
+	},
+    	{
+		"input": "logread -A -B -C -D -E -F extraflags",
+		"output": "invalid",
+		"exit": 255
+	},    
+    	{
+		"input": "logread -F",
+		"output": "invalid",
+		"exit": 255
+	}, 
+    	{
+		"input": "logread -F log_missing_other_args",
+		"output": "invalid",
+		"exit": 255
+	}, 
+    	{
+		"input": "logread -F log_special_char!!!",
+		"output": "invalid",
+		"exit": 255
+	}, 
+    	{
+		"input": "logread -F log_arg_is_folder/",
+		"output": "invalid",
+		"exit": 255
+	}, 
+    	{
+		"input": "logread -S -F log_missing_token",
+		"output": "invalid",
+		"exit": 255
+	}, 
+    	{
+		"input": "logread -K tokenonly",
+		"output": "invalid",
+		"exit": 255
+	}, 
+	{
+		"input": "logread -K secret_with_special -S -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+	{
+		"input": "logread -K secret -F log_missing_arg",
+		"output": "invalid",
+		"exit": 255
+	},
+    	{
+		"input": "logread -K secret -R -D docnologfile",
+		"output": "invalid",
+		"exit": 255
+	},  
+
+    	{
+		"input": "logread -K secret -R -D -N docandnurse -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logread -K secret -R -D doc_special_char -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logread -K secret -R -D docwithnumber1 -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+    	{
+		"input": "logread -K secret -D docnoRflag -F log",
+		"output": "invalid",
+		"exit": 255
+	},   
+     	    	{
+		"input": "logread -K secret -R -S -D docRandS -F log",
+		"output": "invalid",
+		"exit": 255
+	}, 
+{
+		"input": "logread -K secret -R -N nursenologfile",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logread -K secret -R -N nurse_special_char -F log",
+		"output": "invalid",
+		"exit": 255
+	},  
+    	{
+		"input": "logread -K secret -R -N nursewithnumber1 -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+    	{
+		"input": "logread -K secret -N nursenoRflag -F log",
+		"output": "invalid",
+		"exit": 255
+	},   
+     	    	{
+		"input": "logread -K secret -R -S -N nurseRandS -F log",
+		"output": "invalid",
+		"exit": 255
+	}       
+   	]
+}

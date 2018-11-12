@@ -1,0 +1,11 @@
+{
+  "title": "invalid log file",
+  "tests": [
+    
+    {
+      "input": "logappend -T 1 -K secret -D ritchey -A -R 489 -F MadeUpLog1",
+      "output": "invalid",
+      "exit": 255
+    }
+  ]
+}

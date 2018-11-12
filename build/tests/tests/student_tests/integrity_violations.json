@@ -1,0 +1,18 @@
+{
+	"tests": [
+		{
+			"input": "logappend -T 2 -K secret -D ritchey -A -F log",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 10 -K nonsecret -D stevebert -A -F log",
+			"output": "integrity violation",
+			"exit": 255
+		},
+		{
+			"input": "logread -K nonsecret -R -D ritchey -F log",
+			"output": "integrity violation",
+			"exit": 255
+		}
+	]
+}

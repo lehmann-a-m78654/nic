@@ -1,0 +1,13 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR -D ritchey -A -F JKHFDJKASH"
+        },
+	{
+            "input": "logappend -T 2 -K RRR -N bregger -A -F JKHFDJKASH",
+            "output": "integrity violation",
+            "exit": 255
+        }
+    ],
+    "break": "security"
+}

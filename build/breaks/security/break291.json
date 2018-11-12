@@ -1,0 +1,13 @@
+{
+    "tests": [
+        {
+            "input": "logappend -F log -K token -D Jacob -A -T 1"
+        },
+	{
+	    "input": "logread -S -F log -K tokentokentoken",
+	    "output": "integrity violation",
+	    "exit": 255
+	}
+    ],
+    "break": "security"
+}

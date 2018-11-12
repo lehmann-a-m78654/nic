@@ -1,0 +1,15 @@
+{
+	"tests" : [
+		{
+			"input" : "logappend -T 1 -K a0a -D doctor -A -F log",
+			"output" : "",
+			"exit" : 0
+		},
+		{
+			"input" : "logread -K a -S -F log",
+			"output" : "integrity violation",
+			"exit" : 255
+		}
+	],
+	"break" : "crash"
+}

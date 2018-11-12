@@ -1,0 +1,15 @@
+{
+	"title": "UC3-Error, staff entering room without entering hospital",
+	"tests": [
+	{
+		"input": "logappend -T 1 -K secret -D doctorname -R 489 -A -F log",
+		"output": "invalid",
+		"exit": 255
+	},
+	{
+ 		"input": "logappend -T 2 -K secret -N nursename -R 489 -A -F log",
+		"output": "invalid",
+		"exit": 255
+	}
+  ]
+}

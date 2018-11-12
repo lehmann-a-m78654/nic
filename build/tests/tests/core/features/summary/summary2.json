@@ -1,0 +1,155 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K LUROACES -D NOREEN -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 2 -K LUROACES -D NOREEN -A -R 12 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 3 -K LUROACES -D NOREEN -L -R 12 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 4 -K LUROACES -D NOREEN -A -R 5 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 5 -K LUROACES -D NOREEN -L -R 5 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 6 -K LUROACES -D NOREEN -L -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 7 -K LUROACES -N ELOIS -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 8 -K LUROACES -N ELMIRA -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 9 -K LUROACES -N YASMIN -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 10 -K LUROACES -N MARLEN -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 11 -K LUROACES -N YASMIN -L -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 12 -K LUROACES -D TIERRA -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 13 -K LUROACES -N ELMIRA -A -R 1 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 14 -K LUROACES -D SONDRA -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 15 -K LUROACES -N ELOIS -L -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 16 -K LUROACES -D SONDRA -L -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 17 -K LUROACES -N EULA -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 18 -K LUROACES -D ROSELYN -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 19 -K LUROACES -N DARRIN -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 20 -K LUROACES -D GIGI -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 21 -K LUROACES -D GIGI -A -R 4 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 22 -K LUROACES -D GIGI -L -R 4 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 23 -K LUROACES -D GIGI -A -R 5 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 24 -K LUROACES -N ELMIRA -L -R 1 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 25 -K LUROACES -N ELMIRA -A -R 15 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 26 -K LUROACES -N DARRIN -A -R 4 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 27 -K LUROACES -N ELMIRA -L -R 15 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 28 -K LUROACES -N ELMIRA -L -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 29 -K LUROACES -N DARRIN -L -R 4 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 30 -K LUROACES -N DARRIN -L -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 31 -K LUROACES -N LULA -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 32 -K LUROACES -D ROSELYN -A -R 3 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 33 -K LUROACES -N MILLY -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 34 -K LUROACES -N MARLEN -L -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 35 -K LUROACES -N JANET -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 36 -K LUROACES -D TIERRA -A -R 16 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 37 -K LUROACES -N LULA -L -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 38 -K LUROACES -D GIGI -L -R 5 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 39 -K LUROACES -D GIGI -A -R 0 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 40 -K LUROACES -D EMILIA -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 41 -K LUROACES -N EULA -A -R 13 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 42 -K LUROACES -N JILLIAN -A -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 43 -K LUROACES -N JILLIAN -A -R 10 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 44 -K LUROACES -N EULA -L -R 13 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 45 -K LUROACES -N EULA -A -R 18 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 46 -K LUROACES -N JILLIAN -L -R 10 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 47 -K LUROACES -N JILLIAN -A -R 13 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 48 -K LUROACES -D TIERRA -L -R 16 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logappend -T 49 -K LUROACES -D TIERRA -A -R 19 -F EFGKIXOA"
+        }, 
+        {
+            "input": "logread -K LUROACES -S -F EFGKIXOA", 
+            "output": "EMILIA,GIGI,ROSELYN,TIERRA\nEULA,JANET,JILLIAN,MILLY\n0: GIGI\n3: ROSELYN\n13: JILLIAN\n18: EULA\n19: TIERRA"
+        }
+    ]
+}

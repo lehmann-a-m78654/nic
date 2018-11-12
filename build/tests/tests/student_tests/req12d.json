@@ -1,0 +1,17 @@
+{
+    "Title" : "REQ 12d",
+    "Description" : "missing arguments",
+      "tests": [
+        {
+          "input": "logappend -T 1 -K secret -D Alice -A -F log"
+        },
+        {
+          "input": "logappend -T 2 -K secret -D Alice -A -R 200 -F log"
+        },
+        {
+          "input": "logread -K secret -R -D Alice",
+          "output": "invalid",
+          "exit": 255
+        }
+      ]
+    }

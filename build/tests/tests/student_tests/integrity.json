@@ -1,0 +1,21 @@
+{
+	"tests": 
+	[
+		{
+			"input": "logappend -T 1 -K token -D Amanda -A -F hospitalLog",
+			"exit": 0
+		},
+		{
+			"input": "logappend -T 6 -K notToken -D Amanda -L -F hospitalLog",
+			"output": "integrity violation",
+			"exit": 255 
+		},
+		{
+			"input": "logread -K notToken -S -F hospitalLog",
+			"output": "integrity violation",
+			"exit": 255 
+		}
+	],
+	"performance":"time"
+}
+			

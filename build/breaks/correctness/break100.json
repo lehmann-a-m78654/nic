@@ -1,0 +1,11 @@
+{
+  "title": "Logappend and Logread can access folders belonging to parent but in another path",
+  "tests": [
+    {
+      "input": "logappend -K secret -T 1 -A -D doc -F ../some/parent/folder/file",
+      "output": "invalid",
+      "exit": 255
+    }
+  ],
+  "break":"correctness" 
+}

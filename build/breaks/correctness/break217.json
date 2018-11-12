@@ -1,0 +1,10 @@
+{
+	"tests": [
+		{
+		"input": "logappend -T 1 -K here -N doctor -A -F lo◦g",
+		"output": "invalid",
+		"exit": 255
+		}
+	],
+	"break": "correctness"
+}

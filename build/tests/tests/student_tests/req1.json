@@ -1,0 +1,13 @@
+{
+  "Title" : "REQ 1 and REQ 7",
+  "Description" : "Doctor Enter and Leave hospital",
+    "tests": [
+      {
+        "input": "logappend -T 1 -K secret -D Alice -A -F log"
+      },
+      {
+        "input": "logappend -T 2 -K secret -D Alice -L -F log",
+        "exit" : 0
+      }
+    ]
+  }

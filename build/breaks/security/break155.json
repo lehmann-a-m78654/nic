@@ -1,0 +1,22 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K ccc -D house -A -F log"
+        },
+        {
+            "input": "rm log"
+        },
+        {
+            "input": "logappend -T 1 -K c -D wilson -A -F log1"
+        }, 
+        {
+            "input": "mv log1 log"
+        }, 
+        {
+            "input": "logread -K ccc -S -F log",
+            "exit": 255,
+            "output": "integrity violation\n",
+            "break": "security"
+        }
+    ]
+}

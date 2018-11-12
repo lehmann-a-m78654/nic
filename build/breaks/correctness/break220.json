@@ -1,0 +1,16 @@
+{
+	"tests": [
+		{
+		"input": "logappend -T 1 -K secret -D john -A -F log9"
+		},
+		{
+		"input": "logappend -T 2 -K secret -D john -A -R 1 -F log9"
+		},
+		{
+		"input": "logread -K secret -S -R -D john -F log9",
+		"output": "invalid",
+		"exit": 255
+		}
+	],
+	"break": "correctness"
+}

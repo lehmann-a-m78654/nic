@@ -1,0 +1,14 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 3 -K aaaaaaaaaaaaaaaaaaaaaaaaa -N jackie -A -F log2",
+            "exit": 0
+        },
+        {
+            "input": "logread -K a -S -F log2",
+            "output": "integrity violation",
+            "exit": 255,
+            "break": "security"
+        }
+    ]
+}
