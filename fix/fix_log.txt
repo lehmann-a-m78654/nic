@@ -344,5 +344,36 @@ break) Record.h effect on breaks so far
     total passed: 194
     total failed: 23
     no changes in tests
+20) Record.h line 439, accept INT_MAX, not just numbers below it. Changed a < to a <=
+    passed: break226.json
+    passed: break228.json
+    passed: break233.json
+    passed: break234.json
+    total passed: 198
+    total failed: 19
+    no changes in tests
+21) Record.h lines 739, 928, 629, 1128 added the filename to the token and encrypted with that
+    passed: TestR14.json
+    passed: Tests-logread-State_Verification.json
+    failed: UC8_log_does_not_exist.json
+    failed: UC8_name_exception.json
+    passed: integrity.json
+    passed: logread-bad-token.json
+    failed: logread-invalid-args.json
+    total passed: 171
+    total failed: 35
+    
+    failed: break303.json
+    failed: break306.json
+    failed: break200.json
+    passed: break154.json
+    passed: break231.json
+    passed: break236.json
+    passed: break262.json
+    passed: break288.json
+    passed: break291.json
+    total passed: 201
+    total failed: 16
+
 
 

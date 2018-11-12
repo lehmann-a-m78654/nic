@@ -436,7 +436,7 @@ Record::Record(int argc, char* argv[]) {
         switch(args.at(i)) {
             case 'T':
                 if(optarg != nullptr) {
-                    if ((atoi(optarg) >= 0) && (atoi(optarg) < INT_MAX) && isValidInt(optarg)) {
+                    if ((atoi(optarg) >= 0) && (atoi(optarg) <= INT_MAX) && isValidInt(optarg)) {
                         timestamp = atoi(optarg);
                         argPresent.at(T) = true;
                     }
@@ -623,7 +623,10 @@ vector<Record> Record::getLogsForPerson(string& contents, bool create) {
     //     error.push_back(Record());
     //     return error;
     // }
-	contents = decrypt(contents, this->token);
+    vector<string> pieces = splitOn(logfile, '/');
+    string filename = pieces.at(pieces.size() - 1);
+    string t = filename + this->token;
+	contents = decrypt(contents, t);
     if (contents.size() == 0) {
         // cout << "failure integrity 1" << endl; //FIXME
         throw string("integrity violation");
@@ -725,13 +728,15 @@ bool Record::append() {
     
     contents = contents + "\n" + this->toString();
 	// cout << "done adding to contents " << endl; //FIXME
-
+    vector<string> pieces = splitOn(logfile, '/');
+    string filename = pieces.at(pieces.size() - 1);
     //encrypt contents
     // if (!encrypt(contents, token)) {
     //     return false;
     // }
 	// cout << "plaintext: " << contents << endl; //FIXME
-	contents = encrypt(contents, this->token);
+    string t = filename + this->token;
+	contents = encrypt(contents, t);
 	// cout << "ciphertext: " << contents << endl; //FIXME
 	// cout << "done encrypting with token \"" << token << "\"" << endl; //fixme
 
@@ -917,8 +922,11 @@ bool Record::readFile(string& contents, bool create) {
         log.open(logfile, fstream::out);
         //log << "";
         string newcont = "file\n";
+        vector<string> pieces = splitOn(logfile, '/');
+        string filename = pieces.at(pieces.size() - 1);
 		// cout << "encrypting " << newcont << endl; //FIXME
-        newcont = encrypt(newcont, this->token);
+        string t = filename + this->token;
+        newcont = encrypt(newcont, t);
 		// cout <<"ciphertext is \"" << newcont << "\"" << endl; //FIXME
         // log << newcont << endl;
         log.close();
@@ -1114,7 +1122,10 @@ priority_queue<string, vector<string>, greater<string> > Record::getAllNames(std
     //     return error;
     // }
 	// cout << "encrypted contents: \"" << contents << "\"" << endl; //FIXME
-	contents = decrypt(contents, this->token);
+    vector<string> pieces = splitOn(logfile, '/');
+    string filename = pieces.at(pieces.size() - 1);
+    string t = filename + this->token;
+	contents = decrypt(contents, t);
     if (contents.size() == 0) {
         // cout << "failure integrity 2" << endl; //FIXME
         throw string("integrity violation");
