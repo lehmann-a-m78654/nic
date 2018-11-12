@@ -179,4 +179,12 @@
     passed: badargs12.json
     total passed: 148
     total failed: 58
+11) Record.h line 482, added check for valid filenames
+    passed: badargs5.json
+    total passed: 149
+    total failed: 57
+12) Record.h line 423 and 531, added check for duplicate flags
+    passed: badargs6.json
+    total passed: 150
+    total failed: 56
 

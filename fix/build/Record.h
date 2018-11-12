@@ -162,6 +162,7 @@ std::string decrypt(std::string& encrypted_msg, std::string& key) {
 }
 
 bool isValidInt(char* c);
+bool validFileName(string s);
 
 class State {
 public:
@@ -419,6 +420,10 @@ Record::Record(int argc, char* argv[]) {
         if (optarg == nullptr) {
             continue;
         }
+		else if (strcmp(optarg, "error") == 0) {
+			valid = false;
+			return;
+		}
         if ((strlen(optarg) > MAX_PARAM_LEN) || (strlen(optarg) <= 0)) {
             valid = false;
 			//cout << "failure 5" << endl; //fIXME
@@ -478,10 +483,13 @@ Record::Record(int argc, char* argv[]) {
 				}
                 break;
             case 'F':
-                if(optarg != nullptr) {
+                if(optarg != nullptr && validFileName(string(optarg))) {
                     logfile = string(optarg) + ".txt";
                     argPresent.at(F) = true;
                 }
+				else {
+					valid = false;
+				}
                 break;
             case 'B':
                 if(optarg != nullptr) { 
@@ -495,6 +503,12 @@ Record::Record(int argc, char* argv[]) {
                 return;
                 break;
         }
+		int numPresent = 0;
+		for (int i = 0; i < argPresent.size(); i++) {
+			if (argPresent.at(i)) {
+				numPresent++;
+			}
+		}
     }
     
     if (!checkParamCombosApp()) {
@@ -506,17 +520,24 @@ Record::Record(int argc, char* argv[]) {
 }
 
 char* Record::parseAppendOpts(int size, char* argv[], char arg) {
+	char* ret = nullptr;
     for (int i = 0; i < size - 1; i++) {
         char argWithDash[3];
         argWithDash[0] = '-';
         argWithDash[1] = arg;
         argWithDash[2] = '\0'; 
         if (strcmp(argv[i], argWithDash) == 0) {
-            return argv[i + 1];
+			// check for double flags
+			if(ret != nullptr) {
+				char tmp[6] = "error";
+				ret = tmp;
+				return ret;
+			}
+            ret = argv[i + 1];
         }
     }
 	// //cout << "failure 11" << endl;
-    return nullptr;
+    return ret;
 }
 
 bool Record::lettersOnly(string s) {
@@ -1234,6 +1255,40 @@ bool isValidInt(char* c) {
     }
   }
   return true;
+}
+
+bool validFileName(string s) {
+	//max size 4096
+	if (s.size() > 4096) {
+		return false;
+	}
+	//check that ascii is 65-90, 97-122, 48-57 (numbers), 95 (_), 46 (.), 47 (/)
+    if (s.size() < 1) {
+		//cout << "failure 12" << endl;
+        return false;
+    }
+    for (int i = 0; i < s.size(); i++) {
+        if (((int)s.at(i) >= 97) && ((int)s.at(i) <= 122)) {
+			//cout << "failure 13" << endl;
+            continue;
+        }
+        else if (((int)s.at(i) <= 90) && ((int)s.at(i) >= 64)) {
+			//cout << "failure 14" << endl;
+            continue;
+        }
+		else if (((int)s.at(i) >= 48) && ((int)s.at(i) <= 57)) {
+			continue;
+		}
+		else if (((int)s.at(i) == 95) || ((int)s.at(i) == 46) || ((int)s.at(i) == 47)) {
+			continue;
+		}
+		else {
+			// cout << "failed on " << s.at(i) << endl; //FIXME
+			return false;
+		}
+    }
+    return true;
+	
 }
 
 // void handleErrors(void)
