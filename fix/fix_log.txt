@@ -200,7 +200,7 @@
     passed: logappend-bad-token.json
     total passed: 157
     total failed: 49
-b-1) Record.h effect on breaks so far 
+break) Record.h effect on breaks so far 
     passed: break101.json
     passed: break103.json
     passed: break104.json
@@ -273,7 +273,7 @@ b-1) Record.h effect on breaks so far
     passed: break112.json
     total passed: 163
     total failed: 54
-b-2) Record.h overloaded strlen to be safer, line 1349
+15) Record.h overloaded strlen to be safer, line 1349
     failed: break100.json
     passed: break106.json
     passed: break139.json
@@ -281,5 +281,29 @@ b-2) Record.h overloaded strlen to be safer, line 1349
     passed: break97.json
     total passed: 166
     total failed: 51
-
+    no change in tests 
+16) Record.h line 1315 added checks that file name should be no longer than 255 characters 
+    passed: break100.json
+    passed: break24.json
+    total passed: 168
+    total failed: 49
+    no change in tests
+17) Record.h line made logread return invalid when the file has not been appended to
+    failed: break100.json
+    passed: break211.json
+    passed: break22.json
+    passed: break23.json
+    failed: break24.json
+    passed: break275.json
+    passed: break31.json
+    passed: break32.json
+    passed: break33.json
+    passed: break338.json
+    passed: break343.json
+    passed: break36.json
+    passed: break40.json
+    passed: break5.json
+    passed: break6.json
+    total passed: 179
+    total failed: 38
 

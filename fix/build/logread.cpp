@@ -82,7 +82,7 @@ int main(int argc, char* argv[]) {
 		args.push_back('K');
 		args.push_back('D');
 		args.push_back('N');
-		//args.push_back('R');
+		// args.push_back('R');
 		args.push_back('F');
 		
 		bool printState = false;
@@ -142,7 +142,7 @@ int main(int argc, char* argv[]) {
 					}
 					break;
 				case 'F':
-					if(optarg != nullptr) {
+					if(optarg != nullptr && validFileName(string(optarg))) {
 						logfile = string(optarg) + ".txt";
 						argsPresent.at(F) = true;
 					}
@@ -240,7 +240,7 @@ bool handleS(string token, string logfile) {
 	priority_queue<string, vector<string>, greater<string> > names = r.getAllNames(contents);
 
 	if (names.empty() || names.top() == "error") {
-		cout << "failure 39" << endl; //FIXME
+		// cout << "failure 39" << endl; //FIXME
 		return false;
 	}
 
@@ -267,7 +267,7 @@ bool handleS(string token, string logfile) {
 			r.setDoctor(true);
 			r.setName(names.top().substr(3, names.top().size() - 3));
 		}
-		vector<Record> nameRecords = r.getLogsForPerson(fileContents);
+		vector<Record> nameRecords = r.getLogsForPerson(fileContents,false);
 		for (int i = 0; i< nameRecords.size(); i++) { //fixme
 			// cout << "\t\trecord " << nameRecords.at(i).toString() << endl;
 		}
@@ -372,7 +372,7 @@ bool handleR(string token, string logfile, bool doctor, string name) {
 	r.setValid(true);
 
 	string fileContents = "";
-	vector<Record> nameRecords = r.getLogsForPerson(fileContents);
+	vector<Record> nameRecords = r.getLogsForPerson(fileContents, false);
 	State person = r.getState(nameRecords); 
 
 	if (!person.valid) {
