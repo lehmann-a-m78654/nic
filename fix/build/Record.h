@@ -1394,9 +1394,9 @@ bool validFileName(string s) {
 
 bool validToken(string s) {
 	//max size 4096
-	if (s.size() > 4096) {
-		return false;
-	}
+	// if (s.size() > 4096) {
+	// 	return false;
+	// }
 	//check that ascii is 65-90, 97-122, 48-57 (numbers)
     if (s.size() < 1) {
 		// cout << "failure 12" << endl;
