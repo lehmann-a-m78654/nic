@@ -1,0 +1,11 @@
+{
+  "tests" :[
+    {
+      "input": "logappend -T 1 -K secret -D Bob -A -F \"asdfasdfasdf\"",
+      "output" : "invalid",
+      "exit" : 255
+    }
+  ],
+
+  "break" : "correctness, logappend allows for directories to be in quotation marks when the oracle does not allow that"
+}

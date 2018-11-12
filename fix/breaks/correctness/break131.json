@@ -1,0 +1,11 @@
+{
+    "tests": [
+      {
+        "input": "logappend -T -1 -K token -D philip -A -F logOne",
+        "output": "invalid",
+        "exit": 255
+      }
+    ],
+    "break": "correctness"
+}
+

@@ -1,0 +1,11 @@
+{
+  "tests":
+    [
+      {
+        "input":"logappend -T 1 -K key -D Bob%s -A -F log",
+        "output":"invalid",
+        "exit": 255
+      }
+    ],
+  "break":"correctness"
+}

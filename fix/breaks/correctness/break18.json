@@ -1,0 +1,11 @@
+{
+  "tests" :[
+    {
+      "input": "logappend -D Bob -T 1 -K secret -A -F \"this is a file\"",
+      "output" : "invalid",
+      "exit" : 255
+    }
+  ],
+
+  "break" : "correctness, logappend accepts whitespace as part of the value for the file"
+}

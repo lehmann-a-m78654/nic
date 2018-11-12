@@ -1,0 +1,25 @@
+{
+	"tests": [
+		{
+	    	"input": "logappend -T 1 -K secret -D ritchey123 -A -F log",
+	    	"output": "invalid",
+	    	"exit": 255
+    	},
+    	{
+	    	"input": "logappend -T 2 -K secret -N joy123 -A -F log",
+	    	"output": "invalid",
+	    	"exit": 255
+    	},
+		{
+			"input": "logread -K secret -R -D ritchey123 -F log",
+			"output": "invalid",
+			"exit": 255
+		},
+		{
+			"input": "logread -K secret -R -N joy123 -F log",
+			"output": "invalid",
+			"exit": 255
+		}
+	],
+	"break": "correctness"
+}

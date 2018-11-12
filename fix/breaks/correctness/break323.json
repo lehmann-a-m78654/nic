@@ -1,0 +1,16 @@
+{
+  "tests":
+    [
+      {
+        "input":"logappend -T 1 -K key -D Bob -A -F log",
+        "output":"",
+        "exit": 0
+      },
+      {
+        "input":"logread -K key -R -D Joe -S -F log",
+        "output":"invalid",
+        "exit": 255
+      }
+    ],
+  "break":"correctness"
+}

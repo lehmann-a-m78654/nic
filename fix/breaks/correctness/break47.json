@@ -1,0 +1,15 @@
+{
+  "tests":[
+    {
+      "input":"logappend -T -2 -K secret -D bob -A -F log", 
+	"output": "invalid\n",
+	"exit": 255
+    },
+    {
+      "input":"logappend -T -1 -K secret -D bob -L -F log",
+	"output": "invalid\n",
+	"exit": 255
+    }
+  ],
+  "break":"correctness"
+}

@@ -1,0 +1,25 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 5 -K easykey -D Beth -A -F easykeylog",
+            "output": "",
+            "exit": 0
+        },
+        {
+            "input": "logappend -T 6 -K easykey -D 50$l -A -F easykeylog",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logappend -T 7 -K easykey -D EnteringThisTextIntoTheFile$l -A -F easykeylog",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logread -K easykey -S -F easykeylog",
+            "output": "Beth",
+            "exit": 0
+        }
+    ],
+    "break": "correctness"
+}

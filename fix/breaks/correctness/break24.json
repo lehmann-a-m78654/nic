@@ -1,0 +1,11 @@
+{
+  "tests" :[
+    {
+      "input": "logappend -T 1 -K secret -D Bob -A -F ../asdf/sadf",
+      "output" : "invalid",
+      "exit" : 255
+    }
+  ],
+
+  "break" : "correctness, logappend allows for directories to be created on levels above the current one from the logappend"
+}

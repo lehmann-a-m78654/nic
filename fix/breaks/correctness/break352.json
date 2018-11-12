@@ -1,0 +1,11 @@
+{
+    "title": "Negative timestamp is allowed",
+    "tests":[
+        {
+            "input":"logappend -T -1 -K secret -D ritchey -A -F log",
+	    "output": "invalid",
+            "exit": 255
+        }
+    ],
+    "break":"correctness"
+}

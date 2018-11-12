@@ -1,0 +1,10 @@
+{
+    "break" : "correctness",
+    "tests": [
+        {
+            "input": "logappend -T 1 -K UYEKFHDAK -D JOSHUA -A -F newfolder/../../../log",
+	    "output": "invalid\n",
+	    "exit": 255
+        }
+    ]
+}

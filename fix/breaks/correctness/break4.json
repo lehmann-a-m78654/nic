@@ -1,0 +1,20 @@
+{
+    "tests":[
+        {
+            "input":"logappend -T 1 -K token -N nurse -A -F loggo",
+            "output": "",
+            "exit": 0
+        },
+        {
+            "input":"logappend -T 3 -K token -N nurse2$g -A -F loggo",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input":"logread -K token -S -F loggo",
+            "output": "\nnurse",
+            "exit": 0
+        }
+    ],
+    "break": "correctness"
+}

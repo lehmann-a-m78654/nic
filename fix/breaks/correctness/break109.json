@@ -1,0 +1,11 @@
+{
+  "title": "Logappend allows negative time",
+  "tests": [
+    {
+      "input": "logappend -A -D doc -K secret -F log -T -99",
+      "output": "invalid",
+      "exit": 255
+    }
+  ],
+  "break":"correctness" 
+}

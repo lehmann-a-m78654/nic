@@ -165,6 +165,7 @@ std::string decrypt(std::string& encrypted_msg, std::string& key) {
 bool isValidInt(char* c);
 bool validFileName(string s);
 bool validToken(string s);
+int strlen(char* c);
 
 class State {
 public:
@@ -1343,6 +1344,21 @@ bool validToken(string s) {
     }
     return true;
 	
+}
+
+int strlen(char* c) {
+  int64_t size = 0;
+  for (int i = 0; i < MAX_PARAM_LEN; i++) { 
+    if (c[i] == '\0') {
+      return size;
+      break;
+    }
+    size++;
+    if (size > INT_MAX) {
+      break;
+    }
+  }
+  return -1;
 }
 
 

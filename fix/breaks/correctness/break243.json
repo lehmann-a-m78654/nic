@@ -1,0 +1,15 @@
+{
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -N nurse -A -F log",
+      "output": "",
+      "exit": 0
+    },
+    {
+      "input": "logappend -T 2 -K secret -N nurse -A -R 100 -L -F log",
+      "output": "invalid",
+      "exit": 255
+    }
+  ],
+  "break": "correctness"
+}

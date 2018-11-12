@@ -1,0 +1,14 @@
+{
+    "tests": [			
+        {
+            "input": "logappend -T 1 -K a -D Gibeaut -A -F log",
+            "output": ""
+        },
+        {
+            "input": "logappend -T 2 -K aa -D Gibeaut -A -R 200 -F log",
+            "output": "integrity violation",
+            "exit": 255
+        }
+    ],
+    "break": "security"
+}

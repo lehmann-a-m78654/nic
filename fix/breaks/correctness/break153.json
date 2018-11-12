@@ -1,0 +1,10 @@
+{
+    "tests" : [
+        { 
+            "input": "logappend -T 12 -K 01234567890123456789012345678901 -D jacki1e -A -F log",
+            "output": "invalid\n",
+            "exit": 255,
+            "break": "correctness"
+        }
+    ]
+}

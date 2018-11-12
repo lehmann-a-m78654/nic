@@ -200,5 +200,86 @@
     passed: logappend-bad-token.json
     total passed: 157
     total failed: 49
+b-1) Record.h effect on breaks so far 
+    passed: break101.json
+    passed: break103.json
+    passed: break104.json
+    passed: break108.json
+    passed: break113.json
+    passed: break117.json
+    passed: break128.json
+    passed: break129.json
+    passed: break130.json
+    passed: break145.json
+    passed: break148.json
+    passed: break151.json
+    passed: break152.json
+    passed: break163.json
+    passed: break167.json
+    passed: break168.json
+    passed: break169.json
+    passed: break17.json
+    passed: break193.json
+    passed: break197.json
+    passed: break209.json
+    passed: break212.json
+    passed: break213.json
+    passed: break215.json
+    passed: break217.json
+    passed: break218.json
+    passed: break220.json
+    passed: break221.json
+    failed: break24.json
+    passed: break243.json
+    passed: break247.json
+    passed: break250.json
+    passed: break259.json
+    passed: break273.json
+    passed: break274.json
+    passed: break28.json
+    passed: break303.json
+    passed: break305.json
+    passed: break306.json
+    passed: break315.json
+    passed: break322.json
+    passed: break323.json
+    passed: break327.json
+    passed: break329.json
+    passed: break332.json
+    passed: break336.json
+    passed: break337.json
+    passed: break346.json
+    passed: break35.json
+    passed: break351.json
+    passed: break356.json
+    passed: break357.json
+    passed: break4.json
+    passed: break49.json
+    passed: break50.json
+    passed: break52.json
+    passed: break53.json
+    passed: break61.json
+    passed: break62.json
+    passed: break64.json
+    passed: break7.json
+    passed: break72.json
+    passed: break73.json
+    passed: break8.json
+    passed: break85.json
+    passed: break9.json
+    passed: break95.json
+    passed: break96.json
+    passed: break98.json
+    passed: break112.json
+    total passed: 163
+    total failed: 54
+b-2) Record.h overloaded strlen to be safer, line 1349
+    failed: break100.json
+    passed: break106.json
+    passed: break139.json
+    passed: break309.json
+    passed: break97.json
+    total passed: 166
+    total failed: 51
 
 

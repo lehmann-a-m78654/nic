@@ -1,0 +1,11 @@
+{
+	"tests": [
+    {
+			"input": "logappend -T 1 -K secret -D 200$2 -A -F log ",
+             "output": "invalid",
+     "exit" : 255
+		}  
+	],
+    
+  "break":"security"
+}

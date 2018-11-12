@@ -1,0 +1,15 @@
+{
+	"tests" : [
+		{
+			"input" : "logappend -T 1 -K secret -D doctor -A -F log",
+			"output" : "",
+			"exit" : 0
+		},
+		{
+			"input" : "logread -K secret -R -D doctor1 -F log",
+			"output" : "invalid",
+			"exit" : 255
+		}
+	],
+	"break" : "correctness"
+}

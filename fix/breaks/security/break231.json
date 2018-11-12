@@ -1,0 +1,13 @@
+{
+  "tests" : [
+   {   
+    "input": "logappend -T 1 -K tk -N Bob -A -F log"
+   },
+   {
+   	"input": "logread -K tktktktk -S -F log",
+   	"output":"integrity violation",
+    "exit":255  
+   }
+   ]
+  ,"break":"security"
+}

@@ -1,0 +1,18 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K abcdefghijklmnopqrstuvwxyzabcdef -D thomas -A -F falseKeyLog"
+        },
+        {
+            "input": "logappend -T 2 -K abcdefghijklmnopqrstuvwxyzabcdefg -D thomas -A -R 1 -F falseKeyLog",
+            "output": "integrity violation",
+            "exit": 255
+        },
+        {
+            "input": "logread -K abcdefghijklmnopqrstuvwxyzabcdefghiasdfasdf -S -F falseKeyLog",
+            "output": "integrity violation",
+            "exit": 255
+        }
+    ],
+    "break": "security"
+}

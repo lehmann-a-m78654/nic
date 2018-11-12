@@ -1,0 +1,14 @@
+{
+  "title": "Logread allows doc flag in -S state mode",
+  "tests": [
+    {
+      "input": "logappend -F log -K secret -T 1 -A -D doc"
+    },
+    {
+      "input": "logread -F log -K secret -D doc -S",
+      "output":"invalid",
+      "exit":255
+    }
+  ],
+  "break":"correctness" 
+}

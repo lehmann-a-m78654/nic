@@ -1,0 +1,11 @@
+{
+  "title": "Filename allows invalid characters",
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -D doc -A -F @@log#",
+      "output": "invalid",
+      "exit": 255
+    }
+  ],
+  "break":"correctness" 
+}

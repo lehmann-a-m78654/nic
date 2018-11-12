@@ -1,0 +1,21 @@
+{
+	"tests": [
+    {
+			"input": "logappend -T 1 -K secret -D sneha$2 -A -F log",
+             "output": "invalid",
+     "exit" : 255
+		} ,
+        {
+			"input": "logappend -T 2 -K secret -D sneha$2 -A -R 20 -F log ",
+             "output": "invalid",
+     "exit" : 255
+		} ,
+    {
+			"input": "logread -K secret -N sneha -R -F log ",
+             "output": "invalid",
+     "exit" : 255
+		}  
+	],
+    
+  "break":"correctness"
+}

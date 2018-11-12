@@ -1,0 +1,10 @@
+{
+  "tests":[
+    {
+      "input":"logappend -T 1 -K ∙ -D bob -A -F log",
+	"output": "invalid\n",
+	"exit": 255
+    }
+  ],
+  "break":"correctness"
+}

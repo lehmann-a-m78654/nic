@@ -1,0 +1,11 @@
+{
+    "title": "Both arrival and leaving flags should not be allowed",
+    "tests":[
+        {
+            "input":"logappend -T 1 -K secret -D ritchey -A -L -F log",
+	    "output": "invalid",
+            "exit": 255
+        }
+    ],
+    "break":"correctness"
+}

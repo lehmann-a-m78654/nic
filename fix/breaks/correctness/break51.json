@@ -1,0 +1,10 @@
+{
+  "tests":[
+    {
+      "input":"logappend -T 1 -K key -D bob -N Janet -A -F txt",
+	"output": "invalid\n",
+	"exit": 255
+    }
+  ],
+  "break":"correctness"
+}

@@ -1,0 +1,11 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K UYEKFHDAK -D ¤JOSHUA -A -F JKHFDJKASH",
+            "output": "invalid",
+           	"exit": 255
+        }
+
+    ],
+	"break":"correctness"
+}

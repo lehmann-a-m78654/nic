@@ -1,0 +1,20 @@
+{
+    "title": "Token should not have special character in logread",
+    "tests":[
+        {
+            "input":"logappend -T 1 -K secret -D ritchey -A -F log"
+        },
+        {
+            "input":"logappend -T 2 -K secret -D ritchey -A -R 104 -F log"
+        },
+        {
+            "input":"logappend -T 3 -K secret -N bregger -A -F log"
+        },
+        {
+            "input":"logread -K se!@#cret -S -F log",
+	     "output": "invalid",
+            "exit": 255
+        }
+    ],
+    "break":"correctness"
+}

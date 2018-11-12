@@ -1,0 +1,13 @@
+{   
+  "tests": [    
+    {
+      "input": "logappend -T 1 -K k -D hagel -A -F h"
+    },
+	{
+	  "input": "logread -K k -S -D hagel -F h",
+	  "output": "invalid",
+	  "exit": 255
+    }
+  ],
+  "break":"correctness"
+}

@@ -1,0 +1,10 @@
+{
+    "tests":[
+        {
+            "input":"logappend -T 5 -K s -A -D Alice34 -F log3",
+            "output":"invalid","exit":255
+        }
+
+    ],
+    "break": "correctness"
+}

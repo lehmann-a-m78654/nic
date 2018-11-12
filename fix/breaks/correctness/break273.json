@@ -1,0 +1,16 @@
+{
+  "tests": [
+    {
+      "input": "logappend -T 10 -K secret -N sneha$2 -A -F log",
+       "output": "invalid",
+      "exit":255
+    },
+    {
+      "input": "logappend -T 11 -K secret -N sneha -A -R 489 -F log",
+      "output": "invalid",
+      "exit":255
+    }
+  ],
+  
+  "break":"security"
+}

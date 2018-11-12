@@ -1,0 +1,11 @@
+{
+	"tests": 
+	[
+        {
+            "input": "logappend -D Amanda! -K token -A -F hospitalLog -T 25",
+            "output": "invalid",
+            "exit": 255
+        }
+	],
+	"break":"correctness"
+}

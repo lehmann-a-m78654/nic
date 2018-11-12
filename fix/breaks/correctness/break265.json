@@ -1,0 +1,15 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T -100 -K UYEKFHDAK -D ritchey -A -F JKHFDJKASH",
+            "output": "invalid",
+            "exit": 255
+        },
+	{
+            "input": "logappend -T -99 -K UYEKFHDAK -N bregger -A -F JKHFDJKASH",
+            "output": "invalid",
+            "exit": 255
+        }
+    ],
+    "break": "correctness"
+}

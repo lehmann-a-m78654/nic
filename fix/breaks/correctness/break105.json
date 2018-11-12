@@ -1,0 +1,11 @@
+{
+  "title": "Both -N and -D flags provided",
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -N nurse -D doc -F log -A",
+      "output": "invalid",
+      "exit": 255
+    }
+  ],
+  "break":"correctness" 
+}

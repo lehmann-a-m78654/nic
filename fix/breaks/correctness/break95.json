@@ -1,0 +1,20 @@
+{
+  "title": "Logread allows both Doctor and Nurse flag (-D -N) in Room mode",
+  "tests": [
+    {
+      "input": "logappend -F log -K secret -T 1 -A -D doc"
+    },
+    {
+      "input": "logappend -F log -K secret -T 2 -A -N nurse"
+    },
+    {
+      "input": "logappend -F log -K secret -T 3 -A -N nurse -R 101"
+    },
+    {
+      "input": "logread -F log -K secret -N nurse -D doc -R",
+      "output":"invalid",
+      "exit":255
+    }
+  ],
+  "break":"correctness" 
+}

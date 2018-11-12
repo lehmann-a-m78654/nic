@@ -1,0 +1,11 @@
+{
+    "title": "Token should not have special character",
+    "tests":[
+        {
+            "input":"logappend -T 1 -K sec$#@!ret -D ritchey -A -F log",
+	    "output": "invalid",
+            "exit": 255
+        }
+    ],
+    "break":"correctness"
+}

@@ -1,0 +1,17 @@
+{
+    "tests": [
+        {
+            "input": "logappend -T 1 -K secret -D thomas -A -F intOverflowLog"
+        },
+        {
+            "input": "logappend -T -8388601 -K secret -D thomas -A -R 3 -F intOverflowLog",
+            "output": "invalid",
+            "exit": 255
+        },
+        {
+            "input": "logread -K secret -S -F intOverflowLog",
+            "output": "thomas\n\n"
+        }
+    ],
+    "break": "correctness"
+}

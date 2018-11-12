@@ -1,0 +1,10 @@
+{
+    "tests": [
+        {
+            "input": "logappend -K secret -F newfile.txt -T 4 -A -D taylor -L",
+            "output":"invalid",
+            "exit":255
+        }
+    ],
+    "break":"correctness"
+}

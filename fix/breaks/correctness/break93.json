@@ -1,0 +1,16 @@
+{
+  "title": "Doctor field allows numbers and special characters",
+  "tests": [
+    {
+      "input": "logappend -T 1 -K secret -D docwithnumber1 -A -F log1",
+      "output": "invalid",
+      "exit": 255
+    },
+    {
+      "input": "logappend -T 2 -K secret -D doc_special_chars -A -F log2",
+      "output": "invalid",
+      "exit": 255
+    }
+  ],
+  "break":"correctness" 
+}

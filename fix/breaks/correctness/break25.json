@@ -1,0 +1,10 @@
+{
+  "tests" :[
+    {
+      "input": "logappend -T 3 -K secret -N mary -D Bob -A 1 -F log",
+      "output" : "invalid",
+      "exit" : 255
+    }
+  ],
+  "break" : "correctness, accepts -N flag and D- flag"
+}

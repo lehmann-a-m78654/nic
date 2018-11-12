@@ -1,0 +1,10 @@
+{   
+  "tests": [    
+    {
+      "input": "logappend -T 1 -K key -D hagel -A -F log -N joy",
+	  "output": "invalid",
+	  "exit": 255
+    }
+  ],
+  "break":"crash"
+}
