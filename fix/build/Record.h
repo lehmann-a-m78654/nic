@@ -161,6 +161,7 @@ std::string decrypt(std::string& encrypted_msg, std::string& key) {
 	return b64_decode_str;
 }
 
+bool isValidInt(char* c);
 
 class State {
 public:
@@ -288,7 +289,7 @@ Record::Record(string s) {
         return;
     }
 	// cout << "rec 0" << endl; //FIXME
-	// cout << record.at(0) << endl; //FIXME
+	// cout << s << endl; //FIXME
 	// cout << "rec 0 done " << endl; //FIXME
     timestamp = stoi(record.at(0));
     string n = record.at(1);
@@ -329,6 +330,7 @@ Record::Record(string s) {
     }
 
     if (record.size() == 4) {
+		// cout << record.at(3) << endl; //FIXME
         room = stoi(record.at(3));
     }
     
@@ -467,10 +469,13 @@ Record::Record(int argc, char* argv[]) {
                 }
                 break;
             case 'R':
-                if((optarg != nullptr) && (atoi(optarg) >= 0)) {
+                if((optarg != nullptr) && (atoi(optarg) >= 0) && isValidInt(optarg)) {
                     room = atoi(optarg);
                     argPresent.at(R) = true;
                 }
+				else if (!isValidInt(optarg)) {
+					valid = false;
+				}
                 break;
             case 'F':
                 if(optarg != nullptr) {
@@ -672,6 +677,8 @@ bool Record::append() {
     // }
 	// cout << "logs for person done" << endl; //FIXME
     //do sanity checks here
+	//add new record to vector to check for consistency
+	// records.push_back(this->toString());
     if (!checkConsistency(records)) {
 		//cout << "failure 25" << endl;
         return false;
@@ -1210,6 +1217,24 @@ void Record::setValid(bool v) {
     valid = v;
 }
 
+bool isValidInt(char* c) {
+  uint64_t size = strlen(c);
+  if (size > 10) {
+    return false;
+  }
+  uint64_t sum = 0;
+  for (int i = 0; i < size; i++) {
+    // ascii digit chars are 48-57
+    if ((static_cast<int>(c[i]) < 48) || (static_cast<int>(c[i]) > 57)) {
+      return false;
+    }
+    sum = sum + ((static_cast<int>(c[i]) - '0') * (size - i));
+    if (sum > INT_MAX) {
+      return false;
+    }
+  }
+  return true;
+}
 
 // void handleErrors(void)
 // {

@@ -165,8 +165,14 @@
     passed: doesitwork10.json
     total passed: 143
     total failed: 63
-8) Record.h 
+8) Record.h line 829, treat .. as an existing directory and account for //'s
     passed: doesitwork8.json
     total passed: 144
     total failed: 62
+9) Record.h lines 472 and 476, added checking for valid integer if we have a -R argumetn
+    passed: badargs11.json
+    passed: logappend_invalid_input.json
+    passed: req2k.json
+    total passed: 147
+    total failed: 59
 
