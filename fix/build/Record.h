@@ -289,6 +289,7 @@ Record::Record(string s) {
 
     vector<string> record = splitOn(s, ' ');
     if ((record.size() != 4) && (record.size() != 3)) {
+        // cout << "failure 46" << endl; //FIXME
         valid = false;
 		// cout << "wrong record size" << endl; //FIXME
         return;
@@ -426,6 +427,7 @@ Record::Record(int argc, char* argv[]) {
         }
 		else if (strcmp(optarg, "error") == 0) {
 			valid = false;
+            // cout << "failure 47" << endl; //FIXME
 			return;
 		}
         if ((strlen(optarg) > MAX_PARAM_LEN) || (strlen(optarg) <= 0)) {
@@ -454,6 +456,7 @@ Record::Record(int argc, char* argv[]) {
                 }
 				else {
 					valid = false;
+                    // cout << "failure 48" << endl; //FIXME
 					return;
 				}
                 break;
@@ -487,6 +490,7 @@ Record::Record(int argc, char* argv[]) {
                     argPresent.at(R) = true;
                 }
 				else if (!isValidInt(optarg)) {
+                    // cout << "failure 49" << endl; //FIXME
 					valid = false;
 				}
                 break;
@@ -496,6 +500,7 @@ Record::Record(int argc, char* argv[]) {
                     argPresent.at(F) = true;
                 }
 				else {
+                    // cout << "failure 50" << endl; //FIXME
 					valid = false;
 				}
                 break;
@@ -550,6 +555,7 @@ char* Record::parseAppendOpts(int size, char* argv[], char arg) {
 
 bool Record::lettersOnly(string s) {
     //check that ascii is 65-90 or 97-122
+    // cout << s << endl; //FIXME
     if (s.size() < 1) {
 		// cout << "failure 12" << endl;
         return false;
@@ -625,18 +631,26 @@ vector<Record> Record::getLogsForPerson(string& contents, bool create) {
     // }
     vector<string> pieces = splitOn(logfile, '/');
     string filename = pieces.at(pieces.size() - 1);
+    pieces = splitOn(filename, '.');
+    filename = pieces.at(0);
+    pieces = splitOn(filename, '_');
+    filename = pieces.at(0);
+    // cout << filename << endl; //FIXME
     string t = filename + this->token;
+    // cout << t << endl;
 	contents = decrypt(contents, t);
+    // cout << "contents " << contents << endl; //FIXME
     if (contents.size() == 0) {
         // cout << "failure integrity 1" << endl; //FIXME
         throw string("integrity violation");
     }
     
 	// cout << "contents " << contents << endl; //FIXME
+    // cout << "filename to be in contents " << filename << endl; //fixme
 	// remove "file" from the beginning
-	int fi = contents.find("file");
+	int fi = contents.find(filename);
 	// cout << contents << endl; //FIXME
-	if (fi == string::npos && contents.size() < 5) {
+	if (fi == string::npos && contents.size() < filename.size()) {
 		vector<Record> error;
         error.push_back(Record());
 		// cout << "failure 40, integrity problem" << endl;
@@ -653,7 +667,7 @@ vector<Record> Record::getLogsForPerson(string& contents, bool create) {
 	}
 	if (contents.size() < 5) {
 		//cout << " old contents: " << contents << endl; //FIXME
-		contents = contents.substr(string("file").size(), contents.size() - 1);
+		contents = contents.substr(filename.size(), contents.size() - 1);
 		//cout << "new contents: " << contents << endl; //FIXME
 	}
 	
@@ -730,6 +744,11 @@ bool Record::append() {
 	// cout << "done adding to contents " << endl; //FIXME
     vector<string> pieces = splitOn(logfile, '/');
     string filename = pieces.at(pieces.size() - 1);
+    pieces = splitOn(filename, '.');
+    filename = pieces.at(0);
+    pieces = splitOn(filename, '_');
+    filename = pieces.at(0);
+    // cout << filename << endl; //FIXME
     //encrypt contents
     // if (!encrypt(contents, token)) {
     //     return false;
@@ -924,6 +943,11 @@ bool Record::readFile(string& contents, bool create) {
         string newcont = "file\n";
         vector<string> pieces = splitOn(logfile, '/');
         string filename = pieces.at(pieces.size() - 1);
+        pieces = splitOn(filename, '.');
+        filename = pieces.at(0);
+        pieces = splitOn(filename, '_');
+        filename = pieces.at(0);
+        // cout << filename << endl; //FIXME
 		// cout << "encrypting " << newcont << endl; //FIXME
         string t = filename + this->token;
         newcont = encrypt(newcont, t);
@@ -957,7 +981,7 @@ bool Record::readFile(string& contents, bool create) {
 		// cout << "failure 36" << endl;
 		// perror("36");
 		cout << logfile << endl; //FIXME
-		system("pwd > LOOKIE"); // FIXME
+		// system("pwd > LOOKIE"); // FIXME
         return false;
     }
     if (!create && !success) {
@@ -1011,7 +1035,14 @@ bool Record::relevantRecords(const vector<string>& allRecs, vector<string>& resu
             continue;
         }
         vector<string> record = splitOn(allRecs.at(i), ' ');
-        if (record.size() > 0 && record.at(0) == ("file")) {
+        vector<string> pieces = splitOn(logfile, '/');
+        string filename = pieces.at(pieces.size() - 1);
+        pieces = splitOn(filename, '.');
+        filename = pieces.at(0);
+        pieces = splitOn(filename, '_');
+        filename = pieces.at(0);
+        // cout << filename << endl; //FIXME
+        if (record.size() > 0 && record.at(0) == filename) {
             continue;
         }
         if ((record.size() != 4) && (record.size() != 3)) {
@@ -1124,8 +1155,16 @@ priority_queue<string, vector<string>, greater<string> > Record::getAllNames(std
 	// cout << "encrypted contents: \"" << contents << "\"" << endl; //FIXME
     vector<string> pieces = splitOn(logfile, '/');
     string filename = pieces.at(pieces.size() - 1);
+    pieces = splitOn(filename, '.');
+    filename = pieces.at(0);
+    pieces = splitOn(filename, '_');
+    filename = pieces.at(0);
+    // cout << filename << endl; //FIXME
     string t = filename + this->token;
+    // cout << t << endl; //FIXME
 	contents = decrypt(contents, t);
+    // cout << "contents " << contents << endl; //FIXME
+    // cout << (int)contents.at(0) << endl;
     if (contents.size() == 0) {
         // cout << "failure integrity 2" << endl; //FIXME
         throw string("integrity violation");
@@ -1165,6 +1204,7 @@ State Record::getState(std::vector<Record> personRecs) {
         name = personRecs.at(0).getName();
         //if not in the hospital and the next record is not an arrival at the hospital, we have a problem
         if (!inHospital && (!personRecs.at(i).isArriving() || (personRecs.at(i).getRoom() != -1))) {
+            // cout << "failure 43" << endl; //FIXME
             valid = false;
             break;
         }
@@ -1176,6 +1216,7 @@ State Record::getState(std::vector<Record> personRecs) {
             continue;
         }
         else if (inHospital && personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() == -1)) {
+            // cout << "failure 44" << endl; //fixme
             valid = false;
             break;
         }
@@ -1183,6 +1224,7 @@ State Record::getState(std::vector<Record> personRecs) {
         //check for entrance to room 
         //if arriving into an actual room but haven't entered the hospital or left a room, we have a problem
         if (personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() != -1) && (!inHospital || inRoom)) {
+            // cout << "failure 45" << endl; //FIXme
             valid = false;
             break;
         }
@@ -1198,6 +1240,7 @@ State Record::getState(std::vector<Record> personRecs) {
         //if not arriving, trying to leave actual room, and we are either not in a room or the logged room is not the room we are trying to leave, problem
         if (!personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() != -1) && (!inHospital || !inRoom || (loggedRoom != personRecs.at(i).getRoom()))) {
             valid = false;
+            // cout << "failure 51" << endl; //FIXME
             break;
         }
         else if (!personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() != -1) && inRoom && inHospital && (loggedRoom == personRecs.at(i).getRoom())) {
@@ -1209,6 +1252,7 @@ State Record::getState(std::vector<Record> personRecs) {
         //check for leaving hospital
         //if we are leaving the hospital, 
         if (!personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() == -1) && (!inHospital || inRoom)) {
+            // cout << "failure 52" << endl; //FIXME
             valid = false;
             break;
         }
@@ -1218,6 +1262,7 @@ State Record::getState(std::vector<Record> personRecs) {
             continue;
         }
         else {
+            // cout << "failure 53" << endl; //FIXME
             valid = false;
             break;
         }

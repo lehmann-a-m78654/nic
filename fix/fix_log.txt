@@ -374,6 +374,25 @@ break) Record.h effect on breaks so far
     passed: break291.json
     total passed: 201
     total failed: 16
+22) Record.h replaced all instances of "file" with the filename. This wrote the name of the file into the contents
+    passed: break303.json
+    passed: break306.json
+    passed: break200.json
+    total passed: 204
+    total failed: 13
+    
+    failed: LR.spoofAttack.json
+    failed: T7-IntegrityViolation2.json
+    failed: TestR14.json
+    passed: UC8_log_does_not_exist.json
+    passed: UC8_name_exception.json
+    failed: integrity.json
+    failed: logread-bad-token.json
+    passed: logread-invalid-args.json
+    total passed: 169
+    total failed: 37
+
+
 
 
 

@@ -162,10 +162,11 @@ int main(int argc, char* argv[]) {
 			cout << "invalid" << endl;
 			return 255;
 		}
-		
+		// cout << "starting handle" << endl; //fIXME
 		if (argsPresent.at(S)) {
 			// cout << "handling S" << endl; //FIXME
 			if (!handleS(token, logfile)) {
+				// cout << "failure 57" << endl; //fIXME
 				cout << "invalid" << endl;
 				return 255;
 			}
@@ -173,12 +174,14 @@ int main(int argc, char* argv[]) {
 		else if (argsPresent.at(R)) {
 			// cout << "handling R" << endl; //FIXME
 			if (!handleR(token, logfile, doctor, name)) {
+				// cout << "failure 58" << endl; //FIXME
 				cout << "invalid" << endl;
 				return 255;
 			}
 		}
 		else {
 			cout << "invalid" << endl;
+			// cout << "failure 59" << endl; //FIXME
 			return 255;
 		}
 	}
@@ -241,6 +244,7 @@ bool handleS(string token, string logfile) {
 
 	if (names.empty() || names.top() == "error") {
 		// cout << "failure 39" << endl; //FIXME
+		// throw string("integrity error");
 		return false;
 	}
 
@@ -274,6 +278,7 @@ bool handleS(string token, string logfile) {
 		State person = r.getState(nameRecords); 
 
 		if (!person.valid) {
+			// cout << "failure 60" << endl; //FIXME
 			return false;
 		}
 		people.push_back(person);
