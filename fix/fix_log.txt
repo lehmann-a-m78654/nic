@@ -187,4 +187,18 @@
     passed: badargs6.json
     total passed: 150
     total failed: 56
+13) Record.h line 448 added input checking for token
+    passed: badargs8.json
+    total passed: 151
+    total failed: 55
+14) Record.h helped integrity violation error handling
+    passed: badstate2.json
+    passed: LA.spoofAttack.json
+    passed: LR.spoofAttack.json
+    passed: T7-IntegrityViolation2.json
+    passed: integrity_violations.json
+    passed: logappend-bad-token.json
+    total passed: 157
+    total failed: 49
+
 

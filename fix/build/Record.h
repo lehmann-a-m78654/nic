@@ -19,6 +19,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+#include <exception>
 // #include <filesystem>
 // namespace fs = std::filesystem;
 
@@ -163,6 +164,7 @@ std::string decrypt(std::string& encrypted_msg, std::string& key) {
 
 bool isValidInt(char* c);
 bool validFileName(string s);
+bool validToken(string s);
 
 class State {
 public:
@@ -310,7 +312,7 @@ Record::Record(string s) {
     }
     else {
         valid = false;
-		//cout << "failure 1" << endl; //FIXME
+		// // cout << "failure 1" << endl; //FIXME
         return;
     }
 
@@ -325,7 +327,7 @@ Record::Record(string s) {
         }
         else {
             valid = false;
-			//cout << "failure 2" << endl; //fixme
+			// // cout << "failure 2" << endl; //fixme
             return;
         }
     }
@@ -358,7 +360,7 @@ Record::Record(int argc, char* argv[]) {
     //check number of args
     if (!((argc == 3) || (argc == 10) || (argc == 12))) {
         valid = false;
-		//cout << "failure 3" << endl; //afixme
+		// // cout << "failure 3" << endl; //afixme
         return;
     }
     int size = argc;
@@ -399,7 +401,7 @@ Record::Record(int argc, char* argv[]) {
         }
         else if (((strcmp(argv[i], "-A") == 0) || (strcmp(argv[i], "-L") == 0)) && arrivedSet) {
             valid = false;
-			//cout << "failure 4" << endl; //FIXME
+			// // cout << "failure 4" << endl; //FIXME
             return;
         }
     }
@@ -426,7 +428,7 @@ Record::Record(int argc, char* argv[]) {
 		}
         if ((strlen(optarg) > MAX_PARAM_LEN) || (strlen(optarg) <= 0)) {
             valid = false;
-			//cout << "failure 5" << endl; //fIXME
+			// // cout << "failure 5" << endl; //fIXME
             return;
         }
         switch(args.at(i)) {
@@ -438,16 +440,20 @@ Record::Record(int argc, char* argv[]) {
                     }
                     else {
                         valid = false;
-						//cout << "failure 6" << endl; //FIXME
+						// // cout << "failure 6" << endl; //FIXME
                         return;
                     }
                 }
                 break;
             case 'K':
-                if(optarg != nullptr) {
+                if(optarg != nullptr && validToken(string(optarg))) {
                     token = string(optarg);
                     argPresent.at(K) = true;
                 }
+				else {
+					valid = false;
+					return;
+				}
                 break;
             case 'D':
                 if((optarg != nullptr) && lettersOnly(optarg)) {
@@ -457,7 +463,7 @@ Record::Record(int argc, char* argv[]) {
                 }
                 else if (!lettersOnly(optarg)) {
                     valid = false;
-					//cout << "failure 7" << endl;
+					// // cout << "failure 7" << endl;
                     return;
                 }
                 break;
@@ -469,7 +475,7 @@ Record::Record(int argc, char* argv[]) {
                 }
                  else if (!lettersOnly(optarg)) {
                     valid = false;
-					//cout << "failure 8" << endl;
+					// // cout << "failure 8" << endl;
                     return;
                 }
                 break;
@@ -499,7 +505,7 @@ Record::Record(int argc, char* argv[]) {
                 break;
             default:
                 valid = false;
-				//cout << "failure 9" << endl; //FIXME
+				// // cout << "failure 9" << endl; //FIXME
                 return;
                 break;
         }
@@ -513,7 +519,7 @@ Record::Record(int argc, char* argv[]) {
     
     if (!checkParamCombosApp()) {
         valid = false;
-		//cout << "failure 10" << endl; //FIXME
+		// // cout << "failure 10" << endl; //FIXME
         return;
     }
     
@@ -536,23 +542,23 @@ char* Record::parseAppendOpts(int size, char* argv[], char arg) {
             ret = argv[i + 1];
         }
     }
-	// //cout << "failure 11" << endl;
+	// // // cout << "failure 11" << endl;
     return ret;
 }
 
 bool Record::lettersOnly(string s) {
     //check that ascii is 65-90 or 97-122
     if (s.size() < 1) {
-		//cout << "failure 12" << endl;
+		// // cout << "failure 12" << endl;
         return false;
     }
     for (int i = 0; i < s.size(); i++) {
         if (((int)s.at(i) < 65) || ((int)s.at(i) > 122)) {
-			//cout << "failure 13" << endl;
+			// // cout << "failure 13" << endl;
             return false;
         }
         else if (((int)s.at(i) > 90) && ((int)s.at(i) < 97)) {
-			//cout << "failure 14" << endl;
+			// // cout << "failure 14" << endl;
             return false;
         }
     }
@@ -564,7 +570,7 @@ bool Record::checkParamCombosApp() {
     if (argPresent.at(B)) {
         for (int i = 0; i < argPresent.size(); i++) {
             if (i != B && argPresent.at(i)) {
-				//cout << "failure 15" << endl;
+				// // cout << "failure 15" << endl;
                 return false;
             }
         }
@@ -573,24 +579,24 @@ bool Record::checkParamCombosApp() {
 
     //timestamp, token, name, logfile name must be present
     if (!argPresent.at(T) || !argPresent.at(K) || !argPresent.at(F)) {
-		//cout << "failure 16" << endl;
+		// // cout << "failure 16" << endl;
         return false;
     }
 
     if (name.size() < 1) {
-		//cout << "failure 17" << endl;
+		// // cout << "failure 17" << endl;
         return false;
     }
 
     //either doctor or nurse, but not both
     if ((argPresent.at(N) && argPresent.at(D)) || (!argPresent.at(N) && !argPresent.at(D))) {
-		//cout << "failure 18" << endl;
+		// // cout << "failure 18" << endl;
         return false;
     }
 
     //either arriving or leaving, but not both
     if((argPresent.at(A) && argPresent.at(L)) || (!argPresent.at(A) && !argPresent.at(L))) {
-		//cout << "failure 19" << endl;
+		// // cout << "failure 19" << endl;
         return false;
     }
 
@@ -603,7 +609,7 @@ vector<Record> Record::getLogsForPerson(string& contents) {
     if (!readFile(contents, true) || !valid) {
         vector<Record> error;
         error.push_back(Record());
-		// //cout << "failure 20" << endl;
+		// // cout << "failure 20" << endl;
         return error;
     }
     if (contents.size() <= 0) {
@@ -616,6 +622,11 @@ vector<Record> Record::getLogsForPerson(string& contents) {
     //     return error;
     // }
 	contents = decrypt(contents, this->token);
+    if (contents.size() == 0) {
+        // cout << "failure integrity 1" << endl; //FIXME
+        throw string("integrity violation");
+    }
+    
 	// cout << "contents " << contents << endl; //FIXME
 	// remove "file" from the beginning
 	int fi = contents.find("file");
@@ -623,14 +634,16 @@ vector<Record> Record::getLogsForPerson(string& contents) {
 	if (fi == string::npos && contents.size() < 5) {
 		vector<Record> error;
         error.push_back(Record());
-		// //cout << "failure 40, integrity problem" << endl;
+		// cout << "failure 40, integrity problem" << endl;
+        throw string("integrity violation");
         return error;
 	}
 	//if it wasn't in the begnning, we have a problem
 	else if (fi != 0 && contents.size() < 5) {
 		vector<Record> error;
         error.push_back(Record());
-		// //cout << "failure 41, integrity problem" << endl;
+		// cout << "failure 41, integrity problem" << endl;
+        throw string("integrity violation");
         return error;
 	}
 	if (contents.size() < 5) {
@@ -646,7 +659,7 @@ vector<Record> Record::getLogsForPerson(string& contents) {
     // if (contents.find(logfile) == string::npos) {
     //     vector<Record> error;
     //     error.push_back(Record());
-	// 	//cout << "failure 21" << endl;
+	// 	// // cout << "failure 21" << endl;
     //     return error;
     // }
 	
@@ -658,7 +671,8 @@ vector<Record> Record::getLogsForPerson(string& contents) {
     if (!relevantRecords(recs, relevant)) {
         vector<Record> error;
         error.push_back(Record());
-		// //cout << "failure 22" << endl;
+        // cout << "failure 22 integrity violation" << endl;
+        throw string("integrity violation");
         return error;
     }
 	// cout << "RECS FROM GETLOGS" << endl; //FIXME
@@ -681,14 +695,14 @@ vector<Record> Record::getLogsForPerson(string& contents) {
 
 bool Record::append() {
     if (!valid) {
-		//cout << "failure 23" << endl;
+		// // cout << "failure 23" << endl;
         return false;
     }
     string contents = "";
     vector<Record> records = getLogsForPerson(contents);
 	if (records.size() > 0) {
 		if (records.at(0).isValid() == false) {
-			//cout << "failure 24" << endl;
+			// // cout << "failure 24" << endl;
 			return false;
 		}
 	}
@@ -701,7 +715,7 @@ bool Record::append() {
 	//add new record to vector to check for consistency
 	// records.push_back(this->toString());
     if (!checkConsistency(records)) {
-		//cout << "failure 25" << endl;
+		// // cout << "failure 25" << endl;
         return false;
     }
 
@@ -721,7 +735,7 @@ bool Record::append() {
 
     //write new contents into file
     if (!writeFile(contents)) {
-		//cout << "failure 26" << endl;
+		// // cout << "failure 26" << endl;
         return false;
     }
     return true;
@@ -732,7 +746,7 @@ bool Record::checkConsistency(vector<Record>& personRecs) {
     //check timestamp consistency
     for (int i = 1; i < personRecs.size(); i++) {
         if(personRecs.at(i).getTimestamp() <= personRecs.at(i - 1).getTimestamp()) {
-			//cout << "failure 27" << endl;
+			// // cout << "failure 27" << endl;
             return false;
         }
     }
@@ -744,7 +758,7 @@ bool Record::checkConsistency(vector<Record>& personRecs) {
 	}
 	
     if ((personRecs.size() > 0) && (personRecs.at(personRecs.size() - 1).getTimestamp() >= timestamp)) {
-        //cout << "failure 29" << endl;
+        // // cout << "failure 29" << endl;
 		return false;
     }
 
@@ -757,7 +771,7 @@ bool Record::checkConsistency(vector<Record>& personRecs) {
     for (int i = 0; i < personRecs.size(); i++) {
         //if not in the hospital and the next record is not an arrival at the hospital, we have a problem
         if (!inHospital && (!personRecs.at(i).isArriving() || (personRecs.at(i).getRoom() != -1))) {
-            //cout << "failure 30" << endl;
+            // // cout << "failure 30" << endl;
 			return false;
         }
         //successfully entering hospital
@@ -768,14 +782,14 @@ bool Record::checkConsistency(vector<Record>& personRecs) {
             continue;
         }
         else if (inHospital && personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() == -1)) {
-            //cout << "failure 31" << endl;
+            // // cout << "failure 31" << endl;
 			return false;
         }
 
         //check for entrance to room 
         //if arriving into an actual room but haven't entered the hospital or left a room, we have a problem
         if (personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() != -1) && (!inHospital || inRoom)) {
-            //cout << "failure 32" << endl;
+            // // cout << "failure 32" << endl;
 			return false;
         }
         //if the record is arriving, we are not in a room already, we are in the hospital and trying to enter an actual room
@@ -788,7 +802,7 @@ bool Record::checkConsistency(vector<Record>& personRecs) {
         //check for leaving room
         //if not arriving, trying to leave actual room, and we are either not in a room or the logged room is not the room we are trying to leave, problem
         if (!personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() != -1) && (!inHospital || !inRoom || (loggedRoom != personRecs.at(i).getRoom()))) {
-            //cout << "failure 33" << endl;
+            // // cout << "failure 33" << endl;
 			return false;
         }
         else if (!personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() != -1) && inRoom && inHospital && (loggedRoom == personRecs.at(i).getRoom())) {
@@ -800,7 +814,7 @@ bool Record::checkConsistency(vector<Record>& personRecs) {
         //check for leaving hospital
         //if we are leaving the hospital, 
         if (!personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() == -1) && (!inHospital || inRoom)) {
-            //cout << "failure 34" << endl;
+            // // cout << "failure 34" << endl;
 			return false;
         }
         else if (!personRecs.at(i).isArriving() && (personRecs.at(i).getRoom() == -1) && inHospital && !inRoom) {
@@ -809,7 +823,7 @@ bool Record::checkConsistency(vector<Record>& personRecs) {
             continue;
         }
         else {
-			//cout << "failure 35" << endl;
+			// // cout << "failure 35" << endl;
             return false;
         }
     }
@@ -821,7 +835,7 @@ bool Record::checkConsistency(vector<Record>& personRecs) {
 
 bool Record::readFile(string& contents, bool create) {
     if (!valid) {
-		//cout << "failure 35" << endl;
+		// // cout << "failure 35" << endl;
         return false;
     }
     contents = "";
@@ -843,7 +857,7 @@ bool Record::readFile(string& contents, bool create) {
 		}
 	}
 	if (cdcount > -1) {
-		// //cout << "failure 43" << endl; //FIXME
+		// // // cout << "failure 43" << endl; //FIXME
 		return false;
 	}
 	//create the directories
@@ -921,7 +935,7 @@ bool Record::readFile(string& contents, bool create) {
         log.close();
     }
     else {
-		//cout << "failure 36" << endl;
+		// // cout << "failure 36" << endl;
 		// perror("36");
 		cout << logfile << endl; //FIXME
 		system("pwd > LOOKIE"); // FIXME
@@ -932,7 +946,7 @@ bool Record::readFile(string& contents, bool create) {
 
 bool Record::writeFile(const string& text) {
     if (!valid) {
-		//cout << "failure 37" << endl;
+		// // cout << "failure 37" << endl;
         return false;
     }
     fstream log;
@@ -950,7 +964,7 @@ bool Record::writeFile(const string& text) {
         log.close();
     }
     else {
-		//cout << "failure 38" << endl;
+		// // cout << "failure 38" << endl;
         return false;
     }
     return true;
@@ -976,10 +990,15 @@ bool Record::relevantRecords(const vector<string>& allRecs, vector<string>& resu
             continue;
         }
         if ((record.size() != 4) && (record.size() != 3)) {
-			// //cout << "failure 39" << endl;
+			// cout << "failure 39, integrity violation" << endl;
+            // cout << "record size " << record.size() << endl; //FIXME
+            // cout << record.at(0) << endl; //afixme
 			// for (int i = 0; i < record.size(); i++) { //fixme
 			// 	cout << record.at(i) << endl;
 			// }
+
+            throw string("integrity violation");
+            // cout << "life goes on" << endl; //FIXME
             return false;
         }
         string n = record.at(1);
@@ -1061,13 +1080,13 @@ vector<string> Record::splitOn(string s, char delimeter) {
 
 priority_queue<string, vector<string>, greater<string> > Record::getAllNames(std::string& contents) {
     if (!readFile(contents, false) || !valid) {
-		//cout << "failure 37" << endl; //FIXME
+		// // cout << "failure 37" << endl; //FIXME
         priority_queue<string, vector<string>, greater<string> > error;
         error.push("error");
         return error;
     }
     if (contents.size() <= 0) {
-		//cout << "failure 38" << endl; //FIXME
+		// // cout << "failure 38" << endl; //FIXME
         return priority_queue<string, vector<string>, greater<string> >();
     }
 	
@@ -1079,6 +1098,10 @@ priority_queue<string, vector<string>, greater<string> > Record::getAllNames(std
     // }
 	// cout << "encrypted contents: \"" << contents << "\"" << endl; //FIXME
 	contents = decrypt(contents, this->token);
+    if (contents.size() == 0) {
+        // cout << "failure integrity 2" << endl; //FIXME
+        throw string("integrity violation");
+    }
 
 	
 	// cout << "token is \"" << this->token << "\"" << endl; //FIXME
@@ -1264,16 +1287,16 @@ bool validFileName(string s) {
 	}
 	//check that ascii is 65-90, 97-122, 48-57 (numbers), 95 (_), 46 (.), 47 (/)
     if (s.size() < 1) {
-		//cout << "failure 12" << endl;
+		// // cout << "failure 12" << endl;
         return false;
     }
     for (int i = 0; i < s.size(); i++) {
         if (((int)s.at(i) >= 97) && ((int)s.at(i) <= 122)) {
-			//cout << "failure 13" << endl;
+			// // // cout << "failure 13" << endl;
             continue;
         }
-        else if (((int)s.at(i) <= 90) && ((int)s.at(i) >= 64)) {
-			//cout << "failure 14" << endl;
+        else if (((int)s.at(i) <= 90) && ((int)s.at(i) > 64)) {
+			// // // cout << "failure 14" << endl;
             continue;
         }
 		else if (((int)s.at(i) >= 48) && ((int)s.at(i) <= 57)) {
@@ -1283,13 +1306,45 @@ bool validFileName(string s) {
 			continue;
 		}
 		else {
-			// cout << "failed on " << s.at(i) << endl; //FIXME
+			// // // cout << "failed on " << s.at(i) << endl; //FIXME
 			return false;
 		}
     }
     return true;
 	
 }
+
+bool validToken(string s) {
+	//max size 4096
+	if (s.size() > 4096) {
+		return false;
+	}
+	//check that ascii is 65-90, 97-122, 48-57 (numbers)
+    if (s.size() < 1) {
+		// // cout << "failure 12" << endl;
+        return false;
+    }
+    for (int i = 0; i < s.size(); i++) {
+        if (((int)s.at(i) >= 97) && ((int)s.at(i) <= 122)) {
+			// // // cout << "failure 13" << endl;
+            continue;
+        }
+        else if (((int)s.at(i) <= 90) && ((int)s.at(i) > 64)) {
+			// // // cout << "failure 14" << endl;
+            continue;
+        }
+		else if (((int)s.at(i) >= 48) && ((int)s.at(i) <= 57)) {
+			continue;
+		}
+		else {
+			// // // cout << "failed on " << s.at(i) << endl; //FIXME
+			return false;
+		}
+    }
+    return true;
+	
+}
+
 
 // void handleErrors(void)
 // {

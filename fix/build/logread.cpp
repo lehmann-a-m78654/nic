@@ -30,157 +30,165 @@ int main(int argc, char* argv[]) {
     int size = argc;
     //printUsage(); //fixme
 
-	//check for -S and -R, remove if they are present
-    for (int i = 0; i < size; i++) {
-        if(strlen(argv[i]) > MAX_PARAM_LEN) {
-            continue;
-        }
-        if (strcmp(argv[i], "-S") == 0 && !modeSet) {
-            argsPresent.at(S) = true;
-            stateMode = true;
-            modeSet = true;
-            // for (int i = 0; i < size; i++) { //FIXME
-            //     cout << argv[i] << " ";
-            // }
-            // cout << endl; //FIXME
-            //remove the A, move everything over
-            for (int j = i; j < size - 1; j++) {
-                if (strlen(argv[j + 1]) > strlen(argv[j])) {
-                    argv[j] = new char[strlen(argv[j + 1]) + 1];
-                }
-                strcpy(argv[j], argv[j + 1]);
-            }
-            strcpy(argv[size - 1], "\0");
-            size--;
-        }
-        else if (strcmp(argv[i], "-R") == 0 && !modeSet) {
-            argsPresent.at(R) = true;
-            stateMode = false;
-            modeSet = true;
-            strcpy(argv[i], "\0");
-            //remove the L, move everything over
-            strcpy(argv[i], "\0");
-            for (int j = i; j < size - 1; j++) {
-                if (strlen(argv[j + 1]) > strlen(argv[j])) {
-                    argv[j] = new char[strlen(argv[j + 1]) + 1];
-                }
-                strcpy(argv[j], argv[j + 1]);
-            }
-            strcpy(argv[size - 1], "\0");
-            size--;
-        }
-        else if (((strcmp(argv[i], "-S") == 0) || (strcmp(argv[i], "-R") == 0)) && modeSet) {
-            valid = false;
-            cout << "invalid" << endl;
-            return 255;
-        }
-    }
+	try {
+		//check for -S and -R, remove if they are present
+		for (int i = 0; i < size; i++) {
+			if(strlen(argv[i]) > MAX_PARAM_LEN) {
+				continue;
+			}
+			if (strcmp(argv[i], "-S") == 0 && !modeSet) {
+				argsPresent.at(S) = true;
+				stateMode = true;
+				modeSet = true;
+				// for (int i = 0; i < size; i++) { //FIXME
+				//     cout << argv[i] << " ";
+				// }
+				// cout << endl; //FIXME
+				//remove the A, move everything over
+				for (int j = i; j < size - 1; j++) {
+					if (strlen(argv[j + 1]) > strlen(argv[j])) {
+						argv[j] = new char[strlen(argv[j + 1]) + 1];
+					}
+					strcpy(argv[j], argv[j + 1]);
+				}
+				strcpy(argv[size - 1], "\0");
+				size--;
+			}
+			else if (strcmp(argv[i], "-R") == 0 && !modeSet) {
+				argsPresent.at(R) = true;
+				stateMode = false;
+				modeSet = true;
+				strcpy(argv[i], "\0");
+				//remove the L, move everything over
+				strcpy(argv[i], "\0");
+				for (int j = i; j < size - 1; j++) {
+					if (strlen(argv[j + 1]) > strlen(argv[j])) {
+						argv[j] = new char[strlen(argv[j + 1]) + 1];
+					}
+					strcpy(argv[j], argv[j + 1]);
+				}
+				strcpy(argv[size - 1], "\0");
+				size--;
+			}
+			else if (((strcmp(argv[i], "-S") == 0) || (strcmp(argv[i], "-R") == 0)) && modeSet) {
+				valid = false;
+				cout << "invalid" << endl;
+				return 255;
+			}
+		}
 
-    vector<char> args;
-    //args.push_back('S');
-    args.push_back('K');
-    args.push_back('D');
-    args.push_back('N');
-    //args.push_back('R');
-    args.push_back('F');
-    
-    bool printState = false;
-    
-    for (int i = 0; i < args.size(); i++) {
-        char* optarg = r.parseAppendOpts(size, argv, args.at(i));
-        if (optarg == nullptr) {
-            continue;
-        }
-        if ((strlen(optarg) > MAX_PARAM_LEN) || (strlen(optarg) <= 0)) {
-            valid = false;
-            cout << "invalid" << endl;
-            return 255;
-        }
-        switch(args.at(i)) {
-            case 'S':
-                if(optarg != nullptr) {
-                    if ((atoi(optarg) >= 0) && (atoi(optarg) < INT_MAX)) {
-                        printState = false;
-                        argsPresent.at(S) = true;
-                    }
-                    else {
-                        valid = false;
-                        cout << "invalid" << endl;
-                        return 255;
-                    }
-                }
-                break;
-            case 'K':
-                if(optarg != nullptr) {
-                    token = string(optarg);
-                    argsPresent.at(K) = true;
-                }
-                break;
-            case 'D':
-                if((optarg != nullptr) && r.lettersOnly(optarg)) {
-                    doctor = true;
-                    name = string(optarg);
-                    argsPresent.at(D) = true;
-                }
-                else if (!r.lettersOnly(optarg)) {
-                    valid = false;
-                    cout << "invalid" << endl;
-                    return 255;
-                }
-                break;
-            case 'N':
-                if((optarg != nullptr) && r.lettersOnly(optarg)) {
-                    doctor = false;
-                    name = string(optarg);
-                    argsPresent.at(N) = true;
-                }
-                 else if (!r.lettersOnly(optarg)) {
-                    valid = false;
-                    cout << "invalid" << endl;
-                    return 255;
-                }
-                break;
-            case 'F':
-                if(optarg != nullptr) {
-                    logfile = string(optarg) + ".txt";
-                    argsPresent.at(F) = true;
-                }
-                break;
-            default:
-                valid = false;
-                cout << "invalid" << endl;
-                return 255;
-                break;
-        }
-        //cout << "found arg " << args.at(i) << " with thing " << optarg << endl; //FIXME
-    }
-	// cout << "validating params" << endl; //FIXME
-    
-    if (!validateParams(argsPresent)) {
-        valid = false;
-        cout << "invalid" << endl;
-        return 255;
-    }
-	
-    if (argsPresent.at(S)) {
-		// cout << "handling S" << endl; //FIXME
-    	if (!handleS(token, logfile)) {
-    		cout << "invalid" << endl;
-    		return 255;
-    	}
-    }
-    else if (argsPresent.at(R)) {
-		// cout << "handling R" << endl; //FIXME
-    	if (!handleR(token, logfile, doctor, name)) {
-    		cout << "invalid" << endl;
-    		return 255;
-    	}
-    }
-    else {
-    	cout << "invalid" << endl;
-    	return 255;
-    }
-
+		vector<char> args;
+		//args.push_back('S');
+		args.push_back('K');
+		args.push_back('D');
+		args.push_back('N');
+		//args.push_back('R');
+		args.push_back('F');
+		
+		bool printState = false;
+		
+		for (int i = 0; i < args.size(); i++) {
+			char* optarg = r.parseAppendOpts(size, argv, args.at(i));
+			if (optarg == nullptr) {
+				continue;
+			}
+			if ((strlen(optarg) > MAX_PARAM_LEN) || (strlen(optarg) <= 0)) {
+				valid = false;
+				cout << "invalid" << endl;
+				return 255;
+			}
+			switch(args.at(i)) {
+				case 'S':
+					if(optarg != nullptr) {
+						if ((atoi(optarg) >= 0) && (atoi(optarg) < INT_MAX)) {
+							printState = false;
+							argsPresent.at(S) = true;
+						}
+						else {
+							valid = false;
+							cout << "invalid" << endl;
+							return 255;
+						}
+					}
+					break;
+				case 'K':
+					if(optarg != nullptr) {
+						token = string(optarg);
+						argsPresent.at(K) = true;
+					}
+					break;
+				case 'D':
+					if((optarg != nullptr) && r.lettersOnly(optarg)) {
+						doctor = true;
+						name = string(optarg);
+						argsPresent.at(D) = true;
+					}
+					else if (!r.lettersOnly(optarg)) {
+						valid = false;
+						cout << "invalid" << endl;
+						return 255;
+					}
+					break;
+				case 'N':
+					if((optarg != nullptr) && r.lettersOnly(optarg)) {
+						doctor = false;
+						name = string(optarg);
+						argsPresent.at(N) = true;
+					}
+					else if (!r.lettersOnly(optarg)) {
+						valid = false;
+						cout << "invalid" << endl;
+						return 255;
+					}
+					break;
+				case 'F':
+					if(optarg != nullptr) {
+						logfile = string(optarg) + ".txt";
+						argsPresent.at(F) = true;
+					}
+					break;
+				default:
+					valid = false;
+					cout << "invalid" << endl;
+					return 255;
+					break;
+			}
+			//cout << "found arg " << args.at(i) << " with thing " << optarg << endl; //FIXME
+		}
+		// cout << "validating params" << endl; //FIXME
+		
+		if (!validateParams(argsPresent)) {
+			valid = false;
+			cout << "invalid" << endl;
+			return 255;
+		}
+		
+		if (argsPresent.at(S)) {
+			// cout << "handling S" << endl; //FIXME
+			if (!handleS(token, logfile)) {
+				cout << "invalid" << endl;
+				return 255;
+			}
+		}
+		else if (argsPresent.at(R)) {
+			// cout << "handling R" << endl; //FIXME
+			if (!handleR(token, logfile, doctor, name)) {
+				cout << "invalid" << endl;
+				return 255;
+			}
+		}
+		else {
+			cout << "invalid" << endl;
+			return 255;
+		}
+	}
+	catch(string& e) {
+		// cout << "caught" << endl; //fIXME
+		cout << e;
+		// cout << "CAUGT" << endl; //FIXME
+		return 255;
+	}
+	// cout << "done" << endl; //FIXME
 
     return 0;
 }
