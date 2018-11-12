@@ -34,7 +34,7 @@
 #define B 8
 #define S 9
 #define NUM_PARAMS 10
-#define MAX_PARAM_LEN 256
+#define MAX_PARAM_LEN 999999
 
 int N = 3;
 
@@ -857,6 +857,10 @@ bool Record::readFile(string& contents, bool create) {
 		else {
 			cdcount--;
 		}
+        // cannot traverse above directory
+        if (cdcount > 0) {
+            return false;
+        }
 	}
 	if (cdcount > -1) {
 		// cout << "failure 43" << endl; //FIXME

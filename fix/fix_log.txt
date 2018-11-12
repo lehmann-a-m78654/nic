@@ -288,7 +288,7 @@ break) Record.h effect on breaks so far
     total passed: 168
     total failed: 49
     no change in tests
-17) Record.h line made logread return invalid when the file has not been appended to
+17) Record.h line 995 made logread return invalid when the file has not been appended to
     failed: break100.json
     passed: break211.json
     passed: break22.json
@@ -306,4 +306,43 @@ break) Record.h effect on breaks so far
     passed: break6.json
     total passed: 179
     total failed: 38
+    passed: LA.invalidLog.json
+    passed: LR.invalidCmds.json
+    passed: T1-FileNotExist.json
+    passed: TestR12AB.json
+    passed: UC7_log_does_not_exist.json
+    passed: UC8_log_does_not_exist.json
+    passed: logread-invalid-args.json
+    passed: logread-log-dne.json
+    passed: logread_input_test.json
+    passed: logread_invalid_arguments.json
+    passed: logread_invalid_input.json
+    passed: logread_invalid_path.json
+    passed: logread_nonexistent_file.json
+    total passed: 170
+    total failed: 36
+18) Record.h line 890, added check to made sure no traversal out of home directory
+    passed: break100.json
+    passed: break24.json
+    total passed: 181
+    total failed: 36
+    no changes in tests
+19) Record.h line 37, increased accepted length of "arbitrarily sized" parameters
+    passed: break137.json
+    passed: break158.json
+    passed: break195.json
+    passed: break200.json
+    passed: break216.json
+    passed: break261.json
+    passed: break279.json
+    passed: break280.json
+    passed: break287.json
+    passed: break293.json
+    passed: break318.json
+    passed: break345.json
+    passed: break78.json
+    total passed: 194
+    total failed: 23
+    no changes in tests
+
 
