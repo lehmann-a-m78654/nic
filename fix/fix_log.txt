@@ -175,4 +175,8 @@
     passed: req2k.json
     total passed: 147
     total failed: 59
+10) Record.h line 430 added check for valid integer timestamp
+    passed: badargs12.json
+    total passed: 148
+    total failed: 58
 

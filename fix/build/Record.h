@@ -427,7 +427,7 @@ Record::Record(int argc, char* argv[]) {
         switch(args.at(i)) {
             case 'T':
                 if(optarg != nullptr) {
-                    if ((atoi(optarg) >= 0) && (atoi(optarg) < INT_MAX)) {
+                    if ((atoi(optarg) >= 0) && (atoi(optarg) < INT_MAX) && isValidInt(optarg)) {
                         timestamp = atoi(optarg);
                         argPresent.at(T) = true;
                     }
